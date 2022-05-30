@@ -5,10 +5,7 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    //Parameters:
-    //1 - interval id: 0 - munute; 1 - hour;
-    //
-    public class LastofFunction : TemporalFunction
+    public sealed class LastofFunction : TemporalFunction
     {
         private readonly int _interval;
         private readonly int _number;

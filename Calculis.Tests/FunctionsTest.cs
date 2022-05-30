@@ -23,7 +23,23 @@ namespace Calculis.Tests
 
             var item = engine.Add("pussy", "SUM(bobby;Billy)");
 
+
             Assert.Equal(x + y, item.Value);
+        }
+
+        [Theory]
+        [InlineData(1.0, 4.0)]
+        public void Test_Arithmetic_Success(double x, double y)
+        {
+            var engine = Create();
+
+            _items["bobby"].Value = x;
+            _items["Billy"].Value = y;
+
+            var item = engine.Add("pussy", "bobby+Billy-10+5-Billy");
+
+
+            Assert.Equal(-1, item.Value);
         }
 
         [Theory]

@@ -13,6 +13,8 @@ namespace Calculis.Core.Convert
         IDictionary<string, IValueItem> _items;
         IEnumerable<string> _nameSchemes;
         Regex functionExpression;
+        Regex regExSumBase;
+        Regex regExSumBrackets;
 
         internal ExpressionConverter(IDictionary<string, IValueItem> items, IEnumerable<string> nameSchemes)
         {
@@ -61,6 +63,10 @@ namespace Calculis.Core.Convert
 
         private string CastingToFunctionView(string expression)
         {
+            var match = regExSumBase.Match(expression);
+            if (match?.Value != "")
+                expression = $"SUM({match.Value.Replace("+", ";").Replace("-", ";-").Replace(";;", ";")})";
+
             return expression;
         }
 
@@ -76,6 +82,8 @@ namespace Calculis.Core.Convert
                     args.Add(new CalculatingItem(FunctionManager.Create("MUL", new List<IValueItem> { new ConstantItem(-1), _items[argString.Replace("-", "")] })));
                 else if (functionsDict.ContainsKey(argString))
                     args.Add(functionsDict[argString]);
+                else if (functionsDict.ContainsKey(argString.Replace("-", "")))
+                    args.Add(new CalculatingItem(FunctionManager.Create("MUL", new List<IValueItem> { new ConstantItem(-1), functionsDict[argString.Replace("-", "")] })));
                 else if (double.TryParse(argString.Replace('.', ','), out double result))
                     args.Add(new ConstantItem(result));
                 else
@@ -87,12 +95,12 @@ namespace Calculis.Core.Convert
 
         private bool GetNextExpression(string expression, out string substring)
         {
-            expression = CastingToFunctionView(expression);
+            Match match;
 
-            var match = functionExpression.Match(expression);
+            match = functionExpression.Match(expression);
             substring = match?.Value;
 
-            return !(match == null || expression == substring);
+            return !(match == null || substring == expression);
         }
     }
 
