@@ -38,8 +38,20 @@ namespace Calculis.Tests
 
             var item = engine.Add("pussy", "bobby+Billy-10+5-Billy");
 
+            Assert.Equal(-4, item.Value);
+        }
 
-            Assert.Equal(-1, item.Value);
+        [Fact]
+        public void Test_Logic_Success()
+        {
+            var engine = Create();
+
+            _items["bobby"].Value = 3;
+            _items["Billy"].Value = 4;
+
+            var item = engine.Add("pussy", "SUM(bobby+Billy-5;15)+4*Billy");
+
+            Assert.Equal(33, item.Value);
         }
 
         [Theory]
@@ -87,7 +99,7 @@ namespace Calculis.Tests
             if (initialDT != null)
                 timeProvider = new TestTimeProvider((DateTime)initialDT);
 
-            return new CalculisEngine(_items.Values, names, timeProvider ?? null);
+            return new CalculisEngine(_items.Values, timeProvider ?? null);
         }
     }
 }
