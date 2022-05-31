@@ -6,7 +6,6 @@ namespace Calculis.Core.Convert
 {
     public sealed class ExpressionParser
     {
-        //private IDictionary<string, string> _expressionsReplaces = new Dictionary<string, string>();
         private readonly ICollection<ParsingParameters> _parsingParameters = new List<ParsingParameters>();
 
         Regex functionExpression;
@@ -71,42 +70,34 @@ namespace Calculis.Core.Convert
         public ICollection<string> Parse(string expression)
         {
             var expressionsList = new List<string>();
-            //FunctionDescription functionDescription;
             string functionString;
             string newString;
             string functionAlias;
-            int counter = 0;
 
             expression = expression.Replace(" ", "");
 
             while (GetNextExpression(expression, out functionString, out newString))
             {
-                if(_manager.ExpressionAlias.ContainsKey(newString))
-                    functionAlias = _manager.ExpressionAlias[newString];
-                else
-                {
-                    functionAlias = $"__fnc{++counter}";
-                    _manager.AddAlias(newString, functionString, functionAlias);
-                }
-
-                expressionsList.Add(newString);
-                    
+                functionAlias = ExtractAlias(expressionsList, functionString, newString);
                 expression = expression.Replace(functionString, functionAlias);
             }
 
+            ExtractAlias(expressionsList, functionString, newString);
+
+            return expressionsList;
+        }
+
+        private string ExtractAlias(ICollection<string> expressions, string originalString, string newString)
+        {
+            var functionAlias = "";
             if (_manager.ExpressionAlias.ContainsKey(newString))
                 functionAlias = _manager.ExpressionAlias[newString];
             else
-            {
-                functionAlias = $"__fnc{++counter}";
-                _manager.AddAlias(newString, functionString, functionAlias);
-            }
+                functionAlias = _manager.AddAlias(newString, originalString);
 
-            expressionsList.Add(newString);
-            
-            //expression = expression.Replace(functionString, newString);
+            expressions.Add(newString);
 
-            return expressionsList;
+            return functionAlias;
         }
 
         private bool GetNextExpression(string expression, out string foundSubstring, out string newSubstring)

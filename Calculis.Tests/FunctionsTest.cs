@@ -22,6 +22,7 @@ namespace Calculis.Tests
             _items["Billy"].Value = y;
 
             var item = engine.Add("pussy", "SUM(bobby;Billy)");
+            var item2 = engine.Add("bibi", "(bobby+Billy)*4");
 
 
             Assert.Equal(x + y, item.Value);

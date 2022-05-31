@@ -16,6 +16,7 @@ namespace Calculis.Core.Convert
         public IDictionary<string, string> ExpressionAlias { get; private set; } = new Dictionary<string, string>();
 
         private int _count;
+        private int _fncCount;
 
         internal event EventHandler<UpdateArgs> Updating;
 
@@ -57,21 +58,6 @@ namespace Calculis.Core.Convert
             Updating?.Invoke(this, new UpdateArgs { Timestamp = timestamp });
         }
 
-        /*private FunctionBase GetFunction(string expression)
-        {
-            FunctionBase function = null;
-            var expressions = _expressionParser.Parse(expression);
-
-            foreach (var functionExpression in expressions)
-            {
-                var args = ExtractArgs(functionExpression);
-                function = FunctionManager.Create(ExpressionAlias[expression], ExtractArgs(expression));
-                _aliasFunctions[ExpressionAlias[expression]].Item = CreateItem(function);
-            }
-
-            return function;
-        }*/
-
         private CalculatingItem CreateItem(FunctionBase function)
         {
             var item = new CalculatingItem(function);
@@ -108,10 +94,13 @@ namespace Calculis.Core.Convert
             return _aliasFunctions[alias].ReplacedExpression;
         }
 
-        public void AddAlias(string expression, string original, string alias)
+        public string AddAlias(string expression, string original)
         {
+            string alias = $"__fnc{++_fncCount}";
             ExpressionAlias.Add(expression, alias);
             _aliasFunctions.Add(alias, new ItemInfo { Alias = alias, OriginalExpression = original, ReplacedExpression = expression });
+
+            return alias;
         }
     }
 
