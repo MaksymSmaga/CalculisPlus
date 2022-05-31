@@ -1,41 +1,26 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Calculis.Core.Convert
 {
-    public class ArithmeticParser
+    public sealed class ExpressionParser
     {
-        private IDictionary<string, string> _expressionsReplaces = new Dictionary<string, string>();
+        //private IDictionary<string, string> _expressionsReplaces = new Dictionary<string, string>();
         private readonly ICollection<ParsingParameters> _parsingParameters = new List<ParsingParameters>();
 
-        private string _expression;
-        Regex regExSumBase;
-        Regex regExSumBrackets;
-
-        Regex regExMulBase;
-        Regex regExMulBrackets;
-
-        Regex regExMoreBase;
-        Regex regExMoreBrackets;
-
         Regex functionExpression;
+        ItemsManager _manager;
 
-        public ArithmeticParser()
+        public ExpressionParser(ItemsManager manager)
         {
+            _manager = manager;
+
             var regexExpression = $"[A-Z]+\\(((-)?(((item|__fnc)\\d+)|(\\d+(\\.\\d+)?))\\;*)+\\)";
             functionExpression = new Regex(regexExpression);
 
             //var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?)|([A-Z]+\(.+\)))";
             var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?))";
-
-            /*regExMoreBase = new Regex($"{regExPart}(\\>{regExPart})+");
-            regExMoreBrackets = new Regex($"\\({regExMulBase}\\)");
-
-            regExSumBase = new Regex($"{regExPart}([\\+|\\-]{regExPart})+");
-            regExSumBrackets = new Regex($"\\({regExSumBase}\\)");
-
-            regExMulBase = new Regex($"{regExPart}([\\*|\\/]{regExPart})+");
-            regExMulBrackets = new Regex($"\\({regExMulBase}\\)");*/
 
             _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<>{regExPart})+", "<>", "NEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<>", ";"),
@@ -66,26 +51,27 @@ namespace Calculis.Core.Convert
 
         public string ToFunctionView(string expression)
         {
-            var newExpression = Convert(expression);
+            var newExpression = Parse(expression).Last();
 
             var hasEntries = true;
             while (hasEntries)
             {
                 hasEntries = false;
-                foreach(var entry in _expressionsReplaces.Keys)
+                foreach(var entry in _manager.ExpressionAlias.Values)
                     if (newExpression.Contains(entry))
                     {
                         hasEntries = true;
-                        newExpression = newExpression.Replace(entry, _expressionsReplaces[entry]);
+                        newExpression = newExpression.Replace(entry, _manager.GetExpression(entry));
                     }
             }
 
             return newExpression;
         }
 
-        private string Convert(string expression)
+        public ICollection<string> Parse(string expression)
         {
-            FunctionDescription functionDescription;
+            var expressionsList = new List<string>();
+            //FunctionDescription functionDescription;
             string functionString;
             string newString;
             string functionAlias;
@@ -95,14 +81,32 @@ namespace Calculis.Core.Convert
 
             while (GetNextExpression(expression, out functionString, out newString))
             {
-                functionAlias = $"__fnc{++counter}";
-                _expressionsReplaces.Add(functionAlias, newString);
+                if(_manager.ExpressionAlias.ContainsKey(newString))
+                    functionAlias = _manager.ExpressionAlias[newString];
+                else
+                {
+                    functionAlias = $"__fnc{++counter}";
+                    _manager.AddAlias(newString, functionString, functionAlias);
+                }
+
+                expressionsList.Add(newString);
+                    
                 expression = expression.Replace(functionString, functionAlias);
             }
 
-            expression = expression.Replace(functionString, newString);
+            if (_manager.ExpressionAlias.ContainsKey(newString))
+                functionAlias = _manager.ExpressionAlias[newString];
+            else
+            {
+                functionAlias = $"__fnc{++counter}";
+                _manager.AddAlias(newString, functionString, functionAlias);
+            }
 
-            return expression;
+            expressionsList.Add(newString);
+            
+            //expression = expression.Replace(functionString, newString);
+
+            return expressionsList;
         }
 
         private bool GetNextExpression(string expression, out string foundSubstring, out string newSubstring)
@@ -129,31 +133,6 @@ namespace Calculis.Core.Convert
             }
 
             return !(foundSubstring == expression);
-        }
-
-        private List<string> GetArguments(string expression)
-        {
-            var argsList = new List<string>();
-            List<int> signIndexes = new List<int>();
-            bool cont = true;
-
-            while (cont)
-            {
-                int plusSignIndex = expression.IndexOf('+');
-
-                if (plusSignIndex > -1)
-                    signIndexes.Add(plusSignIndex);
-                else
-                    cont = false;
-            }
-
-            for (int i = 0; i < signIndexes.Count; i++)
-            {
-                argsList.Add(expression.Substring(signIndexes[i], signIndexes[i + 1]));
-                var arr = expression.Split('+', '-');
-            }
-
-            return argsList;
         }
     }
 }
