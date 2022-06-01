@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public MulFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "MUL";
             Function = () =>
             {
                 var result = _args[0].Value;

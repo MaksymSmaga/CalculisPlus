@@ -10,6 +10,7 @@ namespace Calculis.Core
         public FunctionBase(IList<IValueItem> args)
         {
             _args = args;
+            Name = GetType().Name.Replace("Function", "").ToUpper();
         }
 
         public string Name { get; set; }

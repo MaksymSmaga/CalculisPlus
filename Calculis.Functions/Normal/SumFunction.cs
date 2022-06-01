@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public SumFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "SUM";
             Function = () =>
             {
                 var sum = 0.0;

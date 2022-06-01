@@ -42,17 +42,28 @@ namespace Calculis.Tests
             Assert.Equal(-4, item.Value);
         }
 
-        [Fact]
-        public void Test_Logic_Success()
+        [Theory]
+        [InlineData("(bobby+2)=5", 1)]
+        [InlineData("IIF(3>2;10;5)", 10)]
+        [InlineData("IIF(3<2;10;5)", 5)]
+        [InlineData("bobby*8/Billy", 6)]
+        [InlineData("bobby*10/(Billy+1)", 6)]
+        [InlineData("Billy/2/2*bobby*2", 6)]
+        [InlineData("Billy/2/2*-bobby*2", -6)]
+        [InlineData("Billy*bobby/-2", -6)]
+        [InlineData("(Billy+bobby)*4/-Billy", -7)]
+        [InlineData("bobby>-Billy", 1)]
+        public void Test_Logic_Success(string expression, double result)
         {
             var engine = Create();
 
+
             _items["bobby"].Value = 3;
             _items["Billy"].Value = 4;
+            var item = engine.Add("pussy", expression);
 
-            var item = engine.Add("pussy", "SUM(bobby+Billy-5;15)+4*Billy");
 
-            Assert.Equal(33, item.Value);
+            Assert.Equal(result, item.Value);
         }
 
         [Theory]
@@ -73,7 +84,7 @@ namespace Calculis.Tests
             for (int i = 0; i < parameter1 * 3; i++)
             {
                 _items["bobby"].Value = i + 1;
-                engine.Update();
+                engine.Iterate();
 
                 if((i + 1) % parameter1 == 0)
                     expected = i - parameter1 * (parameter2 - 1);

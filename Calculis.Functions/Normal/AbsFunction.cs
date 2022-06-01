@@ -8,7 +8,6 @@ namespace Calculis.Functions
     {
         public AbsFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "ABS";
             Function = () => Math.Abs(args[0].Value);
         }
     }

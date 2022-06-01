@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public DifFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "DIF";
             Function = () =>
             {
                 var result = _args[0].Value;

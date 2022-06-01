@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public AvgFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "AVG";
             Function = () =>
             {
                 var sum = 0.0;
