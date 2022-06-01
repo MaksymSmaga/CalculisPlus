@@ -1,7 +1,5 @@
-﻿using System;
-using Calculis.Core.Convert;
+﻿using Calculis.Core.Convert;
 using System.Collections.Generic;
-using System.Linq;
 using Calculis.Core.Auxilliary;
 
 namespace Calculis.Core.Calculation
@@ -12,23 +10,32 @@ namespace Calculis.Core.Calculation
         private readonly ItemsManager _itemsManager;
         private readonly TimeProvider _timeProvider;
 
-        public CalculisEngine(IEnumerable<IValueItem> items, TimeProvider timeProvider = null)
+        ///<summary>
+        ///Initializes a new instance of calculation engine that carry out real-time calculations based on items values
+        ///</summary>
+        ///<param name="Items">Collection of value contained objects inherited of IValueItem</param>
+        ///<param name="TimeProvider">Provider of time for control of iteration in temporal functions;\nBy default is used standard provider based on System.DateTime</param>
+        public CalculisEngine(IEnumerable<IValueItem> Items, TimeProvider TimeProvider = null)
         {
-            _timeProvider = timeProvider ?? new DefaultTimeProvider();
-            _itemsManager = new ItemsManager(items);
+            _timeProvider = TimeProvider ?? new DefaultTimeProvider();
+            _itemsManager = new ItemsManager(Items);
         }
 
-        public CalculatingItem Add(string name, string expression)
+        ///<summary>
+        ///Adds new IValueItem object with formulary expression
+        ///</summary>
+        ///<param name="name">Name of the new object</param>
+        ///<param name="expression">Formulary expression that will be used for calculation the value</param>
+        ///<returns>CalculatingItem object with the result of calculation in Value field</returns>
+        public CalculatingItem Add(string Name, string Expression)
         {
-            return _itemsManager.Create(name, expression); ;
+            return _itemsManager.Create(Name, Expression); ;
         }
 
-        public void Remove(string name)
-        {
-            //_items.Remove(name);
-        }
-
-        public void Update()
+        ///<summary>
+        ///Signals the expiration of a discrete period of time, initiates the updating of the cache of temporal functions
+        ///</summary>
+        public void Iterate()
         {
             _timeProvider?.Update();
             _itemsManager.Update(_timeProvider.Now);

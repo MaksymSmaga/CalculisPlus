@@ -19,6 +19,10 @@ namespace Calculis.Tests
         [InlineData("item1>item2*item3", "MUL(MORE(item1;item2);item3)")]
         [InlineData("item1<=item2*item3", "MUL(LESSEQ(item1;item2);item3)")]
         [InlineData("item1<=(item2*item3)", "LESSEQ(item1;MUL(item2;item3))")]
+        [InlineData("item1+item2+item3)", "SUM(item1;item2;item3)")]
+        [InlineData("item1*item2*item3)", "MUL(item1;item2;item3)")]
+        [InlineData("item1*item2*item3/item4)", "MUL(item1;item2;item3;/item4)")]
+        [InlineData("item1/2/2*-2*2", "MUL(item1;/2;/2;-2;2)")]
         public void Test_Parsing_Success(string original, string expected)
         {
             Assert.Equal(expected, _parser.ToFunctionView(original));

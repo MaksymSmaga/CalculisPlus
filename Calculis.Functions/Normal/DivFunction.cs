@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public DivFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "DIV";
             Function = () =>
             {
                 var result = _args[0].Value;

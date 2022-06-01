@@ -13,36 +13,37 @@ namespace Calculis.Core.Convert
 
         public ExpressionParser(ItemsManager manager)
         {
+            //var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?)|([A-Z]+\(.+\)))";
             _manager = manager;
 
             var regexExpression = $"[A-Z]+\\(((-)?(((item|__fnc)\\d+)|(\\d+(\\.\\d+)?))\\;*)+\\)";
             functionExpression = new Regex(regexExpression);
 
-            //var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?)|([A-Z]+\(.+\)))";
             var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?))";
+            var regNegPart = $"((-)?{regExPart})";
 
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<>{regExPart})+", "<>", "NEQ",
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<>{regNegPart})+", "<>", "NEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<>", ";"),
                 (str) => str.Replace("<>", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\>={regExPart})+", ">=", "MOREEQ",
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\>={regNegPart})+", ">=", "MOREEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace(">=", ";"),
                 (str) => str.Replace(">=", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\>{regExPart})+", ">", "MORE",
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\>{regNegPart})+", ">", "MORE",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace(">", ";"),
                 (str) => str.Replace(">", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<={regExPart})+", "<=", "LESSEQ",
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<={regNegPart})+", "<=", "LESSEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<=", ";"),
                 (str) => str.Replace("<=", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<{regExPart})+", "<", "LESS",
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<{regNegPart})+", "<", "LESS",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<", ";"),
                 (str) => str.Replace("<", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\={regExPart})+", "=", "EQ",
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\={regNegPart})+", "=", "EQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("=", ";"),
                 (str) => str.Replace("=", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\*{regExPart})+", "*", "MUL",
-                (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("*", ";"),
-                (str) => str.Replace("*", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}([\\+|\\-]{regExPart})+", "+", "SUM",
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}([\\*\\/]{regNegPart})+", "*", "MUL",
+                (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("*", ";").Replace("/", ";/").Replace(";;", ";"),
+                (str) => str.Replace("*", ";").Replace("/", ";/").Replace(";;", ";")));
+            _parsingParameters.Add(new ParsingParameters($"{regExPart}([\\+\\-]{regExPart})+", "+", "SUM",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("+", ";").Replace("-", ";-").Replace(";;", ";"),
                 (str) => str.Replace("+", ";").Replace("-", ";-").Replace(";;", ";")));
         }
@@ -82,7 +83,8 @@ namespace Calculis.Core.Convert
                 expression = expression.Replace(functionString, functionAlias);
             }
 
-            ExtractAlias(expressionsList, functionString, newString);
+            if(newString != "")
+                ExtractAlias(expressionsList, functionString, newString);
 
             return expressionsList;
         }
@@ -123,7 +125,7 @@ namespace Calculis.Core.Convert
                 foundSubstring = newSubstring = match?.Value;
             }
 
-            return !(foundSubstring == expression);
+            return foundSubstring != "" && foundSubstring != expression;
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public NeFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "PE";
             Function = () =>
             {
                 return _cash[1].Value == 0 && _cash[0].Value == 1 ? 1 : 0;

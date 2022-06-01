@@ -72,21 +72,46 @@ namespace Calculis.Core.Convert
             var args = new List<IValueItem>();
             foreach (var argString in functionDescription.Args)
             {
-                if (_items.ContainsKey(argString))
-                    args.Add(_items[argString]);
-                else if (_items.ContainsKey(argString.Replace("-", "")))
-                    args.Add(new CalculatingItem(FunctionManager.Create("MUL", new List<IValueItem> { new ConstantItem(-1), _items[argString.Replace("-", "")] })));
-                else if (_aliasFunctions.ContainsKey(argString))
-                    args.Add(_aliasFunctions[argString].Item);
-                else if (_aliasFunctions.ContainsKey(argString.Replace("-", "")))
-                    args.Add(new CalculatingItem(FunctionManager.Create("MUL", new List<IValueItem> { new ConstantItem(-1), _aliasFunctions[argString.Replace("-", "")].Item })));
-                else if (double.TryParse(argString.Replace('.', ','), out double result))
-                    args.Add(new ConstantItem(result));
-                else
-                    throw new ArgumentOutOfRangeException(argString);
+                var arg = GetArg(argString, _items.ContainsKey, (key) => _items[key]) ??
+                          GetArg(argString, _aliasFunctions.ContainsKey, (key) => _aliasFunctions[key].Item) ??
+                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr)));
+
+                args.Add(arg ?? throw new ArgumentOutOfRangeException(argString));
             }
 
             return args;
+        }
+
+        private bool isDouble(string expression)
+        {
+            return double.TryParse(expression.Replace('.', ','), out double result);
+        }
+
+        private IValueItem GetArg(string argString, Func<string, bool> checkingFunction, Func<string, IValueItem> creationFunction)
+        {
+            IValueItem newItem = null;
+
+            var isDenominator = false;
+            var isNegative = false;
+
+            if(argString.Substring(0, 1) == "/")
+            {
+                argString = argString.Replace("/", "");
+                isDenominator = true;
+            }
+            if (argString.Substring(0, 1) == "-")
+            {
+                argString = argString.Replace("-", "");
+                isNegative = true;
+            }
+            if (checkingFunction(argString))
+            {
+                newItem = creationFunction(argString);
+                if (isNegative) newItem = new CalculatingItem(FunctionManager.Create("MUL", new List<IValueItem> { new ConstantItem(-1), newItem }));
+                if (isDenominator) newItem = new CalculatingItem(FunctionManager.Create("DIV", new List<IValueItem> { new ConstantItem(1), newItem }));
+            }
+
+            return newItem;
         }
 
         public string GetExpression(string alias)

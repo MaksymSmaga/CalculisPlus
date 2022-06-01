@@ -16,7 +16,6 @@ namespace Calculis.Functions
             _interval = (int)args[1].Value;
             _number = (int)args[2].Value;
 
-            Name = "LASTOF";
             Function = () =>
             {
                 if (_isInitialized)

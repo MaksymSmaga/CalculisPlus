@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public EmaFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "EMA";
             Function = () =>
             {
                 double alpha = args[1].Value;

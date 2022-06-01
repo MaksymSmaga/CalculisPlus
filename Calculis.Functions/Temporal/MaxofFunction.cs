@@ -10,7 +10,6 @@ namespace Calculis.Functions
     {
         public MaxofFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "MAXOF";
             Function = () =>
             {
                 //Select interval
@@ -23,10 +22,6 @@ namespace Calculis.Functions
                     selectedCount = 3600;
 
                 selectedCash = new double[selectedCount];
-
-                
-                
-                
 
                 return 0;
             };

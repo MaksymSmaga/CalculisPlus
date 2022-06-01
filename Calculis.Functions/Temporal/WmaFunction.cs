@@ -7,7 +7,6 @@ namespace Calculis.Functions
     {
         public WmaFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "WMA";
             Function = () =>
             {
                 int n = _cash.Length;

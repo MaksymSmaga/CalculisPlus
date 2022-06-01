@@ -9,7 +9,6 @@ namespace Calculis.Functions
     {
         public StdevFunction(IList<IValueItem> args) : base(args)
         {
-            Name = "STDEV";
             Function = () =>
             {
                 var avg = _cash.Select(x => x.Value).Sum() / _cash.Length;

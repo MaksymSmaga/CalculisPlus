@@ -12,7 +12,7 @@ namespace Calculis.Functions
         public DateTimeOffset Timestamp { get; set; }
     }
 
-    public class TemporalFunction : FunctionBase
+    public abstract class TemporalFunction : FunctionBase
     {
         protected bool _isInitialized = false;
         protected CashItem[] _cash { get; private set; }
