@@ -1,5 +1,4 @@
 ﻿using Calculis.Core.Auxilliary;
-using System;
 
 namespace Calculis.Core
 {
@@ -15,7 +14,7 @@ namespace Calculis.Core
         public string Name { get; set; }
         public double Value { get { return _function.Function(); } set { } }
 
-        public void Update(object sender, UpdateArgs args)
+        internal void Update(object sender, UpdateArgs args)
         {
             _function.Update(args.Timestamp);
         }

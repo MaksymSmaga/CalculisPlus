@@ -38,6 +38,7 @@ namespace Calculis.Tests
             _items["Billy"].Value = y;
 
             var item = engine.Add("pussy", "bobby+Billy-10+5-Billy");
+            //var item = engine.Add("bi", "POW(bobby+2;2)");
 
             Assert.Equal(-4, item.Value);
         }

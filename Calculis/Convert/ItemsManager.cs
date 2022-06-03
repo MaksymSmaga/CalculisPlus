@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace Calculis.Core.Convert
 {
-    public sealed class ItemsManager
+    internal sealed class ItemsManager
     {
         private IDictionary<string, IValueItem> _items;
         private IDictionary<string, string> _itemsNames;
 
         private IDictionary<string, ItemInfo> _aliasFunctions = new Dictionary<string, ItemInfo>();
-        public IDictionary<string, string> ExpressionAlias { get; private set; } = new Dictionary<string, string>();
+        internal IDictionary<string, string> ExpressionAlias { get; private set; } = new Dictionary<string, string>();
 
         private int _count;
         private int _fncCount;
@@ -23,7 +23,7 @@ namespace Calculis.Core.Convert
 
         private ExpressionParser _expressionParser;
 
-        public ItemsManager(IEnumerable<IValueItem> items)
+        internal ItemsManager(IEnumerable<IValueItem> items)
         {
             _itemsNames = items.ToDictionary(x => x.Name, x => $"item{++_count}");
             _items = items.ToDictionary(x => _itemsNames[x.Name]);
@@ -31,6 +31,7 @@ namespace Calculis.Core.Convert
 
         internal CalculatingItem Create(string name, string expression)
         {
+            if(name == null) throw new ArgumentNullException("name");
             if (_itemsNames.ContainsKey(name)) throw new ArgumentException($"The name {name} has already used!");
 
             _itemsNames.Add(name, $"item{++_count}");
@@ -53,7 +54,7 @@ namespace Calculis.Core.Convert
             return (CalculatingItem)item;
         }
 
-        public void Update(DateTime timestamp)
+        internal void Update(DateTime timestamp)
         {
             Updating?.Invoke(this, new UpdateArgs { Timestamp = timestamp });
         }
@@ -119,7 +120,7 @@ namespace Calculis.Core.Convert
             return _aliasFunctions[alias].ReplacedExpression;
         }
 
-        public string AddAlias(string expression, string original)
+        internal string AddAlias(string expression, string original)
         {
             string alias = $"__fnc{++_fncCount}";
             ExpressionAlias.Add(expression, alias);

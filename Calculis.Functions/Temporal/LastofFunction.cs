@@ -5,6 +5,9 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
+    [ArgumentsNumber(3)]
+    [ArgumentsType(1, typeof(ConstantItem))]
+    [ArgumentsType(2, typeof(ConstantItem))]
     public sealed class LastofFunction : TemporalFunction
     {
         private readonly int _interval;

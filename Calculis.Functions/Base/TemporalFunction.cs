@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 namespace Calculis.Functions
 {
-    //TODO: cash optimization - separated class and more suitable structure for saving
-
     public class CashItem : IValue
     {
         public double Value { get; set; }

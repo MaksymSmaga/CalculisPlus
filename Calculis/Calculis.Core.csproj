@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RepositoryUrl>https://github.com/ErgoSm/Calculis</RepositoryUrl>
+    <Copyright>Egor Smirnov (c)</Copyright>
   </PropertyGroup>
 
 </Project>
