@@ -6,7 +6,6 @@ namespace Calculis.Core.Calculation
 {
     public sealed class CalculisEngine
     {
-        //private IEnumerable<string> _nameSchemes;
         private readonly ItemsManager _itemsManager;
         private readonly TimeProvider _timeProvider;
 
@@ -30,6 +29,15 @@ namespace Calculis.Core.Calculation
         public CalculatingItem Add(string Name, string Expression)
         {
             return _itemsManager.Create(Name, Expression); ;
+        }
+
+        ///<summary>
+        ///Pluggs-in an assembly containing additional functions 
+        ///</summary>
+        ///<param name="name">Name of assembly</param>
+        public void Register(string AssemblyName)
+        {
+            FunctionManager.Register(AssemblyName);
         }
 
         ///<summary>

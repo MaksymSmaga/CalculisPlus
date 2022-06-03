@@ -4,14 +4,14 @@ using System.Text.RegularExpressions;
 
 namespace Calculis.Core.Convert
 {
-    public sealed class ExpressionParser
+    internal sealed class ExpressionParser
     {
         private readonly ICollection<ParsingParameters> _parsingParameters = new List<ParsingParameters>();
 
         Regex functionExpression;
         ItemsManager _manager;
 
-        public ExpressionParser(ItemsManager manager)
+        internal ExpressionParser(ItemsManager manager)
         {
             //var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?)|([A-Z]+\(.+\)))";
             _manager = manager;
@@ -22,6 +22,7 @@ namespace Calculis.Core.Convert
             var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?))";
             var regNegPart = $"((-)?{regExPart})";
 
+            //The order of expression is important: it correspondes to priorities of checking operations
             _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<>{regNegPart})+", "<>", "NEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<>", ";"),
                 (str) => str.Replace("<>", ";")));
@@ -49,7 +50,7 @@ namespace Calculis.Core.Convert
         }
 
 
-        public string ToFunctionView(string expression)
+        internal string ToFunctionView(string expression)
         {
             var newExpression = Parse(expression).Last();
 
@@ -68,7 +69,7 @@ namespace Calculis.Core.Convert
             return newExpression;
         }
 
-        public ICollection<string> Parse(string expression)
+        internal ICollection<string> Parse(string expression)
         {
             var expressionsList = new List<string>();
             string functionString;

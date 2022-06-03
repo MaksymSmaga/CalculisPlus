@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Functions
 {
-    public abstract class CompareFunction : NormalFunction
+    internal abstract class CompareFunction : NormalFunction
     {
         public CompareFunction(IList<IValueItem> args, Func<double, double, bool> compare) : base(args)
         {
@@ -20,32 +20,32 @@ namespace Calculis.Functions
         }
     }
 
-    public class MoreFunction : CompareFunction
+    internal class MoreFunction : CompareFunction
     {
         public MoreFunction(IList<IValueItem> args) : base(args, (double x, double y) => x > y) { }
     }
 
-    public class MoreeqFunction : CompareFunction
+    internal class MoreeqFunction : CompareFunction
     {
         public MoreeqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x >= y) { }
     }
 
-    public class LessFunction : CompareFunction
+    internal class LessFunction : CompareFunction
     {
         public LessFunction(IList<IValueItem> args) : base(args, (double x, double y) => x < y) { }
     }
 
-    public class LesseqFunction : CompareFunction
+    internal class LesseqFunction : CompareFunction
     {
         public LesseqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x <= y) { }
     }
 
-    public class EqFunction : CompareFunction
+    internal class EqFunction : CompareFunction
     {
         public EqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x == y) { }
     }
 
-    public class NeqFunction : CompareFunction
+    internal class NeqFunction : CompareFunction
     {
         public NeqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x != y) { }
     }

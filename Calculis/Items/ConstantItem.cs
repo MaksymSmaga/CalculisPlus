@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Calculis.Core
+﻿namespace Calculis.Core
 {
     public sealed class ConstantItem : IValueItem
     {
@@ -10,7 +6,7 @@ namespace Calculis.Core
 
         public string Name { get; }
 
-        public ConstantItem(double value)
+        internal ConstantItem(double value)
         {
             Value = value;
         }
