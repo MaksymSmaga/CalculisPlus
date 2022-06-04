@@ -3,7 +3,7 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    public class WmaFunction : TemporalFunction
+    internal class WmaFunction : TemporalFunction
     {
         public WmaFunction(IList<IValueItem> args) : base(args)
         {

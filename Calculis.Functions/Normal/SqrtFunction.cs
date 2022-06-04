@@ -4,8 +4,8 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    [ArgumentsNumber(2)]
-    public class SqrtFunction : NormalFunction
+    [ArgumentsNumber(1)]
+    internal class SqrtFunction : NormalFunction
     {
         public SqrtFunction(IList<IValueItem> args) : base(args)
         {

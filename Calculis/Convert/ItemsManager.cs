@@ -54,6 +54,11 @@ namespace Calculis.Core.Convert
             return (CalculatingItem)item;
         }
 
+        internal IValueItem GetItem(string name)
+        {
+            return _items.TryGetValue(_itemsNames[name], out var item) ? item : throw new NullReferenceException($"Item {name} does not exist!");
+        }
+
         internal void Update(DateTime timestamp)
         {
             Updating?.Invoke(this, new UpdateArgs { Timestamp = timestamp });

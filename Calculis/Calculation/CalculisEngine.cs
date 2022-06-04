@@ -32,6 +32,16 @@ namespace Calculis.Core.Calculation
         }
 
         ///<summary>
+        ///Returns IValueItem contained in Calculis instance
+        ///</summary>
+        ///<param name="name">Name of the object</param>
+        ///<returns>The object implemented IValueItem</returns>
+        public IValueItem GetItem(string Name)
+        {
+            return _itemsManager.GetItem(Name); ;
+        }
+
+        ///<summary>
         ///Pluggs-in an assembly containing additional functions 
         ///</summary>
         ///<param name="name">Name of assembly</param>

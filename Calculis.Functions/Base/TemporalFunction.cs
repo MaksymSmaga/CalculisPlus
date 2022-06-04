@@ -23,8 +23,7 @@ namespace Calculis.Functions
 
         protected virtual void Initialize()
         {
-            var cashSize = Convert.ToInt32(_args[_args.Count - 1]);
-            InitializeCash(cashSize);
+            InitializeCash((int)_args[1].Value);
         }
 
         protected void InitializeCash(int cashSize)

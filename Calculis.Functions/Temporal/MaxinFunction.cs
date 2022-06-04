@@ -4,13 +4,14 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    internal class SmaFunction : TemporalFunction
+    [ArgumentsNumber(2)]
+    internal class MaxinFunction : TemporalFunction
     {
-        public SmaFunction(IList<IValueItem> args) : base(args)
+        public MaxinFunction(IList<IValueItem> args) : base(args)
         {
             Function = () =>
             {
-                return _cash.Select(x => x.Value).Sum();
+                return _cash.Max(x => x.Value);
             };
         }
     }
