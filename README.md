@@ -5,9 +5,9 @@
 ## What is it?
 Calculis is a micro-framework that provides the user with the ability to organize calculations according to mathematical expressions, easily supplemented with plugins.
 ## Content
-- [Getting started](https://github.com/ErgoSm/Calculis/edit/master/README.md#getting-started)
-- [Expressions](https://github.com/ErgoSm/Calculis/edit/master/README.md#expressions)
-- [Extension](https://github.com/ErgoSm/Calculis/edit/master/README.md#extension)
+- [Getting started](https://github.com/ErgoSm/Calculis#getting-started)
+- [Expressions](https://github.com/ErgoSm/Calculis#expressions)
+- [Extension](https://github.com/ErgoSm/Calculis#extension)
 
 ## 1. Getting started
 Calculus works with objects implementing the IValueItem interface. Implement the interface in your program:
