@@ -74,7 +74,7 @@ public class RestFunction : FunctionBase
 After that, you need to register the assembly containing the function in the instance of the calculator and you can use it in expressions:
 ```csharp
 calculis.Register("AuxFunctions.dll");
-var rest = calculis.Add("rest", "OFFSET(calc1;3)");
+var rest = calculis.Add("rest", "REST(calc1;3)");
 
 Console.WriteLine($"rest of {calc1.Value} / 3: {rest.Value}"); //'rest of 28 / 3: 1'
 ```
