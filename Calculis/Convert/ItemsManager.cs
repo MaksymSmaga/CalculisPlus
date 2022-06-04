@@ -49,7 +49,8 @@ namespace Calculis.Core.Convert
                 functionDescription = new FunctionDescription(functionExpression);
                 item = _aliasFunctions[ExpressionAlias[functionExpression]].Item = CreateItem(FunctionManager.Create(functionDescription.Name, ExtractArgs(functionExpression)));
             }
-                
+            
+            _items.Add(_itemsNames[name], item);
 
             return (CalculatingItem)item;
         }
