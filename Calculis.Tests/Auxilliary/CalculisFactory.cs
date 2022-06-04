@@ -9,11 +9,11 @@ namespace Calculis.Tests.Auxilliary
 {
     internal class CalculisFactory
     {
-        private static IDictionary<string, IValueItem> _items { get; set; }
+        //private static IDictionary<string, IValueItem> _items { get; set; }
 
         internal static CalculisEngine Create(double[] values, DateTime? initialDT = null)
         {
-            _items = CreateItems(values).ToDictionary(x => x.Name);
+            var _items = CreateItems(values).ToDictionary(x => x.Name);
             TestTimeProvider timeProvider = null;
 
             if (initialDT != null)
