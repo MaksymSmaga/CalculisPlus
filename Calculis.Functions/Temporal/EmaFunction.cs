@@ -3,7 +3,8 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    public class EmaFunction : TemporalFunction
+    [ArgumentsNumber(2)]
+    internal class EmaFunction : TemporalFunction
     {
         public EmaFunction(IList<IValueItem> args) : base(args)
         {

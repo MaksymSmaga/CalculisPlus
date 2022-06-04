@@ -3,7 +3,7 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    public class DivFunction : NormalFunction
+    internal class DivFunction : NormalFunction
     {
         public DivFunction(IList<IValueItem> args) : base(args)
         {

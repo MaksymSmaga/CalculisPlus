@@ -3,7 +3,7 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    public class AvgFunction : NormalFunction
+    internal class AvgFunction : NormalFunction
     {
         public AvgFunction(IList<IValueItem> args) : base(args)
         {

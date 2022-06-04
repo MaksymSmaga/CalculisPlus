@@ -4,7 +4,7 @@ using Calculis.Core;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(1)]
-    public sealed class NeFunction : TemporalFunction
+    internal sealed class NeFunction : TemporalFunction
     {
         public NeFunction(IList<IValueItem> args) : base(args)
         {

@@ -5,7 +5,8 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    public class StdevFunction : TemporalFunction
+    [ArgumentsNumber(2)]
+    internal class StdevFunction : TemporalFunction
     {
         public StdevFunction(IList<IValueItem> args) : base(args)
         {

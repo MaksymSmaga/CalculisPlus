@@ -5,7 +5,7 @@ using Calculis.Core;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(2)]
-    public class PowFunction : NormalFunction
+    internal class PowFunction : NormalFunction
     {
         public PowFunction(IList<IValueItem> args) : base(args)
         {

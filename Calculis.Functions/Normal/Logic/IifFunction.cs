@@ -1,11 +1,10 @@
 ﻿using Calculis.Core;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Calculis.Functions
 {
-    public class IifFunction : NormalFunction
+    [ArgumentsNumber(3)]
+    internal class IifFunction : NormalFunction
     {
         public IifFunction(IList<IValueItem> args) : base(args)
         {
