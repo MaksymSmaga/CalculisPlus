@@ -81,7 +81,7 @@ namespace Calculis.Core.Convert
             {
                 var arg = GetArg(argString, _items.ContainsKey, (key) => _items[key]) ??
                           GetArg(argString, _aliasFunctions.ContainsKey, (key) => _aliasFunctions[key].Item) ??
-                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr)));
+                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr.Replace('.', ','))));
 
                 args.Add(arg ?? throw new ArgumentOutOfRangeException(argString));
             }

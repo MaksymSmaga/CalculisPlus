@@ -9,7 +9,9 @@ namespace Calculis.Tests
     {
         private static double[] _values = new[] { -5.0 };
         private static IDictionary<string, Func<int, double>> _functions = new Dictionary<string, Func<int, double>>();
-    
+        private static double _ema_prev = 0;
+
+
         static TemporalFunctionsExecutionTest()
         {
             _functions.Add("DELAY(i1;30)", (int n) => HistoryManager.Value(n, 29));
@@ -26,6 +28,24 @@ namespace Calculis.Tests
 
                 return Math.Sqrt(pow / 30);
                 });
+            _functions.Add("SMA(i1;30)", (int n) => {
+                var sum = 0.0;
+                for (int i = 0; i < 30; i++)
+                    sum += HistoryManager.Value(n, i);
+
+                return sum / 30;
+            });
+            _functions.Add("WMA(i1;30)", (int n) => {
+                var sum = 0.0;
+                for (int i = 0; i < 30; i++)
+                    sum += (30 - i) * HistoryManager.Value(n, i);
+
+                return 2.0 * sum / (30 * (30 + 1));
+            });
+            /*_functions.Add("EMA(i1;0.5)", (int n) => {
+                _ema_prev = HistoryManager.Value(n) * 0.5 + (1 - 0.5) * _ema_prev;
+                return  _ema_prev;
+            });*/
         }
         private static TheoryData<string, double[], Func<int, double>> PrepareParams()
         {

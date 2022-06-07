@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(3)]
-    internal class IifFunction : NormalFunction
+    internal class IfFunction : NormalFunction
     {
-        public IifFunction(IList<IValueItem> args) : base(args)
+        public IfFunction(IList<IValueItem> args) : base(args)
         {
             Function = () =>
             {

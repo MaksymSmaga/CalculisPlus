@@ -23,6 +23,7 @@ namespace Calculis.Tests
             _functions.Add("ABS(i1)", (double[] args) => Math.Abs(args[0]));
             _functions.Add("MAX(i1;i2;i3;i4;i5)", (double[] args) => args.Max());
             _functions.Add("MIN(i1;i2;i3;i4;i5)", (double[] args) => args.Min());
+            _functions.Add("IF(i1 > i2;10;20)", (double[] args) => args[0] > args[1] ? 10 : 20);
             _functions.Add("i1+i2", (double[] args) => args[0] + args[1]);
             _functions.Add("i1-i2", (double[] args) => args[0] - args[1]);
             _functions.Add("i1*i2", (double[] args) => args[0] * args[1]);

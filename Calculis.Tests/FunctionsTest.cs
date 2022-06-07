@@ -22,7 +22,6 @@ namespace Calculis.Tests
             _items["Billy"].Value = y;
 
             var item = engine.Add("pussy", "SUM(bobby;Billy)");
-            var item2 = engine.Add("bibi", "(bobby+Billy)*4");
 
 
             Assert.Equal(x + y, item.Value);
@@ -38,15 +37,15 @@ namespace Calculis.Tests
             _items["Billy"].Value = y;
 
             var item = engine.Add("pussy", "bobby+Billy-10+5-Billy");
-            //var item = engine.Add("bi", "POW(bobby+2;2)");
+
 
             Assert.Equal(-4, item.Value);
         }
 
         [Theory]
         [InlineData("(bobby+2)=5", 1)]
-        [InlineData("IIF(3>2;10;5)", 10)]
-        [InlineData("IIF(3<2;10;5)", 5)]
+        [InlineData("IF(3>2;10;5)", 10)]
+        [InlineData("IF(3<2;10;5)", 5)]
         [InlineData("bobby*8/Billy", 6)]
         [InlineData("bobby*10/(Billy+1)", 6)]
         [InlineData("Billy/2/2*bobby*2", 6)]
