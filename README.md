@@ -3,7 +3,7 @@
 [![.NET](https://github.com/ErgoSm/Calculis/actions/workflows/dotnet-test.yml/badge.svg?branch=master)](https://github.com/ErgoSm/Calculis/actions/workflows/dotnet-test.yml)
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/ergosm/931c5637fc3e70a50785addf23bcf34a/raw/code-coverage.json)
 ## What is it?
-Calculis is a micro-framework that provides the user with the ability to organize calculations according to mathematical expressions, including the time aspect of values. Provides an easy-to-use functionality for extending your own functions.
+Calculis is a micro-framework that provides the user with the ability to organize calculations according to mathematical expressions, including the time aspect of values. Provides an easy-to-use functionality for extending with your own functions.
 ## Content
 - [Getting started](https://github.com/ErgoSm/Calculis#1-getting-started)
 - [Expressions](https://github.com/ErgoSm/Calculis#2-expressions)
