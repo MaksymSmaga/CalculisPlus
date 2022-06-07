@@ -52,12 +52,12 @@ calculis.Add("Arithmetic_example2", "i1*i2/-2");
 calculis.Add("Logical_example1", "i1 > i2");
 calculis.Add("Logical_example2", "i1 < 5 <> i2"); //the result is a logical intersection of the conditions
 ```
-- Formulas
+- Functions
 ```csharp
 calculis.Add("Formulary_example1", "AVG(i1;i2;-5)");
-calculis.Add("Formulary_example2", "IIF(i1 > i2;-1;1)"); //returns -1
+calculis.Add("Formulary_example2", "IF(i1 > i2;-1;1)"); //returns -1
 ```
-All types of expressions can be combined within a common expression. The order of calculations follows mathematical rules and is intuitive. More complete information can be found in the sections devoted to the corresponding types of expressions.
+All types of expressions can be combined within a common expression. The order of calculations follows mathematical rules and is intuitive. More complete information can be found in the sections devoted to the corresponding types of expressions. You can get more information either about the [expressions](https://github.com/ErgoSm/Calculis/wiki/expressions) as well as [standard](https://github.com/ErgoSm/Calculis/wiki/standard-functions) and [temporal](https://github.com/ErgoSm/Calculis/wiki/temporal-functions) functions.
 ## 3. Extension
 The user can extend the existing library of functions by plugging their own libraries. To create a function, you need to create a new library project.dll and inherit the FunctionBase class and override the function Function. For example, let's create a function that calculates the remainder of the division:
 ```csharp
