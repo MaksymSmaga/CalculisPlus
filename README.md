@@ -10,6 +10,10 @@ Calculis is a micro-framework that provides the user with the ability to organiz
 - [Extension](https://github.com/ErgoSm/Calculis#extensibility)
 
 ## Getting started
+First, install Calculis from the package manager console:
+```
+PM> Install-Package Calculis -Version 0.1.4
+```
 Calculus works with objects implementing the IValueItem interface. Implement the interface in your program:
 ```csharp
 class DataItem : IValueItem
