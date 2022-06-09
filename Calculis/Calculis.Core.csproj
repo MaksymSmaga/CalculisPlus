@@ -3,15 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RepositoryUrl>https://github.com/ErgoSm/Calculis</RepositoryUrl>
-    <Copyright>Egor Smirnov copyright (C)</Copyright>
+    <Copyright></Copyright>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Authors>ErgoSm</Authors>
+    <Version>0.1.4</Version>
+    <Product>$(AssemblyName)</Product>
+    <Description>Core classes of Calculis</Description>
     <PackageLicenseExpression> GPL-3.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageId>Calculis</PackageId>
-    <Authors>ErgoSm</Authors>
-    <Version>0.1.0</Version>
-    <Product>Calculis</Product>
-    <Description>Micro-framework that provides the user with the ability to organize calculations according to mathematical expressions, including the time aspect of values.</Description>
   </PropertyGroup>
 
 </Project>
