@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -16,10 +17,10 @@ namespace Calculis.Core.Convert
             //var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?)|([A-Z]+\(.+\)))";
             _manager = manager;
 
-            var regexExpression = $"[A-Z]+\\(((-)?(((item|__fnc)\\d+)|(\\d+(\\.\\d+)?))\\;*)+\\)";
+            var regexExpression = $"[A-Z]+\\(((-)?(((item|__fnc)\\d+)|(\\d+(\\{CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}\\d+)?))\\;*)+\\)";
             functionExpression = new Regex(regexExpression);
 
-            var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?))";
+            var regExPart = $@"((((item)|__fnc)\d+)|(\d+(\{CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}\d+)?))";
             var regNegPart = $"((-)?{regExPart})";
 
             //The order of expression is important: it correspondes to priorities of checking operations

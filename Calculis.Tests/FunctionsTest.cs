@@ -3,6 +3,7 @@ using Calculis.Core.Calculation;
 using Calculis.Test.Auxilliary;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Xunit;
 
@@ -36,10 +37,10 @@ namespace Calculis.Tests
             _items["bobby"].Value = x;
             _items["Billy"].Value = y;
 
-            var item = engine.Add("pussy", "bobby+Billy-10+5-Billy");
+            var item = engine.Add("pussy", $"bobby+{0.3.ToString(CultureInfo.CurrentCulture.NumberFormat)}");
 
 
-            Assert.Equal(-4, item.Value);
+            Assert.Equal(1.3, item.Value);
         }
 
         [Theory]

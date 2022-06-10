@@ -1,6 +1,7 @@
 ﻿using Calculis.Tests.Auxilliary;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Xunit;
 
@@ -43,7 +44,7 @@ namespace Calculis.Tests
             _functions.Add("EXP(i1)", (double[] args) => Math.Exp(args[0]));
             //_functions.Add("LN(0,95)", (double[] args) => Math.Log(0.95));
             //_functions.Add("LOG(0,95)", (double[] args) => Math.Log10(0.95));
-            //_functions.Add("LOG(0,95;2)", (double[] args) => Math.Log(0.95, 2));
+            _functions.Add($"LOG({0.95.ToString(CultureInfo.CurrentCulture.NumberFormat)};2)", (double[] args) => Math.Log(0.95, 2));
             _functions.Add("i1+i2", (double[] args) => args[0] + args[1]);
             _functions.Add("i1-i2", (double[] args) => args[0] - args[1]);
             _functions.Add("i1*i2", (double[] args) => args[0] * args[1]);
