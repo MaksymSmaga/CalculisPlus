@@ -1,6 +1,7 @@
 ﻿using Calculis.Tests.Auxilliary;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Xunit;
 
 namespace Calculis.Tests
@@ -44,10 +45,10 @@ namespace Calculis.Tests
 
                 return 2.0 * sum / (30 * (30 + 1));
             });
-            /*_functions.Add("EMA(i1;0.5)", (int n) => {
+            _functions.Add($"EMA(i1;{0.5.ToString(CultureInfo.CurrentCulture.NumberFormat)})", (int n) => {
                 _ema_prev = HistoryManager.Value(n) * 0.5 + (1 - 0.5) * _ema_prev;
                 return  _ema_prev;
-            });*/
+            });
         }
         private static TheoryData<string, double[], Func<int, double>> PrepareParams()
         {

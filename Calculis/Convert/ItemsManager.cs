@@ -2,6 +2,7 @@
 using Calculis.Core.Calculation;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 
@@ -81,7 +82,7 @@ namespace Calculis.Core.Convert
             {
                 var arg = GetArg(argString, _items.ContainsKey, (key) => _items[key]) ??
                           GetArg(argString, _aliasFunctions.ContainsKey, (key) => _aliasFunctions[key].Item) ??
-                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr.Replace('.', ','))));
+                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr, NumberStyles.Float, CultureInfo.CurrentCulture.NumberFormat)));
 
                 args.Add(arg ?? throw new ArgumentOutOfRangeException(argString));
             }
@@ -91,7 +92,7 @@ namespace Calculis.Core.Convert
 
         private bool isDouble(string expression)
         {
-            return double.TryParse(expression.Replace('.', ','), out double result);
+            return double.TryParse(expression, NumberStyles.Float, CultureInfo.CurrentCulture.NumberFormat, out double result);
         }
 
         private IValueItem GetArg(string argString, Func<string, bool> checkingFunction, Func<string, IValueItem> creationFunction)
