@@ -4,7 +4,8 @@ using Calculis.Core;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(2)]
-    internal class WmaFunction : TemporalFunction
+    [ArgumentsType(1, typeof(ConstantItem))]
+    internal sealed class WmaFunction : TemporalFunction
     {
         public WmaFunction(IList<IValueItem> args) : base(args)
         {

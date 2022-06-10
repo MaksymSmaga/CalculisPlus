@@ -15,6 +15,7 @@ namespace Calculis.Functions
         protected bool _isInitialized = false;
         protected CashItem[] _cash { get; private set; }
         protected DateTimeOffset Timestamp { get; private set; }
+        protected double _previousValue { get; private set; }
 
         public TemporalFunction(IList<IValueItem> args) : base(args)
         {
@@ -41,7 +42,8 @@ namespace Calculis.Functions
                 _cash[i - 1].Value = _cash[i].Value;
                 _cash[i - 1].Timestamp = _cash[i].Timestamp;
             }
-                
+
+            _previousValue = this.Function();
             _cash[_cash.Length - 1].Value = _args[0].Value;
             _cash[_cash.Length - 1].Timestamp = dateTime;
 

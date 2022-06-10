@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Calculis.Functions
 {
-    internal class MinFunction : NormalFunction
+    internal sealed class MinFunction : NormalFunction
     {
         public MinFunction(IList<IValueItem> args) : base(args)
         {

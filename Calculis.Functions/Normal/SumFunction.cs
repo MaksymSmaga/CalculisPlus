@@ -3,7 +3,7 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    internal class SumFunction : NormalFunction
+    internal sealed class SumFunction : NormalFunction
     {
         public SumFunction(IList<IValueItem> args) : base(args)
         {
