@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Calculis.Functions
 {
-    internal class MaxFunction : NormalFunction
+    internal sealed class MaxFunction : NormalFunction
     {
         public MaxFunction(IList<IValueItem> args) : base(args)
         {

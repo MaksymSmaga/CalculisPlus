@@ -23,8 +23,8 @@ namespace Calculis.Core.Calculation
         ///<summary>
         ///Adds new IValueItem object with formulary expression
         ///</summary>
-        ///<param name="name">Name of the new object</param>
-        ///<param name="expression">Formulary expression that will be used for calculation the value</param>
+        ///<param name="Name">Name of the new object</param>
+        ///<param name="Expression">Formulary expression that will be used for calculation the value</param>
         ///<returns>CalculatingItem object with the result of calculation in Value field</returns>
         public CalculatingItem Add(string Name, string Expression)
         {
@@ -34,7 +34,7 @@ namespace Calculis.Core.Calculation
         ///<summary>
         ///Returns IValueItem contained in Calculis instance
         ///</summary>
-        ///<param name="name">Name of the object</param>
+        ///<param name="Name">Name of the object</param>
         ///<returns>The object implemented IValueItem</returns>
         public IValueItem GetItem(string Name)
         {
@@ -44,7 +44,7 @@ namespace Calculis.Core.Calculation
         ///<summary>
         ///Pluggs-in an assembly containing additional functions 
         ///</summary>
-        ///<param name="name">Name of assembly</param>
+        ///<param name="AssemblyName">Name of assembly</param>
         public void Register(string AssemblyName)
         {
             FunctionManager.Register(AssemblyName);

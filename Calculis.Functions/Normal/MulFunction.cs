@@ -3,7 +3,7 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
-    internal class MulFunction : NormalFunction
+    internal sealed class MulFunction : NormalFunction
     {
         public MulFunction(IList<IValueItem> args) : base(args)
         {

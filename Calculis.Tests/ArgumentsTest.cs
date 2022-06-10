@@ -19,6 +19,18 @@ namespace Calculis.Tests
         [InlineData("MAXIN(i1;2;3)")]
         [InlineData("STDEV(i1)")]
         [InlineData("STDEV(i1;1;2)")]
+        [InlineData("INTEGR(i1;1)")]
+        [InlineData("SIN(i1;1)")]
+        [InlineData("SINH(i1;1)")]
+        [InlineData("ASIN(i1;1)")]
+        [InlineData("COS(i1;1)")]
+        [InlineData("COSH(i1;1)")]
+        [InlineData("ACOS(i1;1)")]
+        [InlineData("TAN(i1;1)")]
+        [InlineData("TANH(i1;1)")]
+        [InlineData("ATAN(i1;1)")]
+        [InlineData("LN(i1;1)")]
+        [InlineData("EXP(i1;1)")]
         public void Number_of_arguments_are_not_correct(string expression)
         {
             var engine = CalculisFactory.Create(new double[] { 0, 1 });

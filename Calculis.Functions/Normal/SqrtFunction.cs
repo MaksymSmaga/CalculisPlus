@@ -5,7 +5,7 @@ using Calculis.Core;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(1)]
-    internal class SqrtFunction : NormalFunction
+    internal sealed class SqrtFunction : NormalFunction
     {
         public SqrtFunction(IList<IValueItem> args) : base(args)
         {

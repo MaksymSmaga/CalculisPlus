@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(1)]
-    internal class AbsFunction : NormalFunction
+    internal sealed class AbsFunction : NormalFunction
     {
         public AbsFunction(IList<IValueItem> args) : base(args)
         {

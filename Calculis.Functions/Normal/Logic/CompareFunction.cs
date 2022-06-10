@@ -20,32 +20,32 @@ namespace Calculis.Functions
         }
     }
 
-    internal class MoreFunction : CompareFunction
+    internal sealed class MoreFunction : CompareFunction
     {
         public MoreFunction(IList<IValueItem> args) : base(args, (double x, double y) => x > y) { }
     }
 
-    internal class MoreeqFunction : CompareFunction
+    internal sealed class MoreeqFunction : CompareFunction
     {
         public MoreeqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x >= y) { }
     }
 
-    internal class LessFunction : CompareFunction
+    internal sealed class LessFunction : CompareFunction
     {
         public LessFunction(IList<IValueItem> args) : base(args, (double x, double y) => x < y) { }
     }
 
-    internal class LesseqFunction : CompareFunction
+    internal sealed class LesseqFunction : CompareFunction
     {
         public LesseqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x <= y) { }
     }
 
-    internal class EqFunction : CompareFunction
+    internal sealed class EqFunction : CompareFunction
     {
         public EqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x == y) { }
     }
 
-    internal class NeqFunction : CompareFunction
+    internal sealed class NeqFunction : CompareFunction
     {
         public NeqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x != y) { }
     }
