@@ -11,6 +11,7 @@ namespace Calculis.Tests
     {
         private static double[] _values = new[] { -5.0, 4.0, 3.0, 2.0, 7.0 };
         private static IDictionary<string, Func<double[], double>> _functions = new Dictionary<string, Func<double[], double>>();
+        private static string argNumberString = 0.95.ToString(CultureInfo.CurrentCulture.NumberFormat);
 
         static NormalFunctionsExecutionTest()
         {
@@ -34,17 +35,17 @@ namespace Calculis.Tests
             _functions.Add("PI(1)", (double[] args) => Math.PI);
             _functions.Add("SIN(i1)", (double[] args) => Math.Sin(args[0]));
             _functions.Add("SINH(i1)", (double[] args) => Math.Sinh(args[0]));
-            //_functions.Add("ASIN(0,95)", (double[] args) => Math.Asin(0.95));
+            _functions.Add($"ASIN({argNumberString})", (double[] args) => Math.Asin(0.95));
             _functions.Add("COS(i1)", (double[] args) => Math.Cos(args[0]));
             _functions.Add("COSH(i1)", (double[] args) => Math.Cosh(args[0]));
-            //_functions.Add("ACOS(0,95)", (double[] args) => Math.Acos(0.95));
+            _functions.Add($"ACOS({argNumberString})", (double[] args) => Math.Acos(0.95));
             _functions.Add("TAN(i1)", (double[] args) => Math.Tan(args[0]));
             _functions.Add("TANH(i1)", (double[] args) => Math.Tanh(args[0]));
             _functions.Add("ATAN(i1)", (double[] args) => Math.Atan(args[0]));
             _functions.Add("EXP(i1)", (double[] args) => Math.Exp(args[0]));
-            //_functions.Add("LN(0,95)", (double[] args) => Math.Log(0.95));
-            //_functions.Add("LOG(0,95)", (double[] args) => Math.Log10(0.95));
-            _functions.Add($"LOG({0.95.ToString(CultureInfo.CurrentCulture.NumberFormat)};2)", (double[] args) => Math.Log(0.95, 2));
+            _functions.Add($"LN({argNumberString})", (double[] args) => Math.Log(0.95));
+            _functions.Add($"LOG({argNumberString})", (double[] args) => Math.Log10(0.95));
+            _functions.Add($"LOG({argNumberString};2)", (double[] args) => Math.Log(0.95, 2));
             _functions.Add("i1+i2", (double[] args) => args[0] + args[1]);
             _functions.Add("i1-i2", (double[] args) => args[0] - args[1]);
             _functions.Add("i1*i2", (double[] args) => args[0] * args[1]);

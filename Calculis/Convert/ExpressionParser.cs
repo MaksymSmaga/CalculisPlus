@@ -7,23 +7,25 @@ namespace Calculis.Core.Convert
 {
     internal sealed class ExpressionParser
     {
-        private readonly ICollection<ParsingParameters> _parsingParameters = new List<ParsingParameters>();
+        private readonly ICollection<ParsingParameters> _parsingParameters;
+        private readonly Regex functionExpression;
+        private readonly ItemsManager _manager;
 
-        Regex functionExpression;
-        ItemsManager _manager;
+        private CultureInfo _culture;
 
-        internal ExpressionParser(ItemsManager manager)
+        internal ExpressionParser(ItemsManager manager, CultureInfo culture = null)
         {
-            //var regExPart = @"((((item)|__fnc)\d+)|(\d+(\.\d+)?)|([A-Z]+\(.+\)))";
+            _culture = culture ?? CultureInfo.CurrentCulture;
             _manager = manager;
 
-            var regexExpression = $"[A-Z]+\\(((-)?(((item|__fnc)\\d+)|(\\d+(\\{CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}\\d+)?))\\;*)+\\)";
+            var regexExpression = $@"[A-Z]+\(((-)?(((item|__fnc)\d+)|(\d+(\{_culture.NumberFormat.NumberDecimalSeparator}\d+)?))\;*)+\)";
             functionExpression = new Regex(regexExpression);
 
-            var regExPart = $@"((((item)|__fnc)\d+)|(\d+(\{CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}\d+)?))";
+            var regExPart = $@"((((item)|__fnc)\d+)|(\d+(\{_culture.NumberFormat.NumberDecimalSeparator}\d+)?))";
             var regNegPart = $"((-)?{regExPart})";
 
             //The order of expression is important: it correspondes to priorities of checking operations
+            _parsingParameters = new List<ParsingParameters>();
             _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<>{regNegPart})+", "<>", "NEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<>", ";"),
                 (str) => str.Replace("<>", ";")));
@@ -49,7 +51,6 @@ namespace Calculis.Core.Convert
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("+", ";").Replace("-", ";-").Replace(";;", ";"),
                 (str) => str.Replace("+", ";").Replace("-", ";-").Replace(";;", ";")));
         }
-
 
         internal string ToFunctionView(string expression)
         {

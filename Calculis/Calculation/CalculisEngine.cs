@@ -1,6 +1,7 @@
 ﻿using Calculis.Core.Convert;
 using System.Collections.Generic;
 using Calculis.Core.Auxilliary;
+using System.Globalization;
 
 namespace Calculis.Core.Calculation
 {
@@ -26,9 +27,9 @@ namespace Calculis.Core.Calculation
         ///<param name="Name">Name of the new object</param>
         ///<param name="Expression">Formulary expression that will be used for calculation the value</param>
         ///<returns>CalculatingItem object with the result of calculation in Value field</returns>
-        public CalculatingItem Add(string Name, string Expression)
+        public CalculatingItem Add(string Name, string Expression, CultureInfo Culture = null)
         {
-            return _itemsManager.Create(Name, Expression); ;
+            return _itemsManager.Create(Name, Expression, Culture ?? CultureInfo.CurrentCulture);
         }
 
         ///<summary>

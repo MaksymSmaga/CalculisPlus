@@ -10,18 +10,17 @@ namespace Calculis.Core.Convert
 {
     internal sealed class ItemsManager
     {
+        internal IDictionary<string, string> ExpressionAlias { get; private set; } = new Dictionary<string, string>();
+        internal event EventHandler<UpdateArgs> Updating;
+
         private IDictionary<string, IValueItem> _items;
         private IDictionary<string, string> _itemsNames;
-
         private IDictionary<string, ItemInfo> _aliasFunctions = new Dictionary<string, ItemInfo>();
-        internal IDictionary<string, string> ExpressionAlias { get; private set; } = new Dictionary<string, string>();
-
+        
         private int _count;
         private int _fncCount;
 
-        internal event EventHandler<UpdateArgs> Updating;
-
-
+        private CultureInfo _culture;
         private ExpressionParser _expressionParser;
 
         internal ItemsManager(IEnumerable<IValueItem> items)
@@ -30,17 +29,19 @@ namespace Calculis.Core.Convert
             _items = items.ToDictionary(x => _itemsNames[x.Name]);
         }
 
-        internal CalculatingItem Create(string name, string expression)
+        internal CalculatingItem Create(string name, string expression, CultureInfo culture)
         {
             if(name == null) throw new ArgumentNullException("name");
             if (_itemsNames.ContainsKey(name)) throw new ArgumentException($"The name {name} has already used!");
+
+            _culture = culture;
+            _expressionParser = new ExpressionParser(this, culture);
 
             _itemsNames.Add(name, $"item{++_count}");
 
             foreach (var itemName in _itemsNames.OrderByDescending(x => x.Key.Length))
                 expression = expression.Replace(itemName.Key, itemName.Value);
 
-            _expressionParser = new ExpressionParser(this);
             var expressions = _expressionParser.Parse(expression);
 
             FunctionDescription functionDescription;
@@ -82,7 +83,7 @@ namespace Calculis.Core.Convert
             {
                 var arg = GetArg(argString, _items.ContainsKey, (key) => _items[key]) ??
                           GetArg(argString, _aliasFunctions.ContainsKey, (key) => _aliasFunctions[key].Item) ??
-                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr, NumberStyles.Float, CultureInfo.CurrentCulture.NumberFormat)));
+                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr, NumberStyles.Float, _culture.NumberFormat)));
 
                 args.Add(arg ?? throw new ArgumentOutOfRangeException(argString));
             }
@@ -92,7 +93,7 @@ namespace Calculis.Core.Convert
 
         private bool isDouble(string expression)
         {
-            return double.TryParse(expression, NumberStyles.Float, CultureInfo.CurrentCulture.NumberFormat, out double result);
+            return double.TryParse(expression, NumberStyles.Float, _culture.NumberFormat, out double result);
         }
 
         private IValueItem GetArg(string argString, Func<string, bool> checkingFunction, Func<string, IValueItem> creationFunction)
