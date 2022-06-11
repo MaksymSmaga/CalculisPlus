@@ -51,6 +51,7 @@ The calculated element may contain the following expressions:
 ```csharp
 calculis.Add("Arithmetic_example1", "2 - (i1 + i2) / 5");
 calculis.Add("Arithmetic_example2", "i1*i2/-2");
+calculis.Add("Arithmetic_example2", "i1*2.5", CultureInfo("en-US"));
 ```
 - Logical expressions
 ```csharp
