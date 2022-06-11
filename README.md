@@ -67,9 +67,9 @@ All types of expressions can be combined within a common expression. The order o
 The user can extend the existing library of functions by plugging their own libraries. To create a function, you need to create a new library project.dll and inherit the FunctionBase class and override the function Function. For example, let's create a function that calculates the remainder of the division:
 ```csharp
 [ArgumentsNumber(2)]
-public class RestFunction : FunctionBase
+public class RemFunction : FunctionBase
 {
-    public RestFunction(ICollection<IValueItem> args) : base(args)
+    public RemFunction(ICollection<IValueItem> args) : base(args)
     {
     }
 
@@ -79,7 +79,7 @@ public class RestFunction : FunctionBase
 After that, you need to register the assembly containing the function in the instance of the calculator and you can use it in expressions:
 ```csharp
 calculis.Register("AuxFunctions.dll");
-var rest = calculis.Add("rest", "REST(calc1;3)");
+var rest = calculis.Add("rest", "REM(calc1;3)");
 
-Console.WriteLine($"rest of {calc1.Value} / 3: {rest.Value}"); //'rest of 28 / 3: 1'
+Console.WriteLine($"reminder of {calc1.Value} / 3: {rest.Value}"); //'reminder of 28 / 3: 1'
 ```
