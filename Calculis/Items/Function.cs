@@ -17,16 +17,24 @@ namespace Calculis.Core
 
         public virtual void ValidateArgs()
         {
-            object[] numberAttributes = GetType().GetCustomAttributes(typeof(ArgumentsNumberAttribute), false);
+            object[] numberAttributes = GetType().GetCustomAttributes(typeof(ArgumentsNumberAttribute), true);
             object[] typeAttributes = GetType().GetCustomAttributes(typeof(ArgumentsTypeAttribute), false);
 
             if(numberAttributes.Length > 0)
             {
-                if (_args.Count != (numberAttributes[0] as ArgumentsNumberAttribute).Number)
+                var numberAttribute = numberAttributes[0] as ArgumentsNumberAttribute;
+                if (numberAttribute.Number > 0 && numberAttribute.Number != _args.Count)
+                {
                     throw new ArgumentException("Number of arguments is not correspond to specification!");
+                }
+                else if(_args.Count < numberAttribute.MinNumber || _args.Count > numberAttribute.MaxNumber)
+                {
+                    throw new ArgumentException("Number of arguments is out of range!");
+                }
                 
-                if (typeAttributes.Length > (numberAttributes[0] as ArgumentsNumberAttribute).Number)
-                    throw new ArithmeticException("Number of attributes exeeds the number of arguments!");
+                if (numberAttribute.Number > 0 && typeAttributes.Length > numberAttribute.Number ||
+                    typeAttributes.Length > numberAttribute.MaxNumber)
+                    throw new ArithmeticException("Number of attributes exeeds the specified number of arguments!");
             }
 
             foreach (var attribute in typeAttributes)
@@ -36,7 +44,7 @@ namespace Calculis.Core
 
                 if (attribute is ArgumentsTypeAttribute attr2)
                     if (!Equals(_args[attr2.ArgNumber].GetType(), attr2.Type))
-                            throw new ArgumentException("Arguments does not correspond to specified type!");
+                        throw new ArgumentException("Arguments does not correspond to specified type!");
             }
                 
         }

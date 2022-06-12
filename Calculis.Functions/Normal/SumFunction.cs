@@ -3,6 +3,7 @@ using Calculis.Core;
 
 namespace Calculis.Functions
 {
+    [ArgumentsNumber(MinNumber = 1)]
     internal sealed class SumFunction : NormalFunction
     {
         public SumFunction(IList<IValueItem> args) : base(args)

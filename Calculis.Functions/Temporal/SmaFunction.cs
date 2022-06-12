@@ -5,7 +5,7 @@ using Calculis.Core;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(2)]
-    [ArgumentsType(1, typeof(ConstantItem))]
+    [ArgumentsType(1, typeof(ConstantItem), 1)]
     internal sealed class SmaFunction : TemporalFunction
     {
         public SmaFunction(IList<IValueItem> args) : base(args)

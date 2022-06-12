@@ -26,6 +26,7 @@ namespace Calculis.Core.Calculation
         ///</summary>
         ///<param name="Name">Name of the new object</param>
         ///<param name="Expression">Formulary expression that will be used for calculation the value</param>
+        ///<param name="Culture">Object CultureInfo specifies the culture for Expression</param>
         ///<returns>CalculatingItem object with the result of calculation in Value field</returns>
         public CalculatingItem Add(string Name, string Expression, CultureInfo Culture = null)
         {

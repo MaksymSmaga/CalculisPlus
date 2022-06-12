@@ -4,7 +4,7 @@ using Calculis.Core;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(2)]
-    [ArgumentsType(1, typeof(ConstantItem))]
+    [ArgumentsType(1, typeof(ConstantItem), 0, 1)]
     internal sealed class EmaFunction : TemporalFunction
     {
         public EmaFunction(IList<IValueItem> args) : base(args)
