@@ -1,5 +1,4 @@
 ﻿using Calculis.Tests.Auxilliary;
-using System;
 using System.Reflection;
 using Xunit;
 
@@ -31,6 +30,8 @@ namespace Calculis.Tests
         [InlineData("ATAN(i1;1)")]
         [InlineData("LN(i1;1)")]
         [InlineData("EXP(i1;1)")]
+        [InlineData("IF(i1)")]
+        [InlineData("IF(i1;1;2;3)")]
         public void Number_of_arguments_are_not_correct(string expression)
         {
             var engine = CalculisFactory.Create(new double[] { 0, 1 });

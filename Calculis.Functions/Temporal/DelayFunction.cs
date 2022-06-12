@@ -4,7 +4,7 @@ using Calculis.Core;
 namespace Calculis.Functions
 {
     [ArgumentsNumber(2)]
-    [ArgumentsType(1, typeof(ConstantItem))]
+    [ArgumentsType(1, typeof(ConstantItem), 0)]
     internal sealed class DelayFunction : TemporalFunction
     {
         public DelayFunction(IList<IValueItem> args) : base(args)
