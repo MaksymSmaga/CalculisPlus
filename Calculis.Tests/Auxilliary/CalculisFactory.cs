@@ -22,6 +22,20 @@ namespace Calculis.Tests.Auxilliary
             return new CalculisEngine(_items.Values, timeProvider ?? null);
         }
 
+        internal static CalculisEngine Create(ICollection<string> names, DateTime? initialDT = null)
+        {
+            TestTimeProvider timeProvider = null;
+
+            if (initialDT != null)
+                timeProvider = new TestTimeProvider((DateTime)initialDT);
+
+            var dataItems = new List<DataItem>();
+            foreach (var name in names)
+                dataItems.Add(new DataItem(name));
+
+            return new CalculisEngine(dataItems, timeProvider ?? null);
+        }
+
         private static IEnumerable<IValueItem> CreateItems(double[] values)
         {
             var count = 0;

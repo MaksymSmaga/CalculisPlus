@@ -16,7 +16,7 @@ namespace Calculis.Core.Convert
         private IDictionary<string, IValueItem> _items;
         private IDictionary<string, string> _itemsNames;
         private IDictionary<string, ItemInfo> _aliasFunctions = new Dictionary<string, ItemInfo>();
-        
+
         private int _count;
         private int _fncCount;
 
@@ -31,7 +31,7 @@ namespace Calculis.Core.Convert
 
         internal CalculatingItem Create(string name, string expression, CultureInfo culture)
         {
-            if(name == null) throw new ArgumentNullException("name");
+            if (name == null) throw new ArgumentNullException("name");
             if (_itemsNames.ContainsKey(name)) throw new ArgumentException($"The name {name} has already used!");
 
             _culture = culture;
@@ -51,7 +51,7 @@ namespace Calculis.Core.Convert
                 functionDescription = new FunctionDescription(functionExpression);
                 item = _aliasFunctions[ExpressionAlias[functionExpression]].Item = CreateItem(FunctionManager.Create(functionDescription.Name, ExtractArgs(functionExpression)));
             }
-            
+
             _items.Add(_itemsNames[name], item);
 
             return (CalculatingItem)item;
@@ -103,7 +103,7 @@ namespace Calculis.Core.Convert
             var isDenominator = false;
             var isNegative = false;
 
-            if(argString.Substring(0, 1) == "/")
+            if (argString.Substring(0, 1) == "/")
             {
                 argString = argString.Replace("/", "");
                 isDenominator = true;
@@ -123,7 +123,7 @@ namespace Calculis.Core.Convert
             return newItem;
         }
 
-        public string GetExpression(string alias)
+        internal string GetExpression(string alias)
         {
             return _aliasFunctions[alias].ReplacedExpression;
         }
@@ -135,6 +135,40 @@ namespace Calculis.Core.Convert
             _aliasFunctions.Add(alias, new ItemInfo { Alias = alias, OriginalExpression = original, ReplacedExpression = expression });
 
             return alias;
+        }
+
+        internal ICollection<string> GetHint(string expression, int position)
+        {
+            var hintCollection = new List<string>();
+            
+            var typingStart = position;
+            var typingEnd = expression.Length;
+
+            for (int i = position; i >= 0; i--)
+                if (expression[i] == '(' || expression[i] == ';' ||
+                    expression[i] == ' ' || expression[i] == '+')
+                {
+                    typingStart = i;
+                    break;
+                }
+                    
+
+            for (int i = position; i < expression.Length; i++)
+                if (expression[i] == ')' || expression[i] == ';' ||
+                    expression[i] == ' ' || expression[i] == '+')
+                {
+                    typingEnd = i;
+                    break;
+                }
+                    
+
+            var typingElement = expression.Substring(typingStart + 1, typingEnd - typingStart - 1);
+
+            foreach (var item in _itemsNames)
+                if(item.Key.Contains(typingElement))
+                    hintCollection.Add(item.Key);
+
+            return hintCollection;
         }
     }
 
