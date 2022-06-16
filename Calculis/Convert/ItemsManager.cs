@@ -145,8 +145,7 @@ namespace Calculis.Core.Convert
             var typingEnd = expression.Length;
 
             for (int i = position; i >= 0; i--)
-                if (expression[i] == '(' || expression[i] == ';' ||
-                    expression[i] == ' ' || expression[i] == '+')
+                if ("(;+-/* ".Contains(expression[i]))
                 {
                     typingStart = i;
                     break;
@@ -154,8 +153,7 @@ namespace Calculis.Core.Convert
                     
 
             for (int i = position; i < expression.Length; i++)
-                if (expression[i] == ')' || expression[i] == ';' ||
-                    expression[i] == ' ' || expression[i] == '+')
+                if (");+-/* ".Contains(expression[i]))
                 {
                     typingEnd = i;
                     break;
@@ -169,7 +167,7 @@ namespace Calculis.Core.Convert
                     hintCollection.Add(item.Key);
 
             return hintCollection;
-        }
+        } 
     }
 
     struct FunctionDescription
