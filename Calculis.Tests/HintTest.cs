@@ -18,6 +18,11 @@ namespace Calculis.Tests
         [InlineData("elem,it1,it2,i1", "SUM(it;it2)", 5, new [] { "it1", "it2" })]
         [InlineData("elem,ele,it1,it2,i1", "SUM(el;it2)", 5, new [] { "elem", "ele" })]
         [InlineData("elem,ele,it1,it2,i1", "5+it", null, new [] { "it1", "it2" })]
+        [InlineData("elem,ele,it1,it2,i1", "it", null, new [] { "it1", "it2" })]
+        [InlineData("elem,ele,it1,it2,i1", "SU", null, new [] { "SUM" })]
+        [InlineData("DELTA,ele", "DEL", null, new [] { "DELTA", "DELAY" })]
+        [InlineData("DELTA,ele", "it+ DEL", null, new [] { "DELTA", "DELAY" })]
+        [InlineData("DELTA,ele", "SUM(it; DEL;it2)", 10, new [] { "DELTA", "DELAY" })]
         public void GetHint_test_succeed(string itemsNames, string expression, int? position, string[] result)
         {
             var names = itemsNames.Split(',');

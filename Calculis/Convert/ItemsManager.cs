@@ -141,7 +141,7 @@ namespace Calculis.Core.Convert
         {
             var hintCollection = new List<string>();
             
-            var typingStart = position;
+            var typingStart = -1;
             var typingEnd = expression.Length;
 
             for (int i = position; i >= 0; i--)
@@ -158,13 +158,19 @@ namespace Calculis.Core.Convert
                     typingEnd = i;
                     break;
                 }
-                    
+              
 
             var typingElement = expression.Substring(typingStart + 1, typingEnd - typingStart - 1);
 
-            foreach (var item in _itemsNames)
-                if(item.Key.Contains(typingElement))
-                    hintCollection.Add(item.Key);
+            //elements
+            foreach (var item in _itemsNames.Keys)
+                if(item.Contains(typingElement))
+                    hintCollection.Add(item);
+
+            //functions
+            foreach (var funcName in FunctionManager.Functions.Keys)
+                if (funcName.Contains(typingElement))
+                    hintCollection.Add(funcName);
 
             return hintCollection;
         } 
