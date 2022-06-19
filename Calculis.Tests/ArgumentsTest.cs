@@ -6,7 +6,6 @@ namespace Calculis.Tests
 {
     public class ArgumentsTest
     {
-
         [Theory]
         [InlineData("DELAY(i1)")]
         [InlineData("DELAY(i1;10;20)")]
@@ -30,8 +29,14 @@ namespace Calculis.Tests
         [InlineData("ATAN(i1;1)")]
         [InlineData("LN(i1;1)")]
         [InlineData("EXP(i1;1)")]
+        [InlineData("TRUNC(i1;1)")]
+        [InlineData("ROUND(i1;1;2)")]
         [InlineData("IF(i1)")]
         [InlineData("IF(i1;1;2;3)")]
+        [InlineData("BIT(i1)")]
+        [InlineData("BIT(i1;1;2)")]
+        [InlineData("LOWBYTE(i1;1)")]
+        [InlineData("HIGHBYTE(i1;1)")]
         public void Number_of_arguments_are_not_correct(string expression)
         {
             var engine = CalculisFactory.Create(new double[] { 0, 1 });

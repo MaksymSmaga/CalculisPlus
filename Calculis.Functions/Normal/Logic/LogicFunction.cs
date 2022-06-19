@@ -44,4 +44,38 @@ namespace Calculis.Functions
             };
         }
     }
+    [ArgumentsNumber(2)]
+    internal class BitFunction : NormalFunction
+    {
+        public BitFunction(IList<IValueItem> args) : base(args)
+        {
+            Function = () =>
+            {
+                var serviceValue = (int)Math.Pow(2, args[1].Value);
+                return Convert.ToDouble((((int)args[0].Value) & serviceValue) == serviceValue);
+            };
+        }
+    }
+    [ArgumentsNumber(1)]
+    internal class LowbyteFunction : NormalFunction
+    {
+        public LowbyteFunction(IList<IValueItem> args) : base(args)
+        {
+            Function = () =>
+            {
+                return args[0].Value - Convert.ToDouble(Math.Floor(args[0].Value / 256)) * 256;
+            };
+        }
+    }
+    [ArgumentsNumber(1)]
+    internal class HighbyteFunction : NormalFunction
+    {
+        public HighbyteFunction(IList<IValueItem> args) : base(args)
+        {
+            Function = () =>
+            {
+                return Convert.ToDouble(Math.Floor(args[0].Value / 256));
+            };
+        }
+    }
 }
