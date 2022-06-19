@@ -9,7 +9,7 @@ namespace Calculis.Tests
 {
     public class NormalFunctionsExecutionTest
     {
-        private static double[] _values = new[] { -5.0, 4.0, 3.0, 2.0, 7.0 };
+        private static double[] _values = new[] { -5.0, 4.0, 3.0, 2.0, 7.45 };
         private static IDictionary<string, Func<double[], double>> _functions = new Dictionary<string, Func<double[], double>>();
         private static string argNumberString = 0.95.ToString(CultureInfo.CurrentCulture.NumberFormat);
 
@@ -21,6 +21,9 @@ namespace Calculis.Tests
             _functions.Add("DIV(i1;i2)", (double[] args) => args[0] / args[1]);
             _functions.Add("POW(i1;i2)", (double[] args) => Math.Pow(args[0], args[1]));
             _functions.Add("SQRT(i2)", (double[] args) => Math.Sqrt(args[1]));
+            _functions.Add("TRUNC(i5)", (double[] args) => Math.Truncate(args[4]));
+            _functions.Add("ROUND(i5)", (double[] args) => Math.Round(args[4]));
+            _functions.Add("ROUND(i5;1)", (double[] args) => Math.Round(args[4],1));
             _functions.Add("AVG(i1;i2;i3;i4;i5)", (double[] args) => args.Average());
             _functions.Add("ABS(i1)", (double[] args) => Math.Abs(args[0]));
             _functions.Add("MAX(i1;i2;i3;i4;i5)", (double[] args) => args.Max());
@@ -32,6 +35,13 @@ namespace Calculis.Tests
             _functions.Add("OR(i1;0;0)", (double[] args) => 1);
             _functions.Add("XOR(i1;0;0)", (double[] args) => 1);
             _functions.Add("XOR(i1;0;1)", (double[] args) => 0);
+            _functions.Add("LOWBYTE(i2)", (double[] args) => 4);
+            _functions.Add("HIGHBYTE(i2)", (double[] args) => 0);
+            _functions.Add("BIT(i2;0)", (double[] args) => 0);
+            _functions.Add("BIT(i2;1)", (double[] args) => 0);
+            _functions.Add("BIT(i2;2)", (double[] args) => 1);
+            _functions.Add("BIT(i2;3)", (double[] args) => 0);
+            _functions.Add("BIT(i2;4)", (double[] args) => 0);
             _functions.Add("PI(1)", (double[] args) => Math.PI);
             _functions.Add("SIN(i1)", (double[] args) => Math.Sin(args[0]));
             _functions.Add("SINH(i1)", (double[] args) => Math.Sinh(args[0]));
