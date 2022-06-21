@@ -1,8 +1,8 @@
-﻿using Calculis.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Calculis.Functions
+namespace Calculis.Core
 {
     public class CashItem : IValue
     {
@@ -35,6 +35,26 @@ namespace Calculis.Functions
                 _cash[i] = new CashItem();
         }
 
+        public void Initialize(IEnumerable<IValue> values)
+        {
+            var valuesList = values.ToList();
+            if (valuesList.Count != _cash.Length)
+                throw new ArgumentException("Number of values don't correspond to cash size!");
+
+            bool hasTimestamp = false;
+            if (valuesList[0] is CashItem)
+                hasTimestamp = true;
+
+            for(int i = 0; i < valuesList.Count; i++)
+            {
+                _cash[i].Value = valuesList[i].Value;
+
+                if(hasTimestamp)
+                    _cash[i].Timestamp = ((CashItem)valuesList[i]).Timestamp;
+            }
+        }
+
+        //_cash[0] - is the oldest value
         public override void Update(DateTime dateTime)
         {
             for (int i = 1; i < _cash.Length; i++)
