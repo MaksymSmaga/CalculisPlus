@@ -87,7 +87,7 @@ namespace Calculis.Tests
                 _items["bobby"].Value = i + 1;
                 engine.Iterate();
 
-                if((i + 1) % parameter1 == 0)
+                if((i + 0) % parameter1 == 0)
                     expected = i - parameter1 * (parameter2 - 1);
                 
                 if(expected < 0) expected = 0;
