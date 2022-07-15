@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculis.Core", "Calculis\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculis.Functions", "Calculis.Functions\Calculis.Functions.csproj", "{C88BCC81-179E-4B5D-8676-585431D75FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculis.Tests", "Calculis.Tests\Calculis.Tests.csproj", "{E822550D-9FBD-48F6-A2C0-22154C452550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculis.Tests", "Calculis.Tests\Calculis.Tests.csproj", "{E822550D-9FBD-48F6-A2C0-22154C452550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculis.Console", "Calculis.Console\Calculis.Console.csproj", "{E57769B0-C33B-4E3E-A2B6-2ECDDFD31655}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E822550D-9FBD-48F6-A2C0-22154C452550}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E822550D-9FBD-48F6-A2C0-22154C452550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E822550D-9FBD-48F6-A2C0-22154C452550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E57769B0-C33B-4E3E-A2B6-2ECDDFD31655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57769B0-C33B-4E3E-A2B6-2ECDDFD31655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57769B0-C33B-4E3E-A2B6-2ECDDFD31655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57769B0-C33B-4E3E-A2B6-2ECDDFD31655}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
