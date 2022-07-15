@@ -1,5 +1,5 @@
 ﻿using Calculis.Core;
-using Calculis.Core.Items;
+using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
 

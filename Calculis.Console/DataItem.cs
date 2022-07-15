@@ -1,4 +1,4 @@
-﻿using Calculis.Core;
+﻿using Calculis.Core.Entities.Items.Abstractions;
 
 namespace Calculis.Console
 {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Calculis.Core.Auxilliary;
 using System.Globalization;
 using System;
+using Calculis.Core.Entities.Items.Abstractions;
+using Calculis.Core.Entities.Items.Implementations;
 
 namespace Calculis.Core.Calculation
 {

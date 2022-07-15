@@ -1,5 +1,5 @@
-﻿using Calculis.Core;
-using Calculis.Core.Calculation;
+﻿using Calculis.Core.Calculation;
+using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Test.Auxilliary;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace Calculis.Tests.Auxilliary
         internal static CalculisEngine Create(double[] values, DateTime? initialDT = null)
         {
             var _items = CreateItems(values).ToDictionary(x => x.Name);
-            TestTimeProvider timeProvider = null;
+            TestTimeProvider? timeProvider = null;
 
             if (initialDT != null)
                 timeProvider = new TestTimeProvider((DateTime)initialDT);

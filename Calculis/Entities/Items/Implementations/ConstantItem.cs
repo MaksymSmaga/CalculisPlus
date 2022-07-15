@@ -1,4 +1,6 @@
-﻿namespace Calculis.Core
+﻿using Calculis.Core.Entities.Items.Abstractions;
+
+namespace Calculis.Core.Entities.Items.Implementations
 {
     public sealed class ConstantItem : IValueItem
     {

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Calculis.Core;
+using Calculis.Core.Entities.Items.Abstractions;
+using Calculis.Core.Entities.Items.Implementations;
 
 namespace Calculis.Functions
 {

@@ -1,5 +1,5 @@
-﻿using Calculis.Core;
-using Calculis.Core.Convert;
+﻿using Calculis.Core.Convert;
+using Calculis.Core.Entities.Items.Abstractions;
 using System.Collections.Generic;
 using Xunit;
 

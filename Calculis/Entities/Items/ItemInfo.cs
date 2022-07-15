@@ -1,4 +1,6 @@
-﻿namespace Calculis.Core.Convert
+﻿using Calculis.Core.Entities.Items.Abstractions;
+
+namespace Calculis.Core.Entities.Items
 {
     class ItemInfo
     {

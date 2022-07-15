@@ -1,4 +1,4 @@
-﻿namespace Calculis.Core.Items
+﻿namespace Calculis.Core.Entities.Functions
 {
     public class FunctionInfo
     {

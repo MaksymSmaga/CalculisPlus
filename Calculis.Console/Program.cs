@@ -1,5 +1,5 @@
-﻿using Calculis.Core;
-using Calculis.Core.Calculation;
+﻿using Calculis.Core.Calculation;
+using Calculis.Core.Entities.Items.Abstractions;
 
 namespace Calculis.Console
 {

@@ -1,5 +1,9 @@
 ﻿using Calculis.Core.Auxilliary;
 using Calculis.Core.Calculation;
+using Calculis.Core.Entities.Functions.Abstractions;
+using Calculis.Core.Entities.Items;
+using Calculis.Core.Entities.Items.Abstractions;
+using Calculis.Core.Entities.Items.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

@@ -1,4 +1,4 @@
-﻿namespace Calculis.Core
+﻿namespace Calculis.Core.Entities.Items.Abstractions
 {
     public interface IValue
     {

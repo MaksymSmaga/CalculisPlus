@@ -1,8 +1,10 @@
 ﻿using Calculis.Core.Auxilliary;
+using Calculis.Core.Entities.Functions.Abstractions;
+using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
 
-namespace Calculis.Core
+namespace Calculis.Core.Entities.Items.Implementations
 {
     public sealed class CalculatingItem : IValueItem
     {
