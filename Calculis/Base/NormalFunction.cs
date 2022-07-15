@@ -1,8 +1,7 @@
-﻿using Calculis.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 
-namespace Calculis.Functions
+namespace Calculis.Core
 {
 
     public abstract class NormalFunction : FunctionBase

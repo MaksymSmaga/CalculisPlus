@@ -8,8 +8,8 @@ namespace Calculis.Tests
 {
     public class TemporalFunctionsExecutionTest
     {
-        private static double[] _values = new[] { -5.0 };
-        private static IDictionary<string, Func<int, double>> _functions = new Dictionary<string, Func<int, double>>();
+        private static readonly double[] _values = { -5.0 };
+        private static readonly IDictionary<string, Func<int, double>> _functions = new Dictionary<string, Func<int, double>>();
         private static double _ema_prev = 0;
         private static double sum = 0;
 
@@ -23,24 +23,24 @@ namespace Calculis.Tests
             _functions.Add("STDEV(i1;30)", (int n) => {
                 var sum = 0.0;
                 var pow = 0.0;
-                for (int i = 0; i < 30; i++)
+                for (var i = 0; i < 30; i++)
                     sum += HistoryManager.Value(n, i + 1);
                 sum = sum / 30;
-                for (int i = 0; i < 30; i++)
+                for (var i = 0; i < 30; i++)
                     pow += Math.Pow(sum - HistoryManager.Value(n, i + 1), 2);
 
                 return Math.Sqrt(pow / 30);
                 });
             _functions.Add("SMA(i1;30)", (int n) => {
                 var sum = 0.0;
-                for (int i = 0; i < 30; i++)
+                for (var i = 0; i < 30; i++)
                     sum += HistoryManager.Value(n, i + 1);
 
                 return sum / 30;
             });
             _functions.Add("WMA(i1;30)", (int n) => {
                 var sum = 0.0;
-                for (int i = 0; i < 30; i++)
+                for (var i = 0; i < 30; i++)
                     sum += (30 - i) * HistoryManager.Value(n, i + 1);
 
                 return 2.0 * sum / (30 * (30 + 1));
@@ -68,7 +68,7 @@ namespace Calculis.Tests
             var i1 = engine.GetItem("i1");
 
             var item = engine.Add("result", expression);
-            for (int i = 0; i < HistoryManager.HistorySize; i++)
+            for (var i = 0; i < HistoryManager.HistorySize; i++)
             {
                 i1.Value = HistoryManager.Value(i);
                 var r = result(i);
@@ -82,19 +82,19 @@ namespace Calculis.Tests
 
     static class HistoryManager
     {
-        internal static int HistorySize { get; private set; } = 1000;
-        private readonly static double[] _history = new double[HistorySize];
+        internal static int HistorySize { get; } = 1000;
+        private static readonly double[] _history = new double[HistorySize];
 
         static HistoryManager()
         {
-            for (int i = 0; i < HistorySize; i++)
+            for (var i = 0; i < HistorySize; i++)
                 _history[i] = i * 10000;
         }
 
         public static double Value(int n = 0, int delay = 0)
         {
-            return (n - delay) < 0 ? 0 : 
-                   (n - delay) >= HistorySize ? 0 :
+            return n - delay < 0 ? 0 : 
+                   n - delay >= HistorySize ? 0 :
                    _history[n - delay];
         }
     }

@@ -35,6 +35,27 @@ namespace Calculis.Core.Calculation
         }
 
         ///<summary>
+        ///Initializes cash of item based on temporal function
+        ///</summary>
+        ///<param name="Name">Name of the initialized object</param>
+        ///<param name="CashValues">Content for initialization of cash</param>
+        ///<exception>InvalidOperationException</exception>
+        ///<exception>ArgumentException</exception>
+        public void Initialize(string Name, IEnumerable<IValue> CashValues)
+        {
+            var item = _itemsManager.GetItem(Name);
+
+            var calc = item as CalculatingItem;
+
+            if (calc?.IsTemporal != true)
+            {
+                throw new InvalidOperationException("Non temporal function cannot be initialized!");
+            }
+
+            calc.Initialize(CashValues);
+        }
+
+        ///<summary>
         ///Returns IValueItem contained in Calculis instance
         ///</summary>
         ///<param name="Name">Name of the object</param>
