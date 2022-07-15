@@ -82,5 +82,21 @@ namespace Calculis.Core.Calculation
             _timeProvider?.Update();
             _itemsManager.Update(_timeProvider.Now);
         }
+
+        ///<summary>
+        ///Returns hint about allowed arguments depending on Expression context 
+        ///</summary>
+        ///<param name="Expression">Typed string of symbols for futher elemnts' expression</param>
+        ///<param name="Position">Cursor position in Expression</param>
+        public ICollection<string> GetHint(string Expression, int? Position = null)
+        {
+            if (Expression == null)
+            {
+                throw new ArgumentNullException(Expression);
+            }
+
+            var position = Position ?? Expression.Length - 1;
+            return _itemsManager.GetHint(Expression, position);
+        }
     }
 }

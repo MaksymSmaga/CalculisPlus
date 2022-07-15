@@ -16,7 +16,7 @@ namespace Calculis.Core.Convert
         private IDictionary<string, IValueItem> _items;
         private IDictionary<string, string> _itemsNames;
         private IDictionary<string, ItemInfo> _aliasFunctions = new Dictionary<string, ItemInfo>();
-        
+
         private int _count;
         private int _fncCount;
 
@@ -31,7 +31,7 @@ namespace Calculis.Core.Convert
 
         internal CalculatingItem Create(string name, string expression, CultureInfo culture)
         {
-            if(name == null) throw new ArgumentNullException("name");
+            if (name == null) throw new ArgumentNullException("name");
             if (_itemsNames.ContainsKey(name)) throw new ArgumentException($"The name {name} has already used!");
 
             _culture = culture;
@@ -51,7 +51,7 @@ namespace Calculis.Core.Convert
                 functionDescription = new FunctionDescription(functionExpression);
                 item = _aliasFunctions[ExpressionAlias[functionExpression]].Item = CreateItem(FunctionManager.Create(functionDescription.Name, ExtractArgs(functionExpression)));
             }
-            
+
             _items.Add(_itemsNames[name], item);
 
             return (CalculatingItem)item;
@@ -103,7 +103,7 @@ namespace Calculis.Core.Convert
             var isDenominator = false;
             var isNegative = false;
 
-            if(argString.Substring(0, 1) == "/")
+            if (argString.Substring(0, 1) == "/")
             {
                 argString = argString.Replace("/", "");
                 isDenominator = true;
@@ -123,7 +123,7 @@ namespace Calculis.Core.Convert
             return newItem;
         }
 
-        public string GetExpression(string alias)
+        internal string GetExpression(string alias)
         {
             return _aliasFunctions[alias].ReplacedExpression;
         }
@@ -136,6 +136,44 @@ namespace Calculis.Core.Convert
 
             return alias;
         }
+
+        internal ICollection<string> GetHint(string expression, int position)
+        {
+            var hintCollection = new List<string>();
+            
+            var typingStart = -1;
+            var typingEnd = expression.Length;
+
+            for (int i = position; i >= 0; i--)
+                if ("(;+-/* ".Contains(expression[i]))
+                {
+                    typingStart = i;
+                    break;
+                }
+                    
+
+            for (int i = position; i < expression.Length; i++)
+                if (");+-/* ".Contains(expression[i]))
+                {
+                    typingEnd = i;
+                    break;
+                }
+              
+
+            var typingElement = expression.Substring(typingStart + 1, typingEnd - typingStart - 1);
+
+            //elements
+            foreach (var item in _itemsNames.Keys)
+                if(item.Contains(typingElement))
+                    hintCollection.Add(item);
+
+            //functions
+            foreach (var funcName in FunctionManager.Functions.Keys)
+                if (funcName.Contains(typingElement))
+                    hintCollection.Add(funcName);
+
+            return hintCollection;
+        } 
     }
 
     struct FunctionDescription

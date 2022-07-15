@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Calculis.Core.Items;
+using System;
 using System.Collections.Generic;
 
 namespace Calculis.Core
 {
     public abstract class FunctionBase
     {
+        //public abstract FunctionInfo Info { get; protected set; }
+
         protected IList<IValueItem> _args;
 
         public FunctionBase(IList<IValueItem> args)
