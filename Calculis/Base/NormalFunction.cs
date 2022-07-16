@@ -8,6 +8,6 @@ namespace Calculis.Core
 
     public abstract class NormalFunction : FunctionBase
     {
-        public NormalFunction(IList<IValueItem> args) : base(args) { }
+        public NormalFunction(IList<IItem> args) : base(args) { }
     }
 }

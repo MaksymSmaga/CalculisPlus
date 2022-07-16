@@ -19,7 +19,7 @@ namespace Calculis.Core
         protected DateTimeOffset Timestamp { get; private set; }
         protected double _previousValue { get; private set; }
 
-        public TemporalFunction(IList<IValueItem> args) : base(args)
+        public TemporalFunction(IList<IItem> args) : base(args)
         {
             Initialize();
         }

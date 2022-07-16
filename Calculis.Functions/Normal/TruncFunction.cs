@@ -8,7 +8,7 @@ namespace Calculis.Functions.Normal
     [ArgumentsNumber(1)]
     internal sealed class TruncFunction : NormalFunction
     {
-        public TruncFunction(IList<IValueItem> args) : base(args)
+        public TruncFunction(IList<IItem> args) : base(args)
         {
             Function = () => Math.Truncate(args[0].Value);
         }

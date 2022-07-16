@@ -7,7 +7,7 @@ namespace Calculis.Functions
 {
     internal abstract class LogicFunction : NormalFunction
     {
-        public LogicFunction(IList<IValueItem> args, Func<bool, double, bool> compare) : base(args)
+        public LogicFunction(IList<IItem> args, Func<bool, double, bool> compare) : base(args)
         {
             Function = () =>
             {
@@ -23,21 +23,21 @@ namespace Calculis.Functions
 
     internal sealed class AndFunction : LogicFunction
     {
-        public AndFunction(IList<IValueItem> args) : base(args, (bool res, double y) => res & Convert.ToBoolean(y)) { }
+        public AndFunction(IList<IItem> args) : base(args, (bool res, double y) => res & Convert.ToBoolean(y)) { }
     }
     internal sealed class OrFunction : LogicFunction
     {
-        public OrFunction(IList<IValueItem> args) : base(args, (bool res, double y) => res | Convert.ToBoolean(y)) { }
+        public OrFunction(IList<IItem> args) : base(args, (bool res, double y) => res | Convert.ToBoolean(y)) { }
     }
     internal sealed class XorFunction : LogicFunction
     {
-        public XorFunction(IList<IValueItem> args) : base(args, (bool res, double y) => res ^ Convert.ToBoolean(y)) { }
+        public XorFunction(IList<IItem> args) : base(args, (bool res, double y) => res ^ Convert.ToBoolean(y)) { }
     }
 
     [ArgumentsNumber(1)]
     internal class NotFunction : NormalFunction
     {
-        public NotFunction(IList<IValueItem> args) : base(args)
+        public NotFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {
@@ -48,7 +48,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(2)]
     internal class BitFunction : NormalFunction
     {
-        public BitFunction(IList<IValueItem> args) : base(args)
+        public BitFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {
@@ -60,7 +60,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(1)]
     internal class LowbyteFunction : NormalFunction
     {
-        public LowbyteFunction(IList<IValueItem> args) : base(args)
+        public LowbyteFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {
@@ -71,7 +71,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(1)]
     internal class HighbyteFunction : NormalFunction
     {
-        public HighbyteFunction(IList<IValueItem> args) : base(args)
+        public HighbyteFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

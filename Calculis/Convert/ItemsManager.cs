@@ -17,7 +17,7 @@ namespace Calculis.Core.Convert
         internal IDictionary<string, string> ExpressionAlias { get; private set; } = new Dictionary<string, string>();
         internal event EventHandler<UpdateArgs> Updating;
 
-        private IDictionary<string, IValueItem> _items;
+        private IDictionary<string, IItem> _items;
         private IDictionary<string, string> _itemsNames;
         private IDictionary<string, ItemInfo> _aliasFunctions = new Dictionary<string, ItemInfo>();
 
@@ -27,13 +27,13 @@ namespace Calculis.Core.Convert
         private CultureInfo _culture;
         private ExpressionParser _expressionParser;
 
-        internal ItemsManager(IEnumerable<IValueItem> items)
+        internal ItemsManager(IEnumerable<IItem> items)
         {
             _itemsNames = items.ToDictionary(x => x.Name, x => $"item{++_count}");
             _items = items.ToDictionary(x => _itemsNames[x.Name]);
         }
 
-        internal CalculatingItem Create(string name, string expression, CultureInfo culture)
+        internal CalcItem Create(string name, string expression, CultureInfo culture)
         {
             if (name == null) throw new ArgumentNullException("name");
             if (_itemsNames.ContainsKey(name)) throw new ArgumentException($"The name {name} has already used!");
@@ -49,7 +49,7 @@ namespace Calculis.Core.Convert
             var expressions = _expressionParser.Parse(expression);
 
             FunctionDescription functionDescription;
-            IValueItem item = null;
+            IItem item = null;
             foreach (var functionExpression in expressions)
             {
                 functionDescription = new FunctionDescription(functionExpression);
@@ -58,10 +58,10 @@ namespace Calculis.Core.Convert
 
             _items.Add(_itemsNames[name], item);
 
-            return (CalculatingItem)item;
+            return (CalcItem)item;
         }
 
-        internal IValueItem GetItem(string name)
+        internal IItem GetItem(string name)
         {
             return _items.TryGetValue(_itemsNames[name], out var item) ? item : throw new NullReferenceException($"Item {name} does not exist!");
         }
@@ -71,18 +71,18 @@ namespace Calculis.Core.Convert
             Updating?.Invoke(this, new UpdateArgs { Timestamp = timestamp });
         }
 
-        private CalculatingItem CreateItem(FunctionBase function)
+        private CalcItem CreateItem(FunctionBase function)
         {
-            var item = new CalculatingItem(function);
+            var item = new CalcItem(function);
             Updating += item.Update;
 
             return item;
         }
 
-        private IList<IValueItem> ExtractArgs(string expression)
+        private IList<IItem> ExtractArgs(string expression)
         {
             var functionDescription = new FunctionDescription(expression);
-            var args = new List<IValueItem>();
+            var args = new List<IItem>();
             foreach (var argString in functionDescription.Args)
             {
                 var arg = GetArg(argString, _items.ContainsKey, (key) => _items[key]) ??
@@ -100,9 +100,9 @@ namespace Calculis.Core.Convert
             return double.TryParse(expression, NumberStyles.Float, _culture.NumberFormat, out double result);
         }
 
-        private IValueItem GetArg(string argString, Func<string, bool> checkingFunction, Func<string, IValueItem> creationFunction)
+        private IItem GetArg(string argString, Func<string, bool> checkingFunction, Func<string, IItem> creationFunction)
         {
-            IValueItem newItem = null;
+            IItem newItem = null;
 
             var isDenominator = false;
             var isNegative = false;
@@ -120,8 +120,8 @@ namespace Calculis.Core.Convert
             if (checkingFunction(argString))
             {
                 newItem = creationFunction(argString);
-                if (isNegative) newItem = new CalculatingItem(FunctionManager.Create("MUL", new List<IValueItem> { new ConstantItem(-1), newItem }));
-                if (isDenominator) newItem = new CalculatingItem(FunctionManager.Create("DIV", new List<IValueItem> { new ConstantItem(1), newItem }));
+                if (isNegative) newItem = new CalcItem(FunctionManager.Create("MUL", new List<IItem> { new ConstantItem(-1), newItem }));
+                if (isDenominator) newItem = new CalcItem(FunctionManager.Create("DIV", new List<IItem> { new ConstantItem(1), newItem }));
             }
 
             return newItem;

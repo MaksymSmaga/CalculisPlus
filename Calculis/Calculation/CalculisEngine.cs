@@ -16,22 +16,22 @@ namespace Calculis.Core.Calculation
         ///<summary>
         ///Initializes a new instance of calculation engine that carry out real-time calculations based on items values
         ///</summary>
-        ///<param name="Items">Collection of value contained objects inherited of IValueItem</param>
+        ///<param name="Items">Collection of value contained objects inherited of IItem</param>
         ///<param name="TimeProvider">Provider of time for control of iteration in temporal functions;\nBy default is used standard provider based on System.DateTime</param>
-        public CalculisEngine(IEnumerable<IValueItem> Items, TimeProvider TimeProvider = null)
+        public CalculisEngine(IEnumerable<IItem> Items, TimeProvider TimeProvider = null)
         {
             _timeProvider = TimeProvider ?? new DefaultTimeProvider();
             _itemsManager = new ItemsManager(Items);
         }
 
         ///<summary>
-        ///Adds new IValueItem object with formulary expression
+        ///Adds new IItem object with formulary expression
         ///</summary>
         ///<param name="Name">Name of the new object</param>
         ///<param name="Expression">Formulary expression that will be used for calculation the value</param>
         ///<param name="Culture">Object CultureInfo specifies the culture for Expression</param>
-        ///<returns>CalculatingItem object with the result of calculation in Value field</returns>
-        public CalculatingItem Add(string Name, string Expression, CultureInfo Culture = null)
+        ///<returns>CalcItem object with the result of calculation in Value field</returns>
+        public CalcItem Add(string Name, string Expression, CultureInfo Culture = null)
         {
             return _itemsManager.Create(Name, Expression, Culture ?? CultureInfo.CurrentCulture);
         }
@@ -47,7 +47,7 @@ namespace Calculis.Core.Calculation
         {
             var item = _itemsManager.GetItem(Name);
 
-            var calc = item as CalculatingItem;
+            var calc = item as CalcItem;
 
             if (calc?.IsTemporal != true)
             {
@@ -58,11 +58,11 @@ namespace Calculis.Core.Calculation
         }
 
         ///<summary>
-        ///Returns IValueItem contained in Calculis instance
+        ///Returns IItem contained in Calculis instance
         ///</summary>
         ///<param name="Name">Name of the object</param>
-        ///<returns>The object implemented IValueItem</returns>
-        public IValueItem GetItem(string Name)
+        ///<returns>The object implemented IItem</returns>
+        public IItem GetItem(string Name)
         {
             return _itemsManager.GetItem(Name); ;
         }

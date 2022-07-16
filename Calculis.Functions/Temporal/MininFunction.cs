@@ -10,7 +10,7 @@ namespace Calculis.Functions
     [ArgumentsType(1, typeof(ConstantItem), 1)]
     internal sealed class MininFunction : TemporalFunction
     {
-        public MininFunction(IList<IValueItem> args) : base(args)
+        public MininFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

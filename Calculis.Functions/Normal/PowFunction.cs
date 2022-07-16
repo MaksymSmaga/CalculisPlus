@@ -8,7 +8,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(2)]
     internal sealed class PowFunction : NormalFunction
     {
-        public PowFunction(IList<IValueItem> args) : base(args)
+        public PowFunction(IList<IItem> args) : base(args)
         {
             Function = () => Math.Pow(args[0].Value, args[1].Value);
         }

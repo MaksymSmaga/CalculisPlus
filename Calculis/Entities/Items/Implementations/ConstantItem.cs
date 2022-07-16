@@ -2,7 +2,7 @@
 
 namespace Calculis.Core.Entities.Items.Implementations
 {
-    public sealed class ConstantItem : IValueItem
+    public sealed class ConstantItem : IItem
     {
         public double Value { get; set; }
 

@@ -7,7 +7,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(1)]
     internal sealed class PeFunction : TemporalFunction
     {
-        public PeFunction(IList<IValueItem> args) : base(args)
+        public PeFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

@@ -7,7 +7,7 @@ namespace Calculis.Functions
 {
     internal abstract class CompareFunction : NormalFunction
     {
-        public CompareFunction(IList<IValueItem> args, Func<double, double, bool> compare) : base(args)
+        public CompareFunction(IList<IItem> args, Func<double, double, bool> compare) : base(args)
         {
             Function = () =>
             {
@@ -23,31 +23,31 @@ namespace Calculis.Functions
 
     internal sealed class MoreFunction : CompareFunction
     {
-        public MoreFunction(IList<IValueItem> args) : base(args, (double x, double y) => x > y) { }
+        public MoreFunction(IList<IItem> args) : base(args, (double x, double y) => x > y) { }
     }
 
     internal sealed class MoreeqFunction : CompareFunction
     {
-        public MoreeqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x >= y) { }
+        public MoreeqFunction(IList<IItem> args) : base(args, (double x, double y) => x >= y) { }
     }
 
     internal sealed class LessFunction : CompareFunction
     {
-        public LessFunction(IList<IValueItem> args) : base(args, (double x, double y) => x < y) { }
+        public LessFunction(IList<IItem> args) : base(args, (double x, double y) => x < y) { }
     }
 
     internal sealed class LesseqFunction : CompareFunction
     {
-        public LesseqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x <= y) { }
+        public LesseqFunction(IList<IItem> args) : base(args, (double x, double y) => x <= y) { }
     }
 
     internal sealed class EqFunction : CompareFunction
     {
-        public EqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x == y) { }
+        public EqFunction(IList<IItem> args) : base(args, (double x, double y) => x == y) { }
     }
 
     internal sealed class NeqFunction : CompareFunction
     {
-        public NeqFunction(IList<IValueItem> args) : base(args, (double x, double y) => x != y) { }
+        public NeqFunction(IList<IItem> args) : base(args, (double x, double y) => x != y) { }
     }
 }

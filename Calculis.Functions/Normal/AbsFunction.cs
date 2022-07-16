@@ -10,7 +10,7 @@ namespace Calculis.Functions
     {
         //public override FunctionInfo Info { get; protected set; }
 
-        public AbsFunction(IList<IValueItem> args) : base(args)
+        public AbsFunction(IList<IItem> args) : base(args)
         {
             Function = () => Math.Abs(args[0].Value);
         }

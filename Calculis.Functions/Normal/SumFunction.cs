@@ -7,7 +7,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(MinNumber = 1)]
     internal sealed class SumFunction : NormalFunction
     {
-        public SumFunction(IList<IValueItem> args) : base(args)
+        public SumFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

@@ -6,7 +6,7 @@ namespace Calculis.Functions
 {
     internal sealed class MulFunction : NormalFunction
     {
-        public MulFunction(IList<IValueItem> args) : base(args)
+        public MulFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

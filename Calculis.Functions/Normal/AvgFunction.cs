@@ -6,7 +6,7 @@ namespace Calculis.Functions
 {
     internal sealed class AvgFunction : NormalFunction
     {
-        public AvgFunction(IList<IValueItem> args) : base(args)
+        public AvgFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

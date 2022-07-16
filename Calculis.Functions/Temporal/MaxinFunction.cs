@@ -10,7 +10,7 @@ namespace Calculis.Functions
     [ArgumentsType(1, typeof(ConstantItem), 1)]
     internal sealed class MaxinFunction : TemporalFunction
     {
-        public MaxinFunction(IList<IValueItem> args) : base(args)
+        public MaxinFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

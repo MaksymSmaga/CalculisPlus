@@ -7,7 +7,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(1)]
     internal sealed class IntegrFunction : TemporalFunction
     {
-        public IntegrFunction(IList<IValueItem> args) : base(args)
+        public IntegrFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

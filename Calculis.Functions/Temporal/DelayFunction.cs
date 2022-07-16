@@ -9,7 +9,7 @@ namespace Calculis.Functions
     [ArgumentsType(1, typeof(ConstantItem), 0)]
     internal sealed class DelayFunction : TemporalFunction
     {
-        public DelayFunction(IList<IValueItem> args) : base(args)
+        public DelayFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

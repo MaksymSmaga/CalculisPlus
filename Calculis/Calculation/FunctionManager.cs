@@ -38,7 +38,7 @@ namespace Calculis.Core.Calculation
                     Functions.Add(type.Name.Replace("Function", "").ToUpper(), type);
         }
 
-        internal static FunctionBase Create(string name, IList<IValueItem> args)
+        internal static FunctionBase Create(string name, IList<IItem> args)
         {
             /*var functionName = name.Substring(0, 1).ToUpper() + name.Substring(1).ToLower();
 

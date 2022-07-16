@@ -11,7 +11,7 @@ namespace Calculis.Tests
 {
     public class FunctionsTest
     {
-        private IDictionary<string, IValueItem> _items { get; set; }
+        private IDictionary<string, IItem> _items { get; set; }
 
         [Theory]
         [InlineData(1.0, 4.0)]
@@ -98,9 +98,9 @@ namespace Calculis.Tests
             }
         }
 
-        private IEnumerable<IValueItem> CreateItems()
+        private IEnumerable<IItem> CreateItems()
         {
-            return new List<IValueItem>() { new DataItem("bobby"), new DataItem("Billy") };
+            return new List<IItem>() { new DataItem("bobby"), new DataItem("Billy") };
         }
 
         private CalculisEngine Create(DateTime? initialDT = null)

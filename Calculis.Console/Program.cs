@@ -8,7 +8,7 @@ namespace Calculis.Console
     {
         static void Main()
         {
-            var items = new List<IValueItem>();
+            var items = new List<IItem>();
 
             items.Add(new DataItem("i1", 3));
             items.Add(new DataItem("i2", 2));

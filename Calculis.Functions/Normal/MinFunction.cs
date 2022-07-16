@@ -7,7 +7,7 @@ namespace Calculis.Functions
 {
     internal sealed class MinFunction : NormalFunction
     {
-        public MinFunction(IList<IValueItem> args) : base(args)
+        public MinFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

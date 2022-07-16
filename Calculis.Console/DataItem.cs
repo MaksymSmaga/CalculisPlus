@@ -2,7 +2,7 @@
 
 namespace Calculis.Console
 {
-    class DataItem : IValueItem
+    class DataItem : IItem
     {
         public string Name { get; set; }
         public double Value { get; set; }

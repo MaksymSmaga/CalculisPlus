@@ -9,7 +9,7 @@ namespace Calculis.Functions
     [ArgumentsType(1, typeof(ConstantItem), 1)]
     internal sealed class WmaFunction : TemporalFunction
     {
-        public WmaFunction(IList<IValueItem> args) : base(args)
+        public WmaFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

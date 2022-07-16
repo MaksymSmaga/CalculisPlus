@@ -7,7 +7,7 @@ namespace Calculis.Functions
 {
     internal sealed class MaxFunction : NormalFunction
     {
-        public MaxFunction(IList<IValueItem> args) : base(args)
+        public MaxFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

@@ -9,7 +9,7 @@
       <Files>
         <File uid="1" fullPath="C:\Users\egors\source\repos\Calculis\Calculis\Attributes\ArgumentsNumberAttribute.cs" />
         <File uid="2" fullPath="C:\Users\egors\source\repos\Calculis\Calculis\Attributes\ArgumentsTypeAttribute.cs" />
-        <File uid="3" fullPath="C:\Users\egors\source\repos\Calculis\Calculis\Items\CalculatingItem.cs" />
+        <File uid="3" fullPath="C:\Users\egors\source\repos\Calculis\Calculis\Items\CalcItem.cs" />
         <File uid="4" fullPath="C:\Users\egors\source\repos\Calculis\Calculis\Items\ConstantItem.cs" />
         <File uid="5" fullPath="C:\Users\egors\source\repos\Calculis\Calculis\Items\Function.cs" />
         <File uid="6" fullPath="C:\Users\egors\source\repos\Calculis\Calculis\Convert\ExpressionParser.cs" />
@@ -98,12 +98,12 @@
         </Class>
         <Class>
           <Summary numSequencePoints="9" visitedSequencePoints="8" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="88.88" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="3" numMethods="4" />
-          <FullName>Calculis.Core.CalculatingItem</FullName>
+          <FullName>Calculis.Core.CalcItem</FullName>
           <Methods>
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.String Calculis.Core.CalculatingItem::get_Name()</Name>
+              <Name>System.String Calculis.Core.CalcItem::get_Name()</Name>
               <FileRef uid="3" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="14" ordinal="0" sl="14" sc="1" el="14" ec="2" bec="0" bev="0" fileid="3" />
@@ -114,7 +114,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Double Calculis.Core.CalculatingItem::get_Value()</Name>
+              <Name>System.Double Calculis.Core.CalcItem::get_Value()</Name>
               <FileRef uid="3" />
               <SequencePoints>
                 <SequencePoint vc="67104" uspid="15" ordinal="0" sl="15" sc="1" el="15" ec="2" bec="0" bev="0" fileid="3" />
@@ -125,7 +125,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Core.CalculatingItem::Update(System.Object,Calculis.Core.Auxilliary.UpdateArgs)</Name>
+              <Name>System.Void Calculis.Core.CalcItem::Update(System.Object,Calculis.Core.Auxilliary.UpdateArgs)</Name>
               <FileRef uid="3" />
               <SequencePoints>
                 <SequencePoint vc="22335" uspid="18" ordinal="0" sl="18" sc="1" el="18" ec="2" bec="0" bev="0" fileid="3" />
@@ -138,7 +138,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Core.CalculatingItem::.ctor(Calculis.Core.FunctionBase)</Name>
+              <Name>System.Void Calculis.Core.CalcItem::.ctor(Calculis.Core.FunctionBase)</Name>
               <FileRef uid="3" />
               <SequencePoints>
                 <SequencePoint vc="43" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="3" />
@@ -290,7 +290,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Core.FunctionBase::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Core.FunctionBase::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="5" />
               <SequencePoints>
                 <SequencePoint vc="43" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="5" />
@@ -480,7 +480,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>Calculis.Core.IValueItem Calculis.Core.Convert.ItemInfo::get_Item()</Name>
+              <Name>Calculis.Core.IItem Calculis.Core.Convert.ItemInfo::get_Item()</Name>
               <FileRef uid="7" />
               <SequencePoints>
                 <SequencePoint vc="37" uspid="5" ordinal="0" sl="5" sc="1" el="5" ec="2" bec="0" bev="0" fileid="7" />
@@ -541,7 +541,7 @@
             <Method cyclomaticComplexity="8" nPathComplexity="8" sequenceCoverage="100" branchCoverage="75" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="16" visitedSequencePoints="16" numBranchPoints="8" visitedBranchPoints="6" sequenceCoverage="100" branchCoverage="75" maxCyclomaticComplexity="8" minCyclomaticComplexity="8" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>Calculis.Core.CalculatingItem Calculis.Core.Convert.ItemsManager::Create(System.String,System.String)</Name>
+              <Name>Calculis.Core.CalcItem Calculis.Core.Convert.ItemsManager::Create(System.String,System.String)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="21" uspid="33" ordinal="0" sl="33" sc="1" el="33" ec="2" bec="0" bev="0" fileid="8" />
@@ -592,7 +592,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>Calculis.Core.CalculatingItem Calculis.Core.Convert.ItemsManager::CreateItem(Calculis.Core.FunctionBase)</Name>
+              <Name>Calculis.Core.CalcItem Calculis.Core.Convert.ItemsManager::CreateItem(Calculis.Core.FunctionBase)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="29" uspid="63" ordinal="0" sl="63" sc="1" el="63" ec="2" bec="0" bev="0" fileid="8" />
@@ -607,7 +607,7 @@
             <Method cyclomaticComplexity="8" nPathComplexity="8" sequenceCoverage="100" branchCoverage="87.5" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="12" visitedSequencePoints="12" numBranchPoints="8" visitedBranchPoints="7" sequenceCoverage="100" branchCoverage="87.5" maxCyclomaticComplexity="8" minCyclomaticComplexity="8" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt; Calculis.Core.Convert.ItemsManager::ExtractArgs(System.String)</Name>
+              <Name>System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt; Calculis.Core.Convert.ItemsManager::ExtractArgs(System.String)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="29" uspid="71" ordinal="0" sl="71" sc="1" el="71" ec="2" bec="0" bev="0" fileid="8" />
@@ -651,7 +651,7 @@
             <Method cyclomaticComplexity="10" nPathComplexity="10" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="22" visitedSequencePoints="22" numBranchPoints="10" visitedBranchPoints="10" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="10" minCyclomaticComplexity="10" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>Calculis.Core.IValueItem Calculis.Core.Convert.ItemsManager::GetArg(System.String,System.Func`2&lt;System.String,System.Boolean&gt;,System.Func`2&lt;System.String,Calculis.Core.IValueItem&gt;)</Name>
+              <Name>Calculis.Core.IItem Calculis.Core.Convert.ItemsManager::GetArg(System.String,System.Func`2&lt;System.String,System.Boolean&gt;,System.Func`2&lt;System.String,Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="167" uspid="92" ordinal="0" sl="92" sc="1" el="92" ec="2" bec="0" bev="0" fileid="8" />
@@ -723,7 +723,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.String Calculis.Core.Convert.ItemsManager::&lt;.ctor&gt;b__13_1(Calculis.Core.IValueItem)</Name>
+              <Name>System.String Calculis.Core.Convert.ItemsManager::&lt;.ctor&gt;b__13_1(Calculis.Core.IItem)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="113" uspid="28" ordinal="0" sl="28" sc="1" el="28" ec="2" bec="0" bev="0" fileid="8" />
@@ -734,7 +734,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.String Calculis.Core.Convert.ItemsManager::&lt;.ctor&gt;b__13_2(Calculis.Core.IValueItem)</Name>
+              <Name>System.String Calculis.Core.Convert.ItemsManager::&lt;.ctor&gt;b__13_2(Calculis.Core.IItem)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="73" uspid="29" ordinal="0" sl="29" sc="1" el="29" ec="2" bec="0" bev="0" fileid="8" />
@@ -745,7 +745,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Core.Convert.ItemsManager::.ctor(System.Collections.Generic.IEnumerable`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Core.Convert.ItemsManager::.ctor(System.Collections.Generic.IEnumerable`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="33" uspid="15" ordinal="0" sl="15" sc="1" el="15" ec="2" bec="0" bev="0" fileid="8" />
@@ -921,7 +921,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>Calculis.Core.CalculatingItem Calculis.Core.Calculation.CalculisEngine::Add(System.String,System.String)</Name>
+              <Name>Calculis.Core.CalcItem Calculis.Core.Calculation.CalculisEngine::Add(System.String,System.String)</Name>
               <FileRef uid="10" />
               <SequencePoints>
                 <SequencePoint vc="21" uspid="30" ordinal="0" sl="30" sc="1" el="30" ec="2" bec="0" bev="0" fileid="10" />
@@ -964,7 +964,7 @@
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Core.Calculation.CalculisEngine::.ctor(System.Collections.Generic.IEnumerable`1&lt;Calculis.Core.IValueItem&gt;,Calculis.Core.Auxilliary.TimeProvider)</Name>
+              <Name>System.Void Calculis.Core.Calculation.CalculisEngine::.ctor(System.Collections.Generic.IEnumerable`1&lt;Calculis.Core.IItem&gt;,Calculis.Core.Auxilliary.TimeProvider)</Name>
               <FileRef uid="10" />
               <SequencePoints>
                 <SequencePoint vc="20" uspid="17" ordinal="0" sl="17" sc="1" el="17" ec="2" bec="0" bev="0" fileid="10" />
@@ -1011,7 +1011,7 @@
             <Method cyclomaticComplexity="6" nPathComplexity="6" sequenceCoverage="90" branchCoverage="83.33" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="10" visitedSequencePoints="9" numBranchPoints="6" visitedBranchPoints="5" sequenceCoverage="90" branchCoverage="83.33" maxCyclomaticComplexity="6" minCyclomaticComplexity="6" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>Calculis.Core.FunctionBase Calculis.Core.Calculation.FunctionManager::Create(System.String,System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>Calculis.Core.FunctionBase Calculis.Core.Calculation.FunctionManager::Create(System.String,System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="11" />
               <SequencePoints>
                 <SequencePoint vc="43" uspid="27" ordinal="0" sl="27" sc="1" el="27" ec="2" bec="0" bev="0" fileid="11" />
@@ -1149,7 +1149,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.NormalFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.NormalFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="14" />
               <SequencePoints>
                 <SequencePoint vc="105" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="14" />
@@ -1272,7 +1272,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.TemporalFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.TemporalFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="15" />
               <SequencePoints>
                 <SequencePoint vc="8" uspid="15" ordinal="0" sl="15" sc="1" el="15" ec="2" bec="0" bev="0" fileid="15" />
@@ -1293,7 +1293,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.AbsFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.AbsFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="16" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="16" />
@@ -1313,7 +1313,7 @@
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="0" branchCoverage="0" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="12" visitedSequencePoints="0" numBranchPoints="2" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.AvgFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.AvgFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="17" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="17" />
@@ -1363,7 +1363,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.DifFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.DifFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="18" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="18" />
@@ -1404,7 +1404,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.DivFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.DivFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="19" />
               <SequencePoints>
                 <SequencePoint vc="8" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="19" />
@@ -1426,7 +1426,7 @@
             <Method cyclomaticComplexity="4" nPathComplexity="4" sequenceCoverage="100" branchCoverage="75" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="12" visitedSequencePoints="12" numBranchPoints="4" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="75" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.CompareFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;,System.Func`3&lt;System.Double,System.Double,System.Boolean&gt;)</Name>
+              <Name>System.Void Calculis.Functions.CompareFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;,System.Func`3&lt;System.Double,System.Double,System.Boolean&gt;)</Name>
               <FileRef uid="20" />
               <SequencePoints>
                 <SequencePoint vc="4" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="20" />
@@ -1459,7 +1459,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.MoreFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.MoreFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="20" />
               <SequencePoints>
                 <SequencePoint vc="8" uspid="25" ordinal="0" sl="25" sc="1" el="25" ec="2" bec="0" bev="0" fileid="20" />
@@ -1476,7 +1476,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.MoreeqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.MoreeqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="20" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="30" ordinal="0" sl="30" sc="1" el="30" ec="2" bec="0" bev="0" fileid="20" />
@@ -1493,7 +1493,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.LessFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.LessFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="20" />
               <SequencePoints>
                 <SequencePoint vc="4" uspid="35" ordinal="0" sl="35" sc="1" el="35" ec="2" bec="0" bev="0" fileid="20" />
@@ -1510,7 +1510,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.LesseqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.LesseqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="20" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="40" ordinal="0" sl="40" sc="1" el="40" ec="2" bec="0" bev="0" fileid="20" />
@@ -1527,7 +1527,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.EqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.EqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="20" />
               <SequencePoints>
                 <SequencePoint vc="4" uspid="45" ordinal="0" sl="45" sc="1" el="45" ec="2" bec="0" bev="0" fileid="20" />
@@ -1544,7 +1544,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.NeqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.NeqFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="20" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="50" ordinal="0" sl="50" sc="1" el="50" ec="2" bec="0" bev="0" fileid="20" />
@@ -1561,7 +1561,7 @@
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="7" visitedSequencePoints="7" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.IifFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.IifFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="21" />
               <SequencePoints>
                 <SequencePoint vc="2" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="21" />
@@ -1606,7 +1606,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.MulFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.MulFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="22" />
               <SequencePoints>
                 <SequencePoint vc="15" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="22" />
@@ -1628,7 +1628,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.PowFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.PowFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="23" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="23" />
@@ -1648,7 +1648,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.SqrtFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.SqrtFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="24" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="24" />
@@ -1687,7 +1687,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.SumFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.SumFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="25" />
               <SequencePoints>
                 <SequencePoint vc="6" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="25" />
@@ -1709,7 +1709,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.DelayFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.DelayFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="26" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="26" />
@@ -1732,7 +1732,7 @@
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="0" branchCoverage="0" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="13" visitedSequencePoints="0" numBranchPoints="2" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.EmaFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.EmaFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="27" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="27" />
@@ -1803,7 +1803,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="9" visitedSequencePoints="9" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.LastofFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.LastofFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="28" />
               <SequencePoints>
                 <SequencePoint vc="8" uspid="17" ordinal="0" sl="17" sc="1" el="17" ec="2" bec="0" bev="0" fileid="28" />
@@ -1828,7 +1828,7 @@
             <Method cyclomaticComplexity="4" nPathComplexity="4" sequenceCoverage="0" branchCoverage="0" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="18" visitedSequencePoints="0" numBranchPoints="4" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.MaxofFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.MaxofFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="29" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="11" ordinal="0" sl="11" sc="1" el="11" ec="2" bec="0" bev="0" fileid="29" />
@@ -1898,7 +1898,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.NeFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.NeFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="30" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="30" />
@@ -1949,7 +1949,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.PeFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.PeFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="31" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="31" />
@@ -1982,7 +1982,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.SmaFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.SmaFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="32" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="32" />
@@ -2022,7 +2022,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.StdevFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.StdevFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="33" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="33" />
@@ -2064,7 +2064,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Calculis.Functions.WmaFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IValueItem&gt;)</Name>
+              <Name>System.Void Calculis.Functions.WmaFunction::.ctor(System.Collections.Generic.IList`1&lt;Calculis.Core.IItem&gt;)</Name>
               <FileRef uid="34" />
               <SequencePoints>
                 <SequencePoint vc="0" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="34" />

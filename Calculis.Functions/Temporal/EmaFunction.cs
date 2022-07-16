@@ -9,7 +9,7 @@ namespace Calculis.Functions
     [ArgumentsType(1, typeof(ConstantItem), 0, 1)]
     internal sealed class EmaFunction : TemporalFunction
     {
-        public EmaFunction(IList<IValueItem> args) : base(args)
+        public EmaFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

@@ -6,13 +6,13 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Items.Implementations
 {
-    public sealed class CalculatingItem : IValueItem
+    public sealed class CalcItem : IItem
     {
         internal bool IsTemporal => _function is TemporalFunction;
 
-        private FunctionBase _function;
+        private readonly FunctionBase  _function;
 
-        public CalculatingItem(FunctionBase function)
+        public CalcItem(FunctionBase function)
         {
             _function = function;
         }

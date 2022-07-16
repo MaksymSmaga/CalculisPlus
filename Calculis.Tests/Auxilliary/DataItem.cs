@@ -2,7 +2,7 @@
 
 namespace Calculis.Test.Auxilliary
 {
-    internal class DataItem : IValueItem
+    internal class DataItem : IItem
     {
         public string Name { get; }
 

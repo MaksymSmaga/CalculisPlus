@@ -8,7 +8,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(1)]
     internal abstract class TrigonometricFunction : NormalFunction
     {
-        public TrigonometricFunction(IList<IValueItem> args, Func<double, double> calculate) : base(args)
+        public TrigonometricFunction(IList<IItem> args, Func<double, double> calculate) : base(args)
         {
             Function = () =>
             {
@@ -18,63 +18,63 @@ namespace Calculis.Functions
     }
     internal sealed class SinFunction : TrigonometricFunction
     {
-        public SinFunction(IList<IValueItem> args) : base(args, (double x) => Math.Sin(x)) { }
+        public SinFunction(IList<IItem> args) : base(args, (double x) => Math.Sin(x)) { }
     }
 
     internal sealed class SinhFunction : TrigonometricFunction
     {
-        public SinhFunction(IList<IValueItem> args) : base(args, (double x) => Math.Sinh(x)) { }
+        public SinhFunction(IList<IItem> args) : base(args, (double x) => Math.Sinh(x)) { }
     }
 
     internal sealed class AsinFunction : TrigonometricFunction
     {
-        public AsinFunction(IList<IValueItem> args) : base(args, (double x) => Math.Asin(x)) { }
+        public AsinFunction(IList<IItem> args) : base(args, (double x) => Math.Asin(x)) { }
     }
 
     internal sealed class CosFunction : TrigonometricFunction
     {
-        public CosFunction(IList<IValueItem> args) : base(args, (double x) => Math.Cos(x)) { }
+        public CosFunction(IList<IItem> args) : base(args, (double x) => Math.Cos(x)) { }
     }
 
     internal sealed class CoshFunction : TrigonometricFunction
     {
-        public CoshFunction(IList<IValueItem> args) : base(args, (double x) => Math.Cosh(x)) { }
+        public CoshFunction(IList<IItem> args) : base(args, (double x) => Math.Cosh(x)) { }
     }
 
     internal sealed class AcosFunction : TrigonometricFunction
     {
-        public AcosFunction(IList<IValueItem> args) : base(args, (double x) => Math.Acos(x)) { }
+        public AcosFunction(IList<IItem> args) : base(args, (double x) => Math.Acos(x)) { }
     }
 
     internal sealed class TanFunction : TrigonometricFunction
     {
-        public TanFunction(IList<IValueItem> args) : base(args, (double x) => Math.Tan(x)) { }
+        public TanFunction(IList<IItem> args) : base(args, (double x) => Math.Tan(x)) { }
     }
 
     internal sealed class TanhFunction : TrigonometricFunction
     {
-        public TanhFunction(IList<IValueItem> args) : base(args, (double x) => Math.Tanh(x)) { }
+        public TanhFunction(IList<IItem> args) : base(args, (double x) => Math.Tanh(x)) { }
     }
 
     internal sealed class AtanFunction : TrigonometricFunction
     {
-        public AtanFunction(IList<IValueItem> args) : base(args, (double x) => Math.Atan(x)) { }
+        public AtanFunction(IList<IItem> args) : base(args, (double x) => Math.Atan(x)) { }
     }
 
     internal sealed class LnFunction : TrigonometricFunction
     {
-        public LnFunction(IList<IValueItem> args) : base(args, (double x) => Math.Log(x)) { }
+        public LnFunction(IList<IItem> args) : base(args, (double x) => Math.Log(x)) { }
     }
 
     internal sealed class ExpFunction : TrigonometricFunction
     {
-        public ExpFunction(IList<IValueItem> args) : base(args, (double x) => Math.Exp(x)) { }
+        public ExpFunction(IList<IItem> args) : base(args, (double x) => Math.Exp(x)) { }
     }
 
     [ArgumentsNumber(1)]
     internal sealed class PiFunction : NormalFunction
     {
-        public PiFunction(IList<IValueItem> args) : base(args)
+        public PiFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {
@@ -85,7 +85,7 @@ namespace Calculis.Functions
 
     internal sealed class LogFunction : NormalFunction
     {
-        public LogFunction(IList<IValueItem> args) : base(args)
+        public LogFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

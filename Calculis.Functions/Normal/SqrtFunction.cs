@@ -8,7 +8,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(1)]
     internal sealed class SqrtFunction : NormalFunction
     {
-        public SqrtFunction(IList<IValueItem> args) : base(args)
+        public SqrtFunction(IList<IItem> args) : base(args)
         {
             Function = () => Math.Sqrt(args[0].Value);
         }

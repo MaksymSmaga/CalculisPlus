@@ -8,9 +8,9 @@ namespace Calculis.Core.Entities.Functions.Abstractions
     {
         //public abstract FunctionInfo Info { get; protected set; }
 
-        protected IList<IValueItem> _args;
+        protected IList<IItem> _args;
 
-        public FunctionBase(IList<IValueItem> args)
+        public FunctionBase(IList<IItem> args)
         {
             _args = args;
             Name = GetType().Name.Replace("Function", "").ToUpper();

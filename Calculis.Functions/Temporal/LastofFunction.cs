@@ -19,7 +19,7 @@ namespace Calculis.Functions
         private DateTime _nextUpdate;
 
 
-        public LastofFunction(IList<IValueItem> args) : base(args)
+        public LastofFunction(IList<IItem> args) : base(args)
         {
             _interval = (int)args[1].Value;
             _number = (int)args[2].Value + 1;

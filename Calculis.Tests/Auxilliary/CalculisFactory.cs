@@ -9,7 +9,7 @@ namespace Calculis.Tests.Auxilliary
 {
     internal class CalculisFactory
     {
-        //private static IDictionary<string, IValueItem> _items { get; set; }
+        //private static IDictionary<string, IItem> _items { get; set; }
 
         internal static CalculisEngine Create(double[] values, DateTime? initialDT = null)
         {
@@ -36,10 +36,10 @@ namespace Calculis.Tests.Auxilliary
             return new CalculisEngine(dataItems, timeProvider ?? null);
         }
 
-        private static IEnumerable<IValueItem> CreateItems(double[] values)
+        private static IEnumerable<IItem> CreateItems(double[] values)
         {
             var count = 0;
-            var items = new List<IValueItem>();
+            var items = new List<IItem>();
 
             foreach (var value in values)
                 items.Add(new DataItem($"i{++count}") { Value = value });

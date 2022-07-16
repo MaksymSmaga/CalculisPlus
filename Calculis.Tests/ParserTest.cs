@@ -7,7 +7,7 @@ namespace Calculis.Tests
 {
     public class ParserTest
     {
-        private ExpressionParser _parser = new ExpressionParser(new ItemsManager(new List<IValueItem>()));
+        private ExpressionParser _parser = new ExpressionParser(new ItemsManager(new List<IItem>()));
 
         [Theory]
         [InlineData("item1+item2-(item3-1+DIFF(item1;2))", "SUM(SUM(item1;item2);-SUM(SUM(item3;-1);DIFF(item1;2)))")]

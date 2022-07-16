@@ -7,7 +7,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(MinNumber = 2, MaxNumber = 3)]
     internal class IfFunction : NormalFunction
     {
-        public IfFunction(IList<IValueItem> args) : base(args)
+        public IfFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

@@ -6,7 +6,7 @@ namespace Calculis.Functions
 {
     internal sealed class DifFunction : NormalFunction
     {
-        public DifFunction(IList<IValueItem> args) : base(args)
+        public DifFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {

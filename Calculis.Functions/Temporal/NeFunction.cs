@@ -7,7 +7,7 @@ namespace Calculis.Functions
     [ArgumentsNumber(1)]
     internal sealed class NeFunction : TemporalFunction
     {
-        public NeFunction(IList<IValueItem> args) : base(args)
+        public NeFunction(IList<IItem> args) : base(args)
         {
             Function = () =>
             {
