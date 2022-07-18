@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Calculis.Core;
+using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic

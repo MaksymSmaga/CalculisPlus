@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using Calculis.Core;
+using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Core.Entities.Items.Implementations;
 
 namespace Calculis.Functions
 {
-    [ArgumentsNumber(3)]
-    [ArgumentsType(1, typeof(ConstantItem))]
-    [ArgumentsType(2, typeof(ConstantItem), 1)]
+    [ArgsNum(3)]
+    [ArgsType(1, typeof(ConstantItem))]
+    [ArgsType(2, typeof(ConstantItem), 1)]
     internal sealed class LastofFunction : TemporalFunction
     {
         private readonly int _interval;
@@ -24,10 +25,7 @@ namespace Calculis.Functions
             _interval = (int)args[1].Value;
             _number = (int)args[2].Value + 1;
 
-            Function = () =>
-            {
-                return _isInitialized ? _value : 0;
-            };
+            Function = () => _isInitialized ? _value : 0;
 
             InitializeCash(_number);
         }

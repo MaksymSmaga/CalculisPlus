@@ -1,8 +1,9 @@
-﻿using Calculis.Core.Entities.Items.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Types;
+using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
 
-namespace Calculis.Core.Entities.Functions.Abstractions
+namespace Calculis.Core.Entities.Functions.Abstractions.Base.FunctionTypes
 {
     internal abstract class LogicFunction : NormalFunction
     {

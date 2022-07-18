@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Calculis.Core.Entities.TimeProviders.Abstractions;
+using System;
 
-namespace Calculis.Core.Auxilliary
+namespace Calculis.Core.Entities.TimeProviders.Implementations
 {
     internal class DefaultTimeProvider : TimeProvider
     {

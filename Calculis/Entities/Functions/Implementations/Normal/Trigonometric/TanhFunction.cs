@@ -1,4 +1,4 @@
-﻿using Calculis.Core.Entities.Functions.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Base.FunctionTypes;
 using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;

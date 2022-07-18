@@ -1,9 +1,9 @@
-﻿using Calculis.Core.Auxilliary;
-using Calculis.Core.Calculation;
-using Calculis.Core.Entities.Functions.Abstractions;
+﻿using Calculis.Core.Calculation;
+using Calculis.Core.Entities.Functions.Abstractions.Base;
 using Calculis.Core.Entities.Items;
 using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Core.Entities.Items.Implementations;
+using Calculis.Core.Entities.TimeProviders;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -68,7 +68,7 @@ namespace Calculis.Core.Convert
 
         internal void Update(DateTime timestamp)
         {
-            Updating?.Invoke(this, new UpdateArgs { Timestamp = timestamp });
+            Updating?.Invoke(this, new UpdateArgs { TimeStamp = timestamp });
         }
 
         private CalcItem CreateItem(FunctionBase function)

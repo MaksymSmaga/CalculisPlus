@@ -1,10 +1,11 @@
 ﻿using Calculis.Core;
+using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
 using System.Collections.Generic;
 
 namespace Calculis.Functions
 {
-    [ArgumentsNumber(MinNumber = 2, MaxNumber = 3)]
+    [ArgsNum(MinNumber = 2, MaxNumber = 3)]
     internal class IfFunction : NormalFunction
     {
         public IfFunction(IList<IItem> args) : base(args)

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Calculis.Core.Entities.Functions.Abstractions
+namespace Calculis.Core.Entities.Functions.Abstractions.Base
 {
     public abstract class FunctionBase
     {
@@ -21,12 +21,12 @@ namespace Calculis.Core.Entities.Functions.Abstractions
 
         public virtual void ValidateArgs()
         {
-            object[] numberAttributes = GetType().GetCustomAttributes(typeof(ArgumentsNumberAttribute), true);
-            object[] typeAttributes = GetType().GetCustomAttributes(typeof(ArgumentsTypeAttribute), false);
+            object[] numberAttributes = GetType().GetCustomAttributes(typeof(ArgsNumAttribute), true);
+            object[] typeAttributes = GetType().GetCustomAttributes(typeof(ArgsTypeAttribute), false);
 
             if (numberAttributes.Length > 0)
             {
-                var numberAttribute = numberAttributes[0] as ArgumentsNumberAttribute;
+                var numberAttribute = numberAttributes[0] as ArgsNumAttribute;
                 if (numberAttribute.Number > 0 && numberAttribute.Number != _args.Count)
                 {
                     throw new ArgumentException("Number of arguments is not correspond to specification!");
@@ -43,10 +43,10 @@ namespace Calculis.Core.Entities.Functions.Abstractions
 
             foreach (var attribute in typeAttributes)
             {
-                if ((attribute as ArgumentsTypeAttribute).ArgNumber >= _args.Count)
+                if ((attribute as ArgsTypeAttribute).ArgNumber >= _args.Count)
                     throw new ArithmeticException("Number of attributes exeeds the number of arguments!");
 
-                if (attribute is ArgumentsTypeAttribute attr2)
+                if (attribute is ArgsTypeAttribute attr2)
                     if (!Equals(_args[attr2.ArgNumber].GetType(), attr2.Type))
                         throw new ArgumentException("Arguments does not correspond to specified type!");
             }

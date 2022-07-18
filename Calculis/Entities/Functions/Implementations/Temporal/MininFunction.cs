@@ -1,4 +1,5 @@
 ﻿using Calculis.Core;
+using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Core.Entities.Items.Implementations;
 using System.Collections.Generic;
@@ -6,16 +7,13 @@ using System.Linq;
 
 namespace Calculis.Functions
 {
-    [ArgumentsNumber(2)]
-    [ArgumentsType(1, typeof(ConstantItem), 1)]
+    [ArgsNum(2)]
+    [ArgsType(1, typeof(ConstantItem), 1)]
     internal sealed class MininFunction : TemporalFunction
     {
         public MininFunction(IList<IItem> args) : base(args)
         {
-            Function = () =>
-            {
-                return _cash.Min(x => x.Value);
-            };
+            Function = () => _cash.Min(x => x.Value); 
         }
     }
 }

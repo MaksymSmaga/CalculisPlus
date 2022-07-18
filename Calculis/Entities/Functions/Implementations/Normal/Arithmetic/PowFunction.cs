@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Calculis.Core;
+using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
-    [ArgumentsNumber(2)]
+    [ArgsNum(2)]
     internal sealed class PowFunction : NormalFunction
     {
         public PowFunction(IList<IItem> args) : base(args)

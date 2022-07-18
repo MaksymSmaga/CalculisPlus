@@ -1,10 +1,11 @@
-﻿using Calculis.Core.Entities.Items.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Types;
+using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
-    [ArgumentsNumber(2)]
+    [ArgsNum(2)]
     internal class BitFunction : NormalFunction
     {
         public BitFunction(IList<IItem> args) : base(args)

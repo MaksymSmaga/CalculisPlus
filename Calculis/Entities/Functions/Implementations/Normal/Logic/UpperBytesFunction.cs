@@ -1,10 +1,11 @@
-﻿using Calculis.Core.Entities.Items.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Types;
+using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
-    [ArgumentsNumber(1)]
+    [ArgsNum(1)]
     internal class UpperBytesFunction : NormalFunction
     {
         public UpperBytesFunction(IList<IItem> args) : base(args)

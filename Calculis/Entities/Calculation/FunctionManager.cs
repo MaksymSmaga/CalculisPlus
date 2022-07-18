@@ -1,4 +1,4 @@
-﻿using Calculis.Core.Entities.Functions.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Base;
 using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace Calculis.Core.Calculation
     {
         static readonly IDictionary<string, Assembly> _assemblies = new Dictionary<string, Assembly>();
         internal static IDictionary<string, Type> Functions { get; private set; } = new Dictionary<string, Type>();
-        
+
         static FunctionManager()
         {
             Register("Calculis.Core.dll");
@@ -34,7 +34,7 @@ namespace Calculis.Core.Calculation
                     throw new InvalidOperationException($"Names conflict in function {type.Name}");
 
             foreach (var type in assemblyTypes)
-                if(type.Name.Contains("Function"))
+                if (type.Name.Contains("Function"))
                     Functions.Add(type.Name.Replace("Function", "").ToUpper(), type);
         }
 

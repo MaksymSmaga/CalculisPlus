@@ -1,18 +1,16 @@
 ﻿using Calculis.Core;
+using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
 using System.Collections.Generic;
 
 namespace Calculis.Functions
 {
-    [ArgumentsNumber(1)]
+    [ArgsNum(1)]
     internal sealed class IntegrFunction : TemporalFunction
     {
         public IntegrFunction(IList<IItem> args) : base(args)
         {
-            Function = () =>
-            {
-                return args[0].Value + _previousValue;
-            };
+            Function = () =>  args[0].Value + _previousValue;
         }
 
         protected override void Initialize()

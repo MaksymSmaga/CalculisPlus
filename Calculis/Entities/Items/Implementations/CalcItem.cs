@@ -1,6 +1,7 @@
-﻿using Calculis.Core.Auxilliary;
-using Calculis.Core.Entities.Functions.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Base;
+using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
+using Calculis.Core.Entities.TimeProviders;
 using System;
 using System.Collections.Generic;
 
@@ -25,7 +26,7 @@ namespace Calculis.Core.Entities.Items.Implementations
 
         internal void Update(object sender, UpdateArgs args)
         {
-            _function.Update(args.Timestamp);
+            _function.Update(args.TimeStamp);
         }
 
         ///<summary>

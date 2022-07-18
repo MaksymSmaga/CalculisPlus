@@ -1,4 +1,4 @@
-﻿using Calculis.Core.Auxilliary;
+﻿using Calculis.Core.Entities.TimeProviders.Abstractions;
 using System;
 
 namespace Calculis.Test.Auxilliary

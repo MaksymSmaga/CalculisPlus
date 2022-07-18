@@ -1,16 +1,12 @@
-﻿using Calculis.Core.Entities.Functions.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Base;
 using Calculis.Core.Entities.Items.Abstractions;
+using Calculis.Core.Entities.Items.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Calculis.Core
+namespace Calculis.Core.Entities.Functions.Abstractions.Types
 {
-    public class CashItem : IValue
-    {
-        public double Value { get; set; }
-        public DateTimeOffset Timestamp { get; set; }
-    }
 
     public abstract class TemporalFunction : FunctionBase
     {
@@ -47,11 +43,11 @@ namespace Calculis.Core
             if (valuesList[0] is CashItem)
                 hasTimestamp = true;
 
-            for(int i = 0; i < valuesList.Count; i++)
+            for (int i = 0; i < valuesList.Count; i++)
             {
                 _cash[i].Value = valuesList[i].Value;
 
-                if(hasTimestamp)
+                if (hasTimestamp)
                     _cash[i].Timestamp = ((CashItem)valuesList[i]).Timestamp;
             }
         }
@@ -65,7 +61,7 @@ namespace Calculis.Core
                 _cash[i - 1].Timestamp = _cash[i].Timestamp;
             }
 
-            _previousValue = this.Function();
+            _previousValue = Function();
             _cash[_cash.Length - 1].Value = _args[0].Value;
             _cash[_cash.Length - 1].Timestamp = dateTime;
 

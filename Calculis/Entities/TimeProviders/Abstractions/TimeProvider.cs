@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calculis.Core.Auxilliary
+namespace Calculis.Core.Entities.TimeProviders.Abstractions
 {
     public abstract class TimeProvider
     {

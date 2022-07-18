@@ -1,9 +1,10 @@
-﻿using Calculis.Core.Entities.Items.Abstractions;
+﻿using Calculis.Core.Entities.Functions.Abstractions.Types;
+using Calculis.Core.Entities.Items.Abstractions;
 using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
-    [ArgumentsNumber(1)]
+    [ArgsNum(1)]
     internal class NOTFunction : NormalFunction
     {
         public NOTFunction(IList<IItem> args) : base(args)
