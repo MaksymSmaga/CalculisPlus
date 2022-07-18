@@ -10,21 +10,23 @@ namespace Calculis.Core.Entities.Items.Implementations
     {
         internal bool IsTemporal => _function is TemporalFunction;
 
-        private readonly FunctionBase  _function;
+        private readonly FunctionBase _function;
+        public string Name { get; set; }
+        public double Value
+        {
+            get { return _function.Function(); }
+            set { }
+        }
 
         public CalcItem(FunctionBase function)
         {
             _function = function;
         }
 
-        public string Name { get; set; }
-        public double Value { get { return _function.Function(); } set { } }
-
         internal void Update(object sender, UpdateArgs args)
         {
             _function.Update(args.Timestamp);
         }
-
 
         ///<summary>
         ///Initializes cash of item based on temporal function

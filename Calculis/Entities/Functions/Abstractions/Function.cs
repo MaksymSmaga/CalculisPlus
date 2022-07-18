@@ -6,9 +6,10 @@ namespace Calculis.Core.Entities.Functions.Abstractions
 {
     public abstract class FunctionBase
     {
-        //public abstract FunctionInfo Info { get; protected set; }
-
         protected IList<IItem> _args;
+        public string Name { get; set; }
+        public string Description { get; }
+        public virtual Func<double> Function { get; protected set; }
 
         public FunctionBase(IList<IItem> args)
         {
@@ -51,10 +52,6 @@ namespace Calculis.Core.Entities.Functions.Abstractions
             }
 
         }
-
-        public string Name { get; set; }
-        public string Description { get; }
-        public virtual Func<double> Function { get; protected set; }
 
         public virtual void Update(DateTime dateTime)
         {
