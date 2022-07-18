@@ -6,7 +6,6 @@ namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic.CompareF
 {
     internal sealed class GreaterFunction : CompareFunction
     {
-        public GreaterFunction(IList<IItem> args) : 
-            base(args, (double x, double y) => x > y) { }
+        public GreaterFunction(IList<IItem> args) : base(args, (double x, double y) => x > y) { }
     }
 }

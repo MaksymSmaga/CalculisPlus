@@ -3,16 +3,13 @@ using Calculis.Core.Entities.Items.Abstractions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Calculis.Functions
+namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     internal sealed class MaxFunction : NormalFunction
     {
         public MaxFunction(IList<IItem> args) : base(args)
         {
-            Function = () =>
-            {
-                return args.Max(x => x.Value);
-            };
+            Function = () => args.Max(x => x.Value);
         }
     }
 }

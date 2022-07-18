@@ -3,16 +3,13 @@ using Calculis.Core.Entities.Items.Abstractions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Calculis.Functions
+namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     internal sealed class MinFunction : NormalFunction
     {
         public MinFunction(IList<IItem> args) : base(args)
         {
-            Function = () =>
-            {
-                return args.Min(x => x.Value);
-            };
+            Function = () => args.Min(x => x.Value);
         }
     }
 }

@@ -3,7 +3,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
 
-namespace Calculis.Functions.Normal
+namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgumentsNumber(MinNumber = 1, MaxNumber = 2)]
     internal sealed class RoundFunction : NormalFunction

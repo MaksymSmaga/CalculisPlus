@@ -2,7 +2,7 @@
 using Calculis.Core;
 using Calculis.Core.Entities.Items.Abstractions;
 
-namespace Calculis.Functions
+namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     internal sealed class AvgFunction : NormalFunction
     {

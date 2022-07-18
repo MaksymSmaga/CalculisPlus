@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Calculis.Core;
 using Calculis.Core.Entities.Items.Abstractions;
 
-namespace Calculis.Functions
+namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgumentsNumber(2)]
     internal sealed class PowFunction : NormalFunction

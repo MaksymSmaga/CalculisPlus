@@ -3,7 +3,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 using System;
 using System.Collections.Generic;
 
-namespace Calculis.Functions.Normal
+namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgumentsNumber(1)]
     internal sealed class TruncFunction : NormalFunction
