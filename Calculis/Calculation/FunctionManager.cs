@@ -9,12 +9,12 @@ namespace Calculis.Core.Calculation
 {
     internal class FunctionManager
     {
-        static IDictionary<string, Assembly> _assemblies = new Dictionary<string, Assembly>();
+        static readonly IDictionary<string, Assembly> _assemblies = new Dictionary<string, Assembly>();
         internal static IDictionary<string, Type> Functions { get; private set; } = new Dictionary<string, Type>();
         
         static FunctionManager()
         {
-            Register("Calculis.Functions.dll");
+            Register("Calculis.Core.dll");
         }
 
         internal static void Register(string assemblyName)

@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Calculis.Functions\Calculis.Functions.csproj" />
     <ProjectReference Include="..\Calculis\Calculis.Core.csproj" />
   </ItemGroup>
 

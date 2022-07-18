@@ -14,8 +14,4 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\Functions\Implementations\" />
-  </ItemGroup>
-
 </Project>
