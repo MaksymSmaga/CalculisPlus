@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Trigonometric
 {
-    internal sealed class TanhFunction : TrigonometricFunction
+    internal sealed class TanhFunction : BaseTrigonometricFunction
     {
         public TanhFunction(IList<IItem> args) : base(args, (double x) => Math.Tanh(x)) { }
     }

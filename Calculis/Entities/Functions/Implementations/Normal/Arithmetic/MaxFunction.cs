@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
-    internal sealed class MaxFunction : NormalFunction
+    internal sealed class MaxFunction : BaseNormalFunction
     {
         public MaxFunction(IList<IItem> args) : base(args)
         {

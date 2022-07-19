@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Calculis.Functions
 {
     [ArgsNum(1)]
-    internal sealed class IntegrFunction : TemporalFunction
+    internal sealed class IntegrFunction : BaseTemporalFunction
     {
         public IntegrFunction(IList<IItem> args) : base(args)
         {

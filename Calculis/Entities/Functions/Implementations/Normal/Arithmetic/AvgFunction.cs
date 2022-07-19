@@ -4,7 +4,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
-    internal sealed class AvgFunction : NormalFunction
+    internal sealed class AvgFunction : BaseNormalFunction
     {
         public AvgFunction(IList<IItem> args) : base(args)
         {

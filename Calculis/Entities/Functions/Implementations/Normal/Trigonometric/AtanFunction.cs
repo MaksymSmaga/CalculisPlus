@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Trigonometric
 {
-    internal sealed class AtanFunction : TrigonometricFunction
+    internal sealed class AtanFunction : BaseTrigonometricFunction
     {
         public AtanFunction(IList<IItem> args) : base(args, (double x) => Math.Atan(x)) { }
     }

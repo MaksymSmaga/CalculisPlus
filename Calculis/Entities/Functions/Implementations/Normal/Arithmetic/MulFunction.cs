@@ -4,7 +4,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
-    internal sealed class MulFunction : NormalFunction
+    internal sealed class MulFunction : BaseNormalFunction
     {
         public MulFunction(IList<IItem> args) : base(args)
         {

@@ -3,11 +3,11 @@ using System;
 
 namespace Calculis.Core.Entities.TimeProviders.Implementations
 {
-    internal class DefaultTimeProvider : TimeProvider
+    internal class TimeProvider : BaseTimeProvider
     {
         private DateTime _dateTime;
 
-        public DefaultTimeProvider()
+        public TimeProvider()
         {
             Update();
         }

@@ -5,7 +5,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgsNum(MinNumber = 1)]
-    internal sealed class SumFunction : NormalFunction
+    internal sealed class SumFunction : BaseNormalFunction
     {
         public SumFunction(IList<IItem> args) : base(args)
         {

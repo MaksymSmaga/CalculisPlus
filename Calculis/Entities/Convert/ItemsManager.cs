@@ -1,9 +1,9 @@
-﻿using Calculis.Core.Calculation;
+﻿using Calculis.Core.Entities;
+using Calculis.Core.Entities.Functions;
 using Calculis.Core.Entities.Functions.Abstractions.Base;
 using Calculis.Core.Entities.Items;
 using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Core.Entities.Items.Implementations;
-using Calculis.Core.Entities.TimeProviders;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -71,7 +71,7 @@ namespace Calculis.Core.Convert
             Updating?.Invoke(this, new UpdateArgs { TimeStamp = timestamp });
         }
 
-        private CalcItem CreateItem(FunctionBase function)
+        private CalcItem CreateItem(BaseFunction function)
         {
             var item = new CalcItem(function);
             Updating += item.Update;

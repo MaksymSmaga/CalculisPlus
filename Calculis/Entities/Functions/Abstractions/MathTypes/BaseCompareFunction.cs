@@ -5,16 +5,16 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Abstractions.Base.FunctionTypes
 {
-    internal abstract class LogicFunction : NormalFunction
+    internal abstract class BaseCompareFunction : BaseNormalFunction
     {
-        public LogicFunction(IList<IItem> args, Func<bool, double, bool> compare) : base(args)
+        public BaseCompareFunction(IList<IItem> args, Func<double, double, bool> compare) : base(args)
         {
             Function = () =>
             {
-                var result = System.Convert.ToBoolean(_args[0].Value);
+                var result = true;
 
                 for (int i = 1; i < _args.Count; i++)
-                    result = compare(result, _args[i].Value);
+                    result = result && compare(_args[i - 1].Value, _args[i].Value);
 
                 return System.Convert.ToDouble(result);
             };

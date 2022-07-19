@@ -6,7 +6,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgsNum(1)]
-    internal sealed class SqrtFunction : NormalFunction
+    internal sealed class SqrtFunction : BaseNormalFunction
     {
         public SqrtFunction(IList<IItem> args) : base(args)
         {

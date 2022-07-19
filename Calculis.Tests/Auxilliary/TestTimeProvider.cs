@@ -3,7 +3,7 @@ using System;
 
 namespace Calculis.Test.Auxilliary
 {
-    internal class TestTimeProvider : TimeProvider
+    internal class TestTimeProvider : BaseTimeProvider
     {
         private DateTime _dateTime;
         private int step;

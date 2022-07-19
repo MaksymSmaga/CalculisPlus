@@ -47,7 +47,7 @@ namespace Calculis.Tests
 
             Assert.Throws<TargetInvocationException>(func);
         }
-
+         
         [Theory]
         [InlineData("DELAY(i1;i2)")]
         [InlineData("LASTOF(i1;i2)")]

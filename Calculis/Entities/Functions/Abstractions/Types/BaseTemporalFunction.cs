@@ -8,14 +8,14 @@ using System.Linq;
 namespace Calculis.Core.Entities.Functions.Abstractions.Types
 {
 
-    public abstract class TemporalFunction : FunctionBase
+    public abstract class BaseTemporalFunction : BaseFunction
     {
         protected bool _isInitialized = false;
         protected CashItem[] _cash { get; private set; }
         protected DateTimeOffset Timestamp { get; private set; }
         protected double _previousValue { get; private set; }
 
-        public TemporalFunction(IList<IItem> args) : base(args)
+        public BaseTemporalFunction(IList<IItem> args) : base(args)
         {
             Initialize();
         }

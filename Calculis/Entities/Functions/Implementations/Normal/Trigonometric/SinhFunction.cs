@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Trigonometric
 {
-    internal sealed class SinhFunction : TrigonometricFunction
+    internal sealed class SinhFunction : BaseTrigonometricFunction
     {
         public SinhFunction(IList<IItem> args) :  base(args, (double x) => Math.Sinh(x)) { }
     }

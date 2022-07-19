@@ -13,7 +13,7 @@ namespace Calculis.Console
             items.Add(new DataItem("i1", 3));
             items.Add(new DataItem("i2", 2));
 
-            var calculis = new CalculisEngine(items);
+            var calculis = new Engine(items);
 
             var calc1 = calculis.Add("calc1", "i1 + i2 * 5");
             var calc2 = calculis.Add("calc2", "POW(calc1;2)");

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic.CompareFunctions
 {
-    internal sealed class GreaterFunction : CompareFunction
+    internal sealed class GreaterFunction : BaseCompareFunction
     {
         public GreaterFunction(IList<IItem> args) : base(args, (double x, double y) => x > y) { }
     }

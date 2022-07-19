@@ -6,7 +6,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgsNum(2)]
-    internal sealed class PowFunction : NormalFunction
+    internal sealed class PowFunction : BaseNormalFunction
     {
         public PowFunction(IList<IItem> args) : base(args)
         {

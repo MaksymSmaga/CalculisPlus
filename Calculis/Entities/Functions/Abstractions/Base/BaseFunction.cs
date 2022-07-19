@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Abstractions.Base
 {
-    public abstract class FunctionBase
+    public abstract class BaseFunction
     {
         protected IList<IItem> _args;
         public string Name { get; set; }
         public string Description { get; }
         public virtual Func<double> Function { get; protected set; }
 
-        public FunctionBase(IList<IItem> args)
+        public BaseFunction(IList<IItem> args)
         {
             _args = args;
             Name = GetType().Name.Replace("Function", "").ToUpper();

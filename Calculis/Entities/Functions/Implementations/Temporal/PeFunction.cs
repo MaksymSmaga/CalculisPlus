@@ -6,7 +6,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 namespace Calculis.Functions
 {
     [ArgsNum(1)]
-    internal sealed class PeFunction : TemporalFunction
+    internal sealed class PeFunction : BaseTemporalFunction
     {
         public PeFunction(IList<IItem> args) : base(args)
         {

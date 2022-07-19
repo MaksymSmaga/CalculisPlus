@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgsNum(1)]
-    internal sealed class TruncFunction : NormalFunction
+    internal sealed class TruncFunction : BaseNormalFunction
     {
         public TruncFunction(IList<IItem> args) : base(args)
         {

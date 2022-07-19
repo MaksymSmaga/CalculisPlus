@@ -9,7 +9,7 @@ namespace Calculis.Functions
 {
     [ArgsNum(2)]
     [ArgsType(1, typeof(ConstantItem), 1)]
-    internal sealed class SmaFunction : TemporalFunction
+    internal sealed class SmaFunction : BaseTemporalFunction
     {
         public SmaFunction(IList<IItem> args) : base(args)
         {

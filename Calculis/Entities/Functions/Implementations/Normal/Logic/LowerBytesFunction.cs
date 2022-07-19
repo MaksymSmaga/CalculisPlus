@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
     [ArgsNum(1)]
-    internal class LowerBytesFunction : NormalFunction
+    internal class LowerBytesFunction : BaseNormalFunction
     {
         public LowerBytesFunction(IList<IItem> args) : base(args)
         {

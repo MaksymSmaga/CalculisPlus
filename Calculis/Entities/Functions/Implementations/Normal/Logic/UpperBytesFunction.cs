@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
     [ArgsNum(1)]
-    internal class UpperBytesFunction : NormalFunction
+    internal class UpperBytesFunction : BaseNormalFunction
     {
         public UpperBytesFunction(IList<IItem> args) : base(args)
         {

@@ -1,7 +1,6 @@
 ﻿using Calculis.Core.Entities.Functions.Abstractions.Base;
 using Calculis.Core.Entities.Functions.Abstractions.Types;
 using Calculis.Core.Entities.Items.Abstractions;
-using Calculis.Core.Entities.TimeProviders;
 using System;
 using System.Collections.Generic;
 
@@ -9,9 +8,9 @@ namespace Calculis.Core.Entities.Items.Implementations
 {
     public sealed class CalcItem : IItem
     {
-        internal bool IsTemporal => _function is TemporalFunction;
+        internal bool IsTemporal => _function is BaseTemporalFunction;
 
-        private readonly FunctionBase _function;
+        private readonly BaseFunction _function;
         public string Name { get; set; }
         public double Value
         {
@@ -19,7 +18,7 @@ namespace Calculis.Core.Entities.Items.Implementations
             set { }
         }
 
-        public CalcItem(FunctionBase function)
+        public CalcItem(BaseFunction function)
         {
             _function = function;
         }
@@ -41,7 +40,7 @@ namespace Calculis.Core.Entities.Items.Implementations
                 throw new InvalidOperationException("Non temporal function cannot be initialized!");
             }
 
-            ((TemporalFunction)_function).Initialize(values);
+            ((BaseTemporalFunction)_function).Initialize(values);
         }
     }
 }

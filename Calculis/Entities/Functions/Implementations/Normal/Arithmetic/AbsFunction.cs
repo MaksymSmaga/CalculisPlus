@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
     [ArgsNum(1)]
-    internal sealed class AbsFunction : NormalFunction
+    internal sealed class AbsFunction : BaseNormalFunction
     {
         public AbsFunction(IList<IItem> args) : base(args)
         {

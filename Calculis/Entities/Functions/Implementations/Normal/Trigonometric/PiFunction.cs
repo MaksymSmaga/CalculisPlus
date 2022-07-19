@@ -7,7 +7,7 @@ using System.Text;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Trigonometric
 {
     [ArgsNum(1)]
-    internal sealed class PiFunction : NormalFunction
+    internal sealed class PiFunction : BaseNormalFunction
     {
         public PiFunction(IList<IItem> args) : base(args)
         {

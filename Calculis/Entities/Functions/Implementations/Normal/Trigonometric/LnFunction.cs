@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Trigonometric
 {
-    internal sealed class LnFunction : TrigonometricFunction
+    internal sealed class LnFunction : BaseTrigonometricFunction
     {
         public LnFunction(IList<IItem> args) : base(args, (double x) => Math.Log(x)) { }
     }

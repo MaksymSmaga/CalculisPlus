@@ -4,7 +4,7 @@ using Calculis.Core.Entities.Items.Abstractions;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
-    internal sealed class DivFunction : NormalFunction
+    internal sealed class DivFunction : BaseNormalFunction
     {
         public DivFunction(IList<IItem> args) : base(args)
         {

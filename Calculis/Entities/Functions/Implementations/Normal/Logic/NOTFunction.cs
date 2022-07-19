@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
     [ArgsNum(1)]
-    internal class NOTFunction : NormalFunction
+    internal class NOTFunction : BaseNormalFunction
     {
         public NOTFunction(IList<IItem> args) : base(args)
         {

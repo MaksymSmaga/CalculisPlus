@@ -6,9 +6,9 @@ using System.Collections.Generic;
 namespace Calculis.Core.Entities.Functions.Abstractions.Base.FunctionTypes
 {
     [ArgsNum(1)]
-    internal abstract class TrigonometricFunction : NormalFunction
+    internal abstract class BaseTrigonometricFunction : BaseNormalFunction
     {
-        public TrigonometricFunction(IList<IItem> args, Func<double, double> calculate) : base(args)
+        public BaseTrigonometricFunction(IList<IItem> args, Func<double, double> calculate) : base(args)
         {
             Function = () => calculate(args[0].Value);
         }

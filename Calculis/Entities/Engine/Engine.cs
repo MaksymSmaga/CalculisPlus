@@ -6,22 +6,23 @@ using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Core.Entities.Items.Implementations;
 using Calculis.Core.Entities.TimeProviders.Abstractions;
 using Calculis.Core.Entities.TimeProviders.Implementations;
+using Calculis.Core.Entities.Functions;
 
 namespace Calculis.Core.Calculation
 {
-    public sealed class CalculisEngine
+    public sealed class Engine
     {
         private readonly ItemsManager _itemsManager;
-        private readonly TimeProvider _timeProvider;
+        private readonly BaseTimeProvider _timeProvider;
 
         ///<summary>
         ///Initializes a new instance of calculation engine that carry out real-time calculations based on items values
         ///</summary>
         ///<param name="Items">Collection of value contained objects inherited of IItem</param>
         ///<param name="TimeProvider">Provider of time for control of iteration in temporal functions;\nBy default is used standard provider based on System.DateTime</param>
-        public CalculisEngine(IEnumerable<IItem> Items, TimeProvider TimeProvider = null)
+        public Engine(IEnumerable<IItem> Items, BaseTimeProvider TimeProvider = null)
         {
-            _timeProvider = TimeProvider ?? new DefaultTimeProvider();
+            _timeProvider = TimeProvider ?? new TimeProvider();
             _itemsManager = new ItemsManager(Items);
         }
 

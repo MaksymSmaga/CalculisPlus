@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Abstractions.Types
 {
-    public abstract class NormalFunction : FunctionBase
+    public abstract class BaseNormalFunction : BaseFunction
     {
-        public NormalFunction(IList<IItem> args) : base(args) { }
+        public BaseNormalFunction(IList<IItem> args) : base(args) { }
     }
 }

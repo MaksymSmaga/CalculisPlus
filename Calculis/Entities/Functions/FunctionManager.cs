@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace Calculis.Core.Calculation
+namespace Calculis.Core.Entities.Functions
 {
     internal class FunctionManager
     {
@@ -38,7 +38,7 @@ namespace Calculis.Core.Calculation
                     Functions.Add(type.Name.Replace("Function", "").ToUpper(), type);
         }
 
-        internal static FunctionBase Create(string name, IList<IItem> args)
+        internal static BaseFunction Create(string name, IList<IItem> args)
         {
             /*var functionName = name.Substring(0, 1).ToUpper() + name.Substring(1).ToLower();
 
@@ -49,7 +49,7 @@ namespace Calculis.Core.Calculation
 
             if (!Functions.ContainsKey(name)) throw new ArgumentNullException($"Function \"{name}\" has not detected in plugged assemblies!");
 
-            return (FunctionBase)Activator.CreateInstance(Functions[name], args);
+            return (BaseFunction)Activator.CreateInstance(Functions[name], args);
         }
     }
 }

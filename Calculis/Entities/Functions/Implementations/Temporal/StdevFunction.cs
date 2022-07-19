@@ -10,7 +10,7 @@ namespace Calculis.Functions
 {
     [ArgsNum(2)]
     [ArgsType(1, typeof(ConstantItem), 1)]
-    internal sealed class StdevFunction : TemporalFunction
+    internal sealed class StdevFunction : BaseTemporalFunction
     {
         public StdevFunction(IList<IItem> args) : base(args)
         {

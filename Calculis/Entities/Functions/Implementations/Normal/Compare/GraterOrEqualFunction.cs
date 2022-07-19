@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic.CompareFunctions
 {
-    internal sealed class GraterOrEqualFunction : CompareFunction
+    internal sealed class GraterOrEqualFunction : BaseCompareFunction
     {
         public GraterOrEqualFunction(IList<IItem> args) : base(args, (double x, double y) => x >= y) { }
     }

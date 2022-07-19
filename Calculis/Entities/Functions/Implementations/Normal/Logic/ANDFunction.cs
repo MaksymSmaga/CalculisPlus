@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
-    internal sealed class ANDFunction : LogicFunction
+    internal sealed class ANDFunction : BaseLogicFunction
     {
         public ANDFunction(IList<IItem> args) :
             base(args, (res, y) => res & System.Convert.ToBoolean(y))

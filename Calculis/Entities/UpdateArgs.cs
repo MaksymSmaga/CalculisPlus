@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calculis.Core.Entities.TimeProviders
+namespace Calculis.Core.Entities
 {
     public class UpdateArgs : EventArgs
     {

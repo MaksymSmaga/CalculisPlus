@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
     [ArgsNum(2)]
-    internal class BitFunction : NormalFunction
+    internal class BitFunction : BaseNormalFunction
     {
         public BitFunction(IList<IItem> args) : base(args)
         {

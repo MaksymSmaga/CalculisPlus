@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Trigonometric
 {
-    internal sealed class AcosFunction : TrigonometricFunction
+    internal sealed class AcosFunction : BaseTrigonometricFunction
     {
         public AcosFunction(IList<IItem> args) :  base(args, (double x) => Math.Acos(x)) { }
     }

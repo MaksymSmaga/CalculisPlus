@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Calculis.Functions
 {
     [ArgsNum(MinNumber = 2, MaxNumber = 3)]
-    internal class IfFunction : NormalFunction
+    internal class IfFunction : BaseNormalFunction
     {
         public IfFunction(IList<IItem> args) : base(args)
         {

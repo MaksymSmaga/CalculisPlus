@@ -11,7 +11,7 @@ namespace Calculis.Functions
     [ArgsNum(3)]
     [ArgsType(1, typeof(ConstantItem))]
     [ArgsType(2, typeof(ConstantItem), 1)]
-    internal sealed class LastofFunction : TemporalFunction
+    internal sealed class LastofFunction : BaseTemporalFunction
     {
         private readonly int _interval;
         private readonly int _number;

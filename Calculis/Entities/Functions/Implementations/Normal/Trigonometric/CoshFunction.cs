@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Trigonometric
 {
-    internal sealed class CoshFunction : TrigonometricFunction
+    internal sealed class CoshFunction : BaseTrigonometricFunction
     {
         public CoshFunction(IList<IItem> args) : base(args, (double x) => Math.Cosh(x)) { }
     }

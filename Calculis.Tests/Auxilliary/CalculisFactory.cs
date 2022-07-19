@@ -11,7 +11,7 @@ namespace Calculis.Tests.Auxilliary
     {
         //private static IDictionary<string, IItem> _items { get; set; }
 
-        internal static CalculisEngine Create(double[] values, DateTime? initialDT = null)
+        internal static Engine Create(double[] values, DateTime? initialDT = null)
         {
             var _items = CreateItems(values).ToDictionary(x => x.Name);
             TestTimeProvider? timeProvider = null;
@@ -19,10 +19,10 @@ namespace Calculis.Tests.Auxilliary
             if (initialDT != null)
                 timeProvider = new TestTimeProvider((DateTime)initialDT);
 
-            return new CalculisEngine(_items.Values, timeProvider ?? null);
+            return new Engine(_items.Values, timeProvider ?? null);
         }
 
-        internal static CalculisEngine Create(ICollection<string> names, DateTime? initialDT = null)
+        internal static Engine Create(ICollection<string> names, DateTime? initialDT = null)
         {
             TestTimeProvider timeProvider = null;
 
@@ -33,7 +33,7 @@ namespace Calculis.Tests.Auxilliary
             foreach (var name in names)
                 dataItems.Add(new DataItem(name));
 
-            return new CalculisEngine(dataItems, timeProvider ?? null);
+            return new Engine(dataItems, timeProvider ?? null);
         }
 
         private static IEnumerable<IItem> CreateItems(double[] values)

@@ -22,8 +22,7 @@ namespace Calculis.Tests
             _items["bobby"].Value = x;
             _items["Billy"].Value = y;
 
-            var item = engine.Add("pussy", "SUM(bobby;Billy)");
-
+            var item = engine.Add("foo", "SUM(bobby;Billy)");
 
             Assert.Equal(x + y, item.Value);
         }
@@ -37,7 +36,7 @@ namespace Calculis.Tests
             _items["bobby"].Value = x;
             _items["Billy"].Value = y;
 
-            var item = engine.Add("pussy", $"bobby+{0.3.ToString(CultureInfo.CurrentCulture.NumberFormat)}");
+            var item = engine.Add("foo", $"bobby+{0.3.ToString(CultureInfo.CurrentCulture.NumberFormat)}");
 
 
             Assert.Equal(1.3, item.Value);
@@ -61,7 +60,7 @@ namespace Calculis.Tests
 
             _items["bobby"].Value = 3;
             _items["Billy"].Value = 4;
-            var item = engine.Add("pussy", expression);
+            var item = engine.Add("foo", expression);
 
 
             Assert.Equal(result, item.Value);
@@ -103,7 +102,7 @@ namespace Calculis.Tests
             return new List<IItem>() { new DataItem("bobby"), new DataItem("Billy") };
         }
 
-        private CalculisEngine Create(DateTime? initialDT = null)
+        private Engine Create(DateTime? initialDT = null)
         {
             _items = CreateItems().ToDictionary(x => x.Name);
             var names = new List<string>() { "item" };
@@ -112,7 +111,7 @@ namespace Calculis.Tests
             if (initialDT != null)
                 timeProvider = new TestTimeProvider((DateTime)initialDT);
 
-            return new CalculisEngine(_items.Values, timeProvider ?? null);
+            return new Engine(_items.Values, timeProvider ?? null);
         }
     }
 }

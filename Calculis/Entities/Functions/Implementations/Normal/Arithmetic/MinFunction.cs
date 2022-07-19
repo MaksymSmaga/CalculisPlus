@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Arithmetic
 {
-    internal sealed class MinFunction : NormalFunction
+    internal sealed class MinFunction : BaseNormalFunction
     {
         public MinFunction(IList<IItem> args) : base(args)
         {

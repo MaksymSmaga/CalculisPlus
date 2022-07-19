@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Calculis.Core.Entities.Functions.Implementations.Normal.Logic
 {
-    internal sealed class XORFunction : LogicFunction
+    internal sealed class XORFunction : BaseLogicFunction
     {
         public XORFunction(IList<IItem> args) :
             base(args, (res, y) => res ^ System.Convert.ToBoolean(y))
