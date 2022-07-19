@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Calculis.Core.Entities.Items;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -7,7 +8,7 @@ namespace Calculis.Core.Convert
 {
     internal sealed class ExpressionParser
     {
-        private readonly ICollection<ParsingParameters> _parsingParameters;
+        private readonly ICollection<ParametersParser> _parsingParameters;
         private readonly Regex functionExpression;
         private readonly ItemsManager _manager;
 
@@ -25,29 +26,29 @@ namespace Calculis.Core.Convert
             var regNegPart = $"((-)?{regExPart})";
 
             //The order of expression is important: it correspondes to priorities of checking operations
-            _parsingParameters = new List<ParsingParameters>();
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<>{regNegPart})+", "<>", "NEQ",
+            _parsingParameters = new List<ParametersParser>();
+            _parsingParameters.Add(new ParametersParser($"{regExPart}(\\<>{regNegPart})+", "<>", "NEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<>", ";"),
                 (str) => str.Replace("<>", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\>={regNegPart})+", ">=", "MOREEQ",
+            _parsingParameters.Add(new ParametersParser($"{regExPart}(\\>={regNegPart})+", ">=", "MOREEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace(">=", ";"),
                 (str) => str.Replace(">=", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\>{regNegPart})+", ">", "MORE",
+            _parsingParameters.Add(new ParametersParser($"{regExPart}(\\>{regNegPart})+", ">", "MORE",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace(">", ";"),
                 (str) => str.Replace(">", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<={regNegPart})+", "<=", "LESSEQ",
+            _parsingParameters.Add(new ParametersParser($"{regExPart}(\\<={regNegPart})+", "<=", "LESSEQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<=", ";"),
                 (str) => str.Replace("<=", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\<{regNegPart})+", "<", "LESS",
+            _parsingParameters.Add(new ParametersParser($"{regExPart}(\\<{regNegPart})+", "<", "LESS",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("<", ";"),
                 (str) => str.Replace("<", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}(\\={regNegPart})+", "=", "EQ",
+            _parsingParameters.Add(new ParametersParser($"{regExPart}(\\={regNegPart})+", "=", "EQ",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("=", ";"),
                 (str) => str.Replace("=", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}([\\*\\/]{regNegPart})+", "*", "MUL",
+            _parsingParameters.Add(new ParametersParser($"{regExPart}([\\*\\/]{regNegPart})+", "*", "MUL",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("*", ";").Replace("/", ";/").Replace(";;", ";"),
                 (str) => str.Replace("*", ";").Replace("/", ";/").Replace(";;", ";")));
-            _parsingParameters.Add(new ParsingParameters($"{regExPart}([\\+\\-]{regExPart})+", "+", "SUM",
+            _parsingParameters.Add(new ParametersParser($"{regExPart}([\\+\\-]{regExPart})+", "+", "SUM",
                 (str) => str.Remove(str.Length - 1, 1).TrimStart('(').Replace("+", ";").Replace("-", ";-").Replace(";;", ";"),
                 (str) => str.Replace("+", ";").Replace("-", ";-").Replace(";;", ";")));
         }

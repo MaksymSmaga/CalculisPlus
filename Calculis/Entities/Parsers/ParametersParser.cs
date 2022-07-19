@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Calculis.Core.Convert
 {
-    internal class ParsingParameters
+    internal class ParametersParser
     {
         private string _regex;
         private Regex Regex { get; set; }
@@ -15,7 +15,7 @@ namespace Calculis.Core.Convert
         public string Substring { get; private set; }
         public string Replacement { get; private set; }
 
-        public ParsingParameters(string regex, string sign, string functionName, Func<string, string> bracketAction, Func<string, string> action)
+        public ParametersParser(string regex, string sign, string functionName, Func<string, string> bracketAction, Func<string, string> action)
         {
             _regex = regex;
             Regex = new Regex(regex);

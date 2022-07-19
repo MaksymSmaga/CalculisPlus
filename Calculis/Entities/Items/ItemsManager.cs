@@ -1,7 +1,7 @@
-﻿using Calculis.Core.Entities;
+﻿using Calculis.Core.Convert;
+using Calculis.Core.Entities;
 using Calculis.Core.Entities.Functions;
 using Calculis.Core.Entities.Functions.Abstractions.Base;
-using Calculis.Core.Entities.Items;
 using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Core.Entities.Items.Implementations;
 using System;
@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Linq;
 
 
-namespace Calculis.Core.Convert
+namespace Calculis.Core.Entities.Items
 {
     internal sealed class ItemsManager
     {
@@ -144,7 +144,7 @@ namespace Calculis.Core.Convert
         internal ICollection<string> GetHint(string expression, int position)
         {
             var hintCollection = new List<string>();
-            
+
             var typingStart = -1;
             var typingEnd = expression.Length;
 
@@ -154,7 +154,7 @@ namespace Calculis.Core.Convert
                     typingStart = i;
                     break;
                 }
-                    
+
 
             for (int i = position; i < expression.Length; i++)
                 if (");+-/* ".Contains(expression[i]))
@@ -162,13 +162,13 @@ namespace Calculis.Core.Convert
                     typingEnd = i;
                     break;
                 }
-              
+
 
             var typingElement = expression.Substring(typingStart + 1, typingEnd - typingStart - 1);
 
             //elements
             foreach (var item in _itemsNames.Keys)
-                if(item.Contains(typingElement))
+                if (item.Contains(typingElement))
                     hintCollection.Add(item);
 
             //functions
@@ -177,7 +177,7 @@ namespace Calculis.Core.Convert
                     hintCollection.Add(funcName);
 
             return hintCollection;
-        } 
+        }
     }
 
     struct FunctionDescription
