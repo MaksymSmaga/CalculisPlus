@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Xunit;
 
-namespace Calculis.Tests
+namespace Calculis.Tests.Functions
 {
     public class TemporalFunctionsExecutionTest
     {
@@ -16,11 +16,12 @@ namespace Calculis.Tests
 
         static TemporalFunctionsExecutionTest()
         {
-            _functions.Add("DELAY(i1;30)", (int n) => HistoryManager.Value(n, 30));
-            _functions.Add("MAXIN(i1;30)", (int n) => HistoryManager.Value(n - 1));
-            _functions.Add("MININ(i1;30)", (int n) => HistoryManager.Value(n, 30));
-            _functions.Add("INTEGR(i1)", (int n) => sum += HistoryManager.Value(n));
-            _functions.Add("STDEV(i1;30)", (int n) => {
+            _functions.Add("DELAY(i1;30)", (n) => HistoryManager.Value(n, 30));
+            _functions.Add("MAXIN(i1;30)", (n) => HistoryManager.Value(n - 1));
+            _functions.Add("MININ(i1;30)", (n) => HistoryManager.Value(n, 30));
+            _functions.Add("INTEGR(i1)", (n) => sum += HistoryManager.Value(n));
+            _functions.Add("STDEV(i1;30)", (n) =>
+            {
                 var sum = 0.0;
                 var pow = 0.0;
                 for (var i = 0; i < 30; i++)
@@ -30,24 +31,27 @@ namespace Calculis.Tests
                     pow += Math.Pow(sum - HistoryManager.Value(n, i + 1), 2);
 
                 return Math.Sqrt(pow / 30);
-                });
-            _functions.Add("SMA(i1;30)", (int n) => {
+            });
+            _functions.Add("SMA(i1;30)", (n) =>
+            {
                 var sum = 0.0;
                 for (var i = 0; i < 30; i++)
                     sum += HistoryManager.Value(n, i + 1);
 
                 return sum / 30;
             });
-            _functions.Add("WMA(i1;30)", (int n) => {
+            _functions.Add("WMA(i1;30)", (n) =>
+            {
                 var sum = 0.0;
                 for (var i = 0; i < 30; i++)
                     sum += (30 - i) * HistoryManager.Value(n, i + 1);
 
                 return 2.0 * sum / (30 * (30 + 1));
             });
-            _functions.Add($"EMA(i1;{0.5.ToString(CultureInfo.CurrentCulture.NumberFormat)})", (int n) => {
+            _functions.Add($"EMA(i1;{0.5.ToString(CultureInfo.CurrentCulture.NumberFormat)})", (n) =>
+            {
                 _ema_prev = HistoryManager.Value(n) * 0.5 + (1 - 0.5) * _ema_prev;
-                return  _ema_prev;
+                return _ema_prev;
             });
         }
         private static TheoryData<string, double[], Func<int, double>> PrepareParams()
@@ -72,7 +76,7 @@ namespace Calculis.Tests
             {
                 i1.Value = HistoryManager.Value(i);
                 var r = result(i);
-                
+
 
                 Assert.True(Math.Abs(r - item.Value) < 0.000001);
                 engine.Iterate();
@@ -93,7 +97,7 @@ namespace Calculis.Tests
 
         public static double Value(int n = 0, int delay = 0)
         {
-            return n - delay < 0 ? 0 : 
+            return n - delay < 0 ? 0 :
                    n - delay >= HistorySize ? 0 :
                    _history[n - delay];
         }

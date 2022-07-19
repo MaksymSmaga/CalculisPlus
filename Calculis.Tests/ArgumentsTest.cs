@@ -35,15 +35,13 @@ namespace Calculis.Tests
         [InlineData("IF(i1;1;2;3)")]
         [InlineData("BIT(i1)")]
         [InlineData("BIT(i1;1;2)")]
-        [InlineData("LOWBYTE(i1;1)")]
-        [InlineData("HIGHBYTE(i1;1)")]
+        [InlineData("LOWERBYTES(i1;1)")]
+        [InlineData("UPPERBYTES(i1;1)")]
         public void Number_of_arguments_are_not_correct(string expression)
         {
             var engine = CalculisFactory.Create(new double[] { 0, 1 });
 
-
             var func = () => engine.Add("result", expression);
-
 
             Assert.Throws<TargetInvocationException>(func);
         }
@@ -58,9 +56,7 @@ namespace Calculis.Tests
         {
             var engine = CalculisFactory.Create(new double[] { 0, 1 });
 
-
             var func = () => engine.Add("result", expression);
-
 
             Assert.Throws<TargetInvocationException>(func);
         }

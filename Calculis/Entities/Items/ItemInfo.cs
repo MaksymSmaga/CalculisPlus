@@ -2,6 +2,9 @@
 
 namespace Calculis.Core.Entities.Items
 {
+    /// <summary>
+    /// ItemInfo entity contains Item Entity and info-properties.
+    /// </summary>
     class ItemInfo
     {
         public IItem Item { get; set; }

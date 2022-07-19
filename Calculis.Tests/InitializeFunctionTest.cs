@@ -1,12 +1,8 @@
-﻿using Calculis.Core;
-using Calculis.Core.Entities.Items.Abstractions;
+﻿using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Core.Entities.Items.Implementations;
 using Calculis.Tests.Auxilliary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Calculis.Tests

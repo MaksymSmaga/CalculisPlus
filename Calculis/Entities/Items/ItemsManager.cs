@@ -14,12 +14,13 @@ namespace Calculis.Core.Entities.Items
 {
     internal sealed class ItemsManager
     {
-        internal IDictionary<string, string> ExpressionAlias { get; private set; } = new Dictionary<string, string>();
+        internal IDictionary<string, string> ExpressionAlias { get; private set; } 
+                                             = new Dictionary<string, string>();
         internal event EventHandler<UpdateArgs> Updating;
 
-        private IDictionary<string, IItem> _items;
-        private IDictionary<string, string> _itemsNames;
-        private IDictionary<string, ItemInfo> _aliasFunctions = new Dictionary<string, ItemInfo>();
+        private readonly IDictionary<string, IItem> _items;
+        private readonly IDictionary<string, string> _itemsNames;
+        private readonly IDictionary<string, ItemInfo> _aliasFunctions = new Dictionary<string, ItemInfo>();
 
         private int _count;
         private int _fncCount;
@@ -61,6 +62,14 @@ namespace Calculis.Core.Entities.Items
             return (CalcItem)item;
         }
 
+        private CalcItem CreateItem(BaseFunction function)
+        {
+            var item = new CalcItem(function);
+            Updating += item.Update;
+
+            return item;
+        }
+
         internal IItem GetItem(string name)
         {
             return _items.TryGetValue(_itemsNames[name], out var item) ? item : throw new NullReferenceException($"Item {name} does not exist!");
@@ -71,13 +80,7 @@ namespace Calculis.Core.Entities.Items
             Updating?.Invoke(this, new UpdateArgs { TimeStamp = timestamp });
         }
 
-        private CalcItem CreateItem(BaseFunction function)
-        {
-            var item = new CalcItem(function);
-            Updating += item.Update;
 
-            return item;
-        }
 
         private IList<IItem> ExtractArgs(string expression)
         {
@@ -178,18 +181,5 @@ namespace Calculis.Core.Entities.Items
 
             return hintCollection;
         }
-    }
-
-    struct FunctionDescription
-    {
-        internal string Name;
-        internal string[] Args;
-
-        internal FunctionDescription(string expression)
-        {
-            var bracketIndex = expression.IndexOf('(');
-            Name = expression.Substring(0, bracketIndex);
-            Args = expression.Substring(bracketIndex).Trim('(', ')').Split(';');
-        }
-    }
+    } 
 }

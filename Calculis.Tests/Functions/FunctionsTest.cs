@@ -1,13 +1,14 @@
 ﻿using Calculis.Core.Calculation;
 using Calculis.Core.Entities.Items.Abstractions;
 using Calculis.Test.Auxilliary;
+using Calculis.Tests.Auxilliary;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Xunit;
 
-namespace Calculis.Tests
+namespace Calculis.Tests.Functions
 {
     public class FunctionsTest
     {
@@ -19,10 +20,10 @@ namespace Calculis.Tests
         {
             var engine = Create();
 
-            _items["bobby"].Value = x;
+            _items["Jimmy"].Value = x;
             _items["Billy"].Value = y;
 
-            var item = engine.Add("foo", "SUM(bobby;Billy)");
+            var item = engine.Add("foo", "SUM(Jimmy;Billy)");
 
             Assert.Equal(x + y, item.Value);
         }
@@ -33,32 +34,31 @@ namespace Calculis.Tests
         {
             var engine = Create();
 
-            _items["bobby"].Value = x;
+            _items["Jimmy"].Value = x;
             _items["Billy"].Value = y;
 
-            var item = engine.Add("foo", $"bobby+{0.3.ToString(CultureInfo.CurrentCulture.NumberFormat)}");
+            var item = engine.Add("foo", $"Jimmy+{0.3.ToString(CultureInfo.CurrentCulture.NumberFormat)}");
 
 
             Assert.Equal(1.3, item.Value);
         }
 
         [Theory]
-        [InlineData("(bobby+2)=5", 1)]
+        [InlineData("(Jimmy+2)=5", 1)]
         [InlineData("IF(3>2;10;5)", 10)]
         [InlineData("IF(3<2;10;5)", 5)]
-        [InlineData("bobby*8/Billy", 6)]
-        [InlineData("bobby*10/(Billy+1)", 6)]
-        [InlineData("Billy/2/2*bobby*2", 6)]
-        [InlineData("Billy/2/2*-bobby*2", -6)]
-        [InlineData("Billy*bobby/-2", -6)]
-        [InlineData("(Billy+bobby)*4/-Billy", -7)]
-        [InlineData("bobby>-Billy", 1)]
+        [InlineData("Jimmy*8/Billy", 6)]
+        [InlineData("Jimmy*10/(Billy+1)", 6)]
+        [InlineData("Billy/2/2*Jimmy*2", 6)]
+        [InlineData("Billy/2/2*-Jimmy*2", -6)]
+        [InlineData("Billy*Jimmy/-2", -6)]
+        [InlineData("(Billy+Jimmy)*4/-Billy", -7)]
+        [InlineData("Jimmy>-Billy", 1)]
         public void Test_Logic_Success(string expression, double result)
         {
             var engine = Create();
 
-
-            _items["bobby"].Value = 3;
+            _items["Jimmy"].Value = 3;
             _items["Billy"].Value = 4;
             var item = engine.Add("foo", expression);
 
@@ -78,18 +78,18 @@ namespace Calculis.Tests
         public void Test_LastOf_Success(DateTime initialDT, int parameter1, int parameter2)
         {
             var engine = Create(initialDT);
-            var item = engine.Add("item3", $"LASTOF(bobby;{parameter1};{parameter2})");
+            var item = engine.Add("item3", $"LASTOF(Jimmy;{parameter1};{parameter2})");
 
             var expected = 0.0;
             for (int i = 0; i < parameter1 * 3; i++)
             {
-                _items["bobby"].Value = i + 1;
+                _items["Jimmy"].Value = i + 1;
                 engine.Iterate();
 
-                if((i + 0) % parameter1 == 0)
+                if ((i + 0) % parameter1 == 0)
                     expected = i - parameter1 * (parameter2 - 1);
-                
-                if(expected < 0) expected = 0;
+
+                if (expected < 0) expected = 0;
 
 
 
@@ -99,7 +99,7 @@ namespace Calculis.Tests
 
         private IEnumerable<IItem> CreateItems()
         {
-            return new List<IItem>() { new DataItem("bobby"), new DataItem("Billy") };
+            return new List<IItem>() { new DataItem("Jimmy"), new DataItem("Billy") };
         }
 
         private Engine Create(DateTime? initialDT = null)
