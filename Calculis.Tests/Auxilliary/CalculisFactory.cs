@@ -24,7 +24,7 @@ namespace Calculis.Tests.Auxilliary
 
         internal static Engine Create(ICollection<string> names, DateTime? initialDT = null)
         {
-            TestTimeProvider timeProvider = null;
+            TestTimeProvider? timeProvider = null;
 
             if (initialDT != null)
                 timeProvider = new TestTimeProvider((DateTime)initialDT);

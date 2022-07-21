@@ -27,11 +27,9 @@ namespace Calculis.Tests
         {
             var names = itemsNames.Split(',');
             var engine = CalculisFactory.Create(names);
-
-
+ 
             var items = engine.GetHint(expression, position);
-
-
+ 
             Assert.Equal(items, result);
         }
     }

@@ -9,9 +9,9 @@ namespace Calculis.Tests.Functions
 {
     public class NormalFunctionTest
     {
-        private static double[] _values = new[] { -5.0, 4.0, 3.0, 2.0, 7.45 };
-        private static IDictionary<string, Func<double[], double>> _functions = new Dictionary<string, Func<double[], double>>();
-        private static string argNumberString = 0.95.ToString(CultureInfo.CurrentCulture.NumberFormat);
+        private static readonly double[] _values = new[] { -5.0, 4.0, 3.0, 2.0, 7.45 };
+        private static readonly IDictionary<string, Func<double[], double>> _functions = new Dictionary<string, Func<double[], double>>();
+        private static readonly string argNumberString = 0.95.ToString(CultureInfo.CurrentCulture.NumberFormat);
 
         static NormalFunctionTest()
         {
@@ -35,8 +35,8 @@ namespace Calculis.Tests.Functions
             _functions.Add("OR(i1;0;0)", (args) => 1);
             _functions.Add("XOR(i1;0;0)", (args) => 1);
             _functions.Add("XOR(i1;0;1)", (args) => 0);
-            _functions.Add("LOWBYTE(i2)", (args) => 4);
-            _functions.Add("HIGHBYTE(i2)", (args) => 0);
+            _functions.Add("LOWERBYTES(i2)", (args) => 4);
+            _functions.Add("UPPERBYTES(i2)", (args) => 0);
             _functions.Add("BIT(i2;0)", (args) => 0);
             _functions.Add("BIT(i2;1)", (args) => 0);
             _functions.Add("BIT(i2;2)", (args) => 1);

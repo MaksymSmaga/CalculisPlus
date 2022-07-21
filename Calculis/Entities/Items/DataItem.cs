@@ -2,7 +2,11 @@
 
 namespace Calculis.Console
 {
-    class DataItem : IItem
+    /// <summary>
+    /// DataItem entity is inheritanced from IValue.
+    /// It contains Name,Value.
+    /// </summary>
+    public class DataItem : IItem
     {
         public string Name { get; set; }
         public double Value { get; set; }

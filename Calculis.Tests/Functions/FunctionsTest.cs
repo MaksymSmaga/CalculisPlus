@@ -97,7 +97,7 @@ namespace Calculis.Tests.Functions
             }
         }
 
-        private IEnumerable<IItem> CreateItems()
+        private static IEnumerable<IItem> CreateItems()
         {
             return new List<IItem>() { new DataItem("Jimmy"), new DataItem("Billy") };
         }

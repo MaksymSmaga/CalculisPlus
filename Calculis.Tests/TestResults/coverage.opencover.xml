@@ -638,7 +638,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Boolean Calculis.Core.Convert.ItemsManager::isDouble(System.String)</Name>
+              <Name>System.Boolean Calculis.Core.Convert.ItemsManager::IsDouble(System.String)</Name>
               <FileRef uid="8" />
               <SequencePoints>
                 <SequencePoint vc="40" uspid="87" ordinal="0" sl="87" sc="1" el="87" ec="2" bec="0" bev="0" fileid="8" />
@@ -830,7 +830,7 @@
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Func`2&lt;System.String,System.String&gt; Calculis.Core.Convert.ParsingParameters::get_ConvertBracketAction()</Name>
+              <Name>System.Func`2&lt;System.String,System.String&gt; Calculis.Core.Convert.ParsingParameters::get_ConvertparenthesesAction()</Name>
               <FileRef uid="9" />
               <SequencePoints>
                 <SequencePoint vc="282" uspid="13" ordinal="0" sl="13" sc="1" el="13" ec="2" bec="0" bev="0" fileid="9" />

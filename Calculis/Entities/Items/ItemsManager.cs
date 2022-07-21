@@ -1,5 +1,4 @@
 ﻿using Calculis.Core.Convert;
-using Calculis.Core.Entities;
 using Calculis.Core.Entities.Functions;
 using Calculis.Core.Entities.Functions.Abstractions.Base;
 using Calculis.Core.Entities.Items.Abstractions;
@@ -14,7 +13,7 @@ namespace Calculis.Core.Entities.Items
 {
     internal sealed class ItemsManager
     {
-        internal IDictionary<string, string> ExpressionAlias { get; private set; } 
+        internal IDictionary<string, string> ExpressionAlias { get; private set; }
                                              = new Dictionary<string, string>();
         internal event EventHandler<UpdateArgs> Updating;
 
@@ -62,6 +61,13 @@ namespace Calculis.Core.Entities.Items
             return (CalcItem)item;
         }
 
+        /// <summary>
+        /// Creates CalcItem,
+        /// Calcs its Value from function-argument,
+        /// Updates the item data.
+        /// </summary>
+        /// <param name="function">function-argument</param>
+        /// <returns>new CalcItem</returns>
         private CalcItem CreateItem(BaseFunction function)
         {
             var item = new CalcItem(function);
@@ -70,10 +76,23 @@ namespace Calculis.Core.Entities.Items
             return item;
         }
 
+        /// <summary>
+        /// Return Item by its name.
+        /// </summary>
+        /// <param name="name">Item name argument</param>
+        /// <returns>Item</returns>
+        /// <exception cref="NullReferenceException">Item {name} does not exist!</exception>
         internal IItem GetItem(string name)
         {
-            return _items.TryGetValue(_itemsNames[name], out var item) ? item : throw new NullReferenceException($"Item {name} does not exist!");
+            return _items.TryGetValue(_itemsNames[name], out var item) ?
+                          item : throw new NullReferenceException($"Item {name} does not exist!");
         }
+
+
+
+
+
+
 
         internal void Update(DateTime timestamp)
         {
@@ -82,15 +101,27 @@ namespace Calculis.Core.Entities.Items
 
 
 
+
+
+
+
+
+
+
+
+
+
+
         private IList<IItem> ExtractArgs(string expression)
         {
             var functionDescription = new FunctionDescription(expression);
             var args = new List<IItem>();
+
             foreach (var argString in functionDescription.Args)
             {
                 var arg = GetArg(argString, _items.ContainsKey, (key) => _items[key]) ??
                           GetArg(argString, _aliasFunctions.ContainsKey, (key) => _aliasFunctions[key].Item) ??
-                          GetArg(argString, isDouble, (expr) => new ConstantItem(double.Parse(expr, NumberStyles.Float, _culture.NumberFormat)));
+                          GetArg(argString, IsDouble, (expr) => new ConstantItem(double.Parse(expr, NumberStyles.Float, _culture.NumberFormat)));
 
                 args.Add(arg ?? throw new ArgumentOutOfRangeException(argString));
             }
@@ -98,10 +129,19 @@ namespace Calculis.Core.Entities.Items
             return args;
         }
 
-        private bool isDouble(string expression)
-        {
-            return double.TryParse(expression, NumberStyles.Float, _culture.NumberFormat, out double result);
-        }
+
+
+
+        /// <summary>
+        /// Checks - does expression contains double value.
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns>True if expression contains double</returns>
+        private bool IsDouble(string expression) =>
+                     double.TryParse(expression, NumberStyles.Float, _culture.NumberFormat, out double result);
+
+
+
 
         private IItem GetArg(string argString, Func<string, bool> checkingFunction, Func<string, IItem> creationFunction)
         {
@@ -130,19 +170,46 @@ namespace Calculis.Core.Entities.Items
             return newItem;
         }
 
-        internal string GetExpression(string alias)
-        {
-            return _aliasFunctions[alias].ReplacedExpression;
-        }
 
+
+
+
+        /// <summary>
+        /// Gets Expression by its alias.
+        /// </summary>
+        /// <param name="alias"></param>
+        /// <returns>string expression</returns>
+        internal string GetExpression(string alias) => _aliasFunctions[alias].ReplacedExpression;
+
+        /// <summary>
+        /// Adds new alias to ExpressionAlias and _aliasFunctions.
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="original"></param>
+        /// <returns>new alias</returns>
         internal string AddAlias(string expression, string original)
         {
+            // To create alias increasing function count + 2.
             string alias = $"__fnc{++_fncCount}";
+
+            // To add new alias to IDictionary<string, string>.
             ExpressionAlias.Add(expression, alias);
-            _aliasFunctions.Add(alias, new ItemInfo { Alias = alias, OriginalExpression = original, ReplacedExpression = expression });
+
+            // To add new alias to IDictionary<string, ItemInfo>.
+            _aliasFunctions.Add(alias, new ItemInfo
+            {
+                Alias = alias,
+                OriginalExpression = original,
+                ReplacedExpression = expression
+            });
 
             return alias;
         }
+
+
+
+
+
 
         internal ICollection<string> GetHint(string expression, int position)
         {
@@ -157,7 +224,6 @@ namespace Calculis.Core.Entities.Items
                     typingStart = i;
                     break;
                 }
-
 
             for (int i = position; i < expression.Length; i++)
                 if (");+-/* ".Contains(expression[i]))
@@ -181,5 +247,5 @@ namespace Calculis.Core.Entities.Items
 
             return hintCollection;
         }
-    } 
+    }
 }

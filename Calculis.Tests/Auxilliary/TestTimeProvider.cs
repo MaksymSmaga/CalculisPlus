@@ -25,10 +25,7 @@ namespace Calculis.Test.Auxilliary
             _dateTime = _dateTime.AddSeconds(1);
         }
 
-        public override DateTime Now
-        {
-            get { return _dateTime; }
-        }
+        public override DateTime Now => _dateTime;  
     }
 }
 

@@ -2,11 +2,11 @@
 using System.Globalization;
 using Xunit;
 
-namespace Calculis.Tests
+namespace Calculis.Tests.Culture
 {
     public class CultureExpressionsTest
     {
-        private static double[] _values = new[] { -5.0, 4.0 };
+        private static readonly double[] _values = new[] { -5.0, 4.0 };
 
         private static TheoryData<CultureInfo> PrepareParams()
         {

@@ -11,14 +11,12 @@ namespace Calculis.Core
 
         public ArgsNumAttribute(int number)
         {
-            if (number <= 0)
+            if (number < 0)
             {
                 throw new ArgumentOutOfRangeException("Number of attribute should be greater then Zero");
             }
-            else
-            {
-                Number = number;
-            }
+ 
+          Number = number;  
         }
 
         public ArgsNumAttribute()

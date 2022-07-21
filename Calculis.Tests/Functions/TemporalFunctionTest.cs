@@ -26,7 +26,7 @@ namespace Calculis.Tests.Functions
                 var pow = 0.0;
                 for (var i = 0; i < 30; i++)
                     sum += HistoryManager.Value(n, i + 1);
-                sum = sum / 30;
+                sum /= 30;
                 for (var i = 0; i < 30; i++)
                     pow += Math.Pow(sum - HistoryManager.Value(n, i + 1), 2);
 
